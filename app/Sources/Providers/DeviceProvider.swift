@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 /// 设备信息采集器：型号标识符 + 市场名映射 + 系统/内核信息
 public final class DeviceProvider: @unchecked Sendable {

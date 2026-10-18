@@ -89,8 +89,8 @@ public final class NetworkProvider: @unchecked Sendable, StreamableProvider {
             // 排除 lo0 回环
             guard !name.hasPrefix("lo") else { continue }
             let ifData = data.assumingMemoryBound(to: if_data.self)
-            rx &+= ifData.pointee.ifi_ibytes
-            tx &+= ifData.pointee.ifi_obytes
+            rx &+= UInt64(ifData.pointee.ifi_ibytes)
+            tx &+= UInt64(ifData.pointee.ifi_obytes)
         }
         return (rx, tx)
     }

@@ -197,9 +197,12 @@ public final class CPUProvider: @unchecked Sendable, StreamableProvider {
         // 每核
         if let perCore = readPerCoreUsage(), !perCore.isEmpty {
             let avg = perCore.reduce(0, +) / Double(perCore.count)
-            let coreText = perCore.enumerated()
-                .map { "C\($0.offset): \(Int(($0.element * 100).rounded()))%" }
-                .joined(separator: "  ")
+            var parts: [String] = []
+            for (idx, u) in perCore.enumerated() {
+                let pct = Int((u * 100).rounded())
+                parts.append("C\(idx): \(pct)%")
+            }
+            let coreText = parts.joined(separator: "  ")
             cards.append(MetricCard(
                 id: "cpu.percore", name: "Per-Core Usage", value: coreText,
                 numeric: avg, unit: "%",
