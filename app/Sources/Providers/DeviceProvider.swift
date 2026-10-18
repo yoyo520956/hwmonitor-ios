@@ -31,8 +31,30 @@ public final class DeviceProvider: @unchecked Sendable {
 
     public static func marketingName(for identifier: String) -> String {
         if let name = modelNames[identifier] { return name }
-        if identifier.contains("Simulator") || identifier.hasPrefix("arm64") { return "Simulator" }
+        if identifier.contains("模拟器") || identifier.hasPrefix("arm64") { return "模拟器" }
         return identifier
+    }
+
+    public static let chipNames: [String: String] = [
+        "iPhone11,2": "A12 Bionic", "iPhone11,4": "A12 Bionic", "iPhone11,6": "A12 Bionic",
+        "iPhone11,8": "A12 Bionic",
+        "iPhone12,1": "A13 Bionic", "iPhone12,3": "A13 Bionic", "iPhone12,5": "A13 Bionic",
+        "iPhone12,8": "A13 Bionic",
+        "iPhone13,1": "A14 Bionic", "iPhone13,2": "A14 Bionic", "iPhone13,3": "A14 Bionic",
+        "iPhone13,4": "A14 Bionic",
+        "iPhone14,2": "A15 Bionic", "iPhone14,3": "A15 Bionic", "iPhone14,4": "A15 Bionic",
+        "iPhone14,5": "A15 Bionic", "iPhone14,6": "A15 Bionic",
+        "iPhone14,7": "A15 Bionic", "iPhone14,8": "A15 Bionic",
+        "iPhone15,2": "A16 Bionic", "iPhone15,3": "A16 Bionic",
+        "iPhone15,4": "A16 Bionic", "iPhone15,5": "A16 Bionic",
+        "iPhone16,1": "A17 Pro", "iPhone16,2": "A17 Pro",
+        "iPhone16,3": "A18 Pro", "iPhone16,4": "A18 Pro",
+        "iPhone16,5": "A18", "iPhone16,6": "A18",
+        "iPhone17,3": "A18", "iPhone17,4": "A19", "iPhone17,5": "A19 Pro", "iPhone17,6": "A19 Pro",
+    ]
+
+    public static func chipName(for identifier: String) -> String? {
+        chipNames[identifier]
     }
 
     public func collect() -> [MetricCard] {
@@ -43,46 +65,54 @@ public final class DeviceProvider: @unchecked Sendable {
 
         let identifier = SysctlReader.machineIdentifier() ?? "unknown"
         let marketing = Self.marketingName(for: identifier)
+        let chip = Self.chipName(for: identifier)
 
         cards.append(MetricCard(
-            id: "dev.identifier", name: "Device Model", value: identifier,
-            source: .appleAPI, method: "sysctl hw.machine",
-            limitation: identifier.hasPrefix("arm64") ? "Simulator reports CPU architecture, not device model" : nil,
+            id: "dev.identifier", name: "设备型号标识", value: identifier,
+            source: .appleAPI, method: "系统接口 sysctl（hw.machine）",
+            limitation: identifier.hasPrefix("arm64") ? "模拟器上报的是 CPU 架构而非设备型号" : nil,
             status: .ok, collectedAt: now, category: .hardware
         ))
         cards.append(MetricCard(
-            id: "dev.name", name: "Marketing Name", value: marketing,
-            source: .derived, method: "hw.machine → mapped model table (DeviceKit-style)",
+            id: "dev.name", name: "市场名称", value: marketing,
+            source: .derived, method: "hw.machine → 自建型号映射表（DeviceKit 思路）",
             status: .ok, collectedAt: now, category: .hardware
         ))
+        if let chip = chip {
+            cards.append(MetricCard(
+                id: "dev.chip", name: "处理器芯片", value: chip,
+                source: .derived, method: "型号标识 → 芯片映射表（Apple 官方规格）",
+                status: .ok, collectedAt: now, category: .hardware
+            ))
+        }
         cards.append(MetricCard(
-            id: "dev.systemname", name: "System", value: "\(device.systemName) \(device.systemVersion)",
+            id: "dev.systemname", name: "系统", value: "\(device.systemName) \(device.systemVersion)",
             source: .appleAPI, method: "UIDevice.systemName / systemVersion", status: .ok,
             collectedAt: now, category: .hardware
         ))
         if let osBuild = SysctlReader.string("kern.osversion") {
             cards.append(MetricCard(
-                id: "dev.build", name: "OS Build", value: osBuild,
-                source: .appleAPI, method: "sysctl kern.osversion", status: .ok,
+                id: "dev.build", name: "系统版本号 (Build)", value: osBuild,
+                source: .appleAPI, method: "系统接口 sysctl（kern.osversion）", status: .ok,
                 collectedAt: now, category: .hardware
             ))
         }
         let uname = SysctlReader.unameFields()
         if let kernelRelease = uname["release"] {
             cards.append(MetricCard(
-                id: "dev.kernel", name: "Kernel Release", value: kernelRelease,
-                source: .appleAPI, method: "uname(3) release (Darwin kernel version)",
+                id: "dev.kernel", name: "内核版本", value: kernelRelease,
+                source: .appleAPI, method: "uname(3) release（Darwin 内核版本）",
                 status: .ok, collectedAt: now, category: .hardware
             ))
         }
         cards.append(MetricCard(
-            id: "dev.uptime", name: "System Uptime", value: formatUptime(proc.systemUptime),
+            id: "dev.uptime", name: "系统运行时长", value: formatUptime(proc.systemUptime),
             numeric: proc.systemUptime, unit: "s",
             source: .appleAPI, method: "ProcessInfo.systemUptime", status: .ok,
             collectedAt: now, category: .hardware
         ))
         cards.append(MetricCard(
-            id: "dev.simulator", name: "Environment", value: isSimulator() ? "Simulator" : "Physical Device",
+            id: "dev.simulator", name: "环境", value: isSimulator() ? "模拟器" : "真机",
             source: .appleAPI, method: "targetEnvironment check", status: .ok,
             collectedAt: now, category: .hardware
         ))

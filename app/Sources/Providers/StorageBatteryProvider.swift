@@ -42,9 +42,9 @@ public final class StorageProvider: @unchecked Sendable, StreamableProvider {
         let now = Date()
         guard let (total, available) = readVolumes() else {
             cards.append(MetricCard(
-                id: "sto.total", name: "Storage", value: "—",
+                id: "sto.total", name: "存储", value: "—",
                 source: .appleAPI, method: "URL.resourceValues(volumeTotalCapacity)",
-                limitation: "Volume resource values unavailable", status: .unavailable,
+                limitation: "卷资源信息不可用", status: .unavailable,
                 collectedAt: now, category: .storage
             ))
             return cards
@@ -52,28 +52,28 @@ public final class StorageProvider: @unchecked Sendable, StreamableProvider {
         let used = total - available
 
         cards.append(MetricCard(
-            id: "sto.total", name: "Total Capacity", value: ByteFormat.gigabytes(total),
+            id: "sto.total", name: "总容量", value: ByteFormat.gigabytes(total),
             numeric: total, unit: "bytes",
             source: .appleAPI, method: "URL.resourceValues(volumeTotalCapacity)",
-            limitation: "Filesystem capacity; differs slightly from marketing storage size",
+            limitation: "文件系统口径，与营销容量略有差异",
             status: .ok, collectedAt: now, category: .storage
         ))
         cards.append(MetricCard(
-            id: "sto.used", name: "Used", value: ByteFormat.gigabytes(used),
+            id: "sto.used", name: "已用", value: ByteFormat.gigabytes(used),
             numeric: used, unit: "bytes",
-            source: .computed, method: "total - available", status: .ok,
+            source: .computed, method: "公式：total - available", status: .ok,
             collectedAt: now, category: .storage
         ))
         cards.append(MetricCard(
-            id: "sto.free", name: "Available", value: ByteFormat.gigabytes(available),
+            id: "sto.free", name: "可用", value: ByteFormat.gigabytes(available),
             numeric: available, unit: "bytes",
             source: .appleAPI, method: "volumeAvailableCapacityForImportantUsage",
             status: .ok, collectedAt: now, category: .storage
         ))
         cards.append(MetricCard(
-            id: "sto.pct", name: "Usage Ratio", value: PercentFormat.string(used / total),
+            id: "sto.pct", name: "使用率", value: PercentFormat.string(used / total),
             numeric: used / total, unit: "%",
-            source: .computed, method: "used / total", status: .ok,
+            source: .computed, method: "公式：used / total", status: .ok,
             collectedAt: now, category: .storage
         ))
         return cards
@@ -98,16 +98,16 @@ public final class BatteryProvider: @unchecked Sendable {
         let level = device.batteryLevel
         if level >= 0 {
             cards.append(MetricCard(
-                id: "bat.level", name: "Battery Level", value: PercentFormat.string(Double(level), digits: 0),
+                id: "bat.level", name: "电量", value: PercentFormat.string(Double(level), digits: 0),
                 numeric: Double(level), unit: "%",
-                source: .appleAPI, method: "UIDevice.batteryLevel (granularity ≈ 1-5%)",
+                source: .appleAPI, method: "UIDevice.batteryLevel（精度约 1-5%）",
                 status: .ok, collectedAt: now, category: .battery
             ))
         } else {
             cards.append(MetricCard(
-                id: "bat.level", name: "Battery Level", value: "—",
+                id: "bat.level", name: "电量", value: "—",
                 source: .appleAPI, method: "UIDevice.batteryLevel",
-                limitation: "Battery level not reported (simulator or hardware off)",
+                limitation: "未上报电量（模拟器或硬件不可用）",
                 status: .unavailable, collectedAt: now, category: .battery
             ))
         }
@@ -115,42 +115,42 @@ public final class BatteryProvider: @unchecked Sendable {
         let state = device.batteryState
         let stateText: String
         switch state {
-        case .charging: stateText = "Charging"
-        case .full: stateText = "Full"
-        case .unplugged: stateText = "Unplugged"
-        case .unknown: stateText = "Unknown"
-        @unknown default: stateText = "Unknown"
+        case .charging: stateText = "充电中"
+        case .full: stateText = "完全"
+        case .unplugged: stateText = "未充电"
+        case .unknown: stateText = "未知"
+        @unknown default: stateText = "未知"
         }
         cards.append(MetricCard(
-            id: "bat.state", name: "Charging State", value: stateText,
+            id: "bat.state", name: "充电状态", value: stateText,
             source: .appleAPI, method: "UIDevice.batteryState", status: .ok,
             collectedAt: now, category: .battery
         ))
         cards.append(MetricCard(
-            id: "bat.lowpower", name: "Low Power Mode", value: ProcessInfo.processInfo.isLowPowerModeEnabled ? "On" : "Off",
+            id: "bat.lowpower", name: "低电量模式", value: ProcessInfo.processInfo.isLowPowerModeEnabled ? "开" : "关",
             source: .appleAPI, method: "ProcessInfo.isLowPowerModeEnabled", status: .ok,
             collectedAt: now, category: .battery
         ))
 
         // 系统未开放项（明确标注，不伪装）
         cards.append(.restricted(
-            "bat.health", "Battery Health (Maximum Capacity)",
+            "bat.health", "电池健康度（最大容量）",
             reason: "iOS provides no public API for battery health. IOKit AppleSmartBattery is not accessible on iOS — only system apps can read it. Check Settings → Battery → Battery Health.",
             category: .battery
         ))
         cards.append(.restricted(
-            "bat.cycle", "Cycle Count",
-            reason: "Not exposed by any public iOS API.",
+            "bat.cycle", "循环次数",
+            reason: "任何公开 iOS API 均不提供此数据",
             category: .battery
         ))
         cards.append(.restricted(
-            "bat.temp", "Battery Temperature",
-            reason: "No public API. Only qualitative thermal state (see Thermal module).",
+            "bat.temp", "电池温度",
+            reason: "无公开 API，仅有定性热状态（见温度模块）",
             category: .battery
         ))
         cards.append(.restricted(
-            "bat.elec", "Voltage / Current",
-            reason: "Not exposed by public APIs on iOS.",
+            "bat.elec", "电压 / 电流",
+            reason: "iOS 公开 API 未开放此数据",
             category: .battery
         ))
 
@@ -158,16 +158,16 @@ public final class BatteryProvider: @unchecked Sendable {
         let thermal = ProcessInfo.processInfo.thermalState
         let thermalText: String
         switch thermal {
-        case .nominal: thermalText = "Nominal"
-        case .fair: thermalText = "Fair"
-        case .serious: thermalText = "Serious"
-        case .critical: thermalText = "Critical"
-        @unknown default: thermalText = "Unknown"
+        case .nominal: thermalText = "正常"
+        case .fair: thermalText = "一般"
+        case .serious: thermalText = "严重"
+        case .critical: thermalText = "危急"
+        @unknown default: thermalText = "未知"
         }
         cards.append(MetricCard(
-            id: "thermal.state", name: "Thermal State", value: thermalText,
+            id: "thermal.state", name: "热状态", value: thermalText,
             source: .appleAPI, method: "ProcessInfo.thermalState",
-            limitation: "Qualitative 4-level system state only; numeric °C values are not exposed",
+            limitation: "系统仅提供 4 级定性状态，不开放具体温度数值",
             status: .ok, collectedAt: now, category: .thermal
         ))
 

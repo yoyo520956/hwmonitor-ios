@@ -158,18 +158,40 @@ public final class CPUProvider: @unchecked Sendable, StreamableProvider {
             : nil
 
         let archCard = MetricCard(
-            id: "cpu.arch", name: "Architecture", value: machine,
-            source: .appleAPI, method: "uname(3) machine field", status: .ok,
+            id: "cpu.arch", name: "架构", value: machine,
+            source: .appleAPI, method: "uname(3) machine 字段", status: .ok,
             collectedAt: now, category: .cpu
         )
         let coresCard = MetricCard(
-            id: "cpu.cores", name: "CPU Cores", value: "\(coreCount)",
+            id: "cpu.cores", name: "核心数", value: "\(coreCount)",
             numeric: Double(coreCount), unit: "cores",
-            source: .appleAPI, method: "NSProcessInfo.processorCount",
+            source: .appleAPI, method: "ProcessInfo.processorCount",
             limitation: coreLimitation,
             status: .ok, collectedAt: now, category: .cpu
         )
-        return [archCard, coresCard]
+        return [archCard, coresCard, perfCoreCards(now: now)]
+    }
+
+    /// 性能核 / 能效核数量（A 系芯片大小核，iOS 15+ 可读）
+    private func perfCoreCards(now: Date) -> MetricCard {
+        let pCores = SysctlReader.int64("hw.perflevel0.physicalcpu") ?? 0
+        let eCores = SysctlReader.int64("hw.perflevel1.physicalcpu") ?? 0
+        let total = pCores + eCores
+        if total > 0 {
+            return MetricCard(
+                id: "cpu.cluster", name: "性能核 / 能效核",
+                value: "\(pCores) 性能核 + \(eCores) 能效核",
+                source: .appleAPI,
+                method: "sysctl hw.perflevel0/1.physicalcpu（A 系芯片大小核拓扑）",
+                status: .ok, collectedAt: now, category: .cpu
+            )
+        }
+        return MetricCard(
+            id: "cpu.cluster", name: "性能核 / 能效核", value: "—",
+            source: .appleAPI, method: "sysctl hw.perflevel0/1.physicalcpu",
+            limitation: "此设备的系统接口未返回大小核拓扑",
+            status: .unavailable, collectedAt: now, category: .cpu
+        )
     }
 
     /// 总使用率与分量
@@ -177,31 +199,31 @@ public final class CPUProvider: @unchecked Sendable, StreamableProvider {
         var cards: [MetricCard] = []
         if let usage = readTotalUsage() {
             cards.append(MetricCard(
-                id: "cpu.usage", name: "CPU Usage (Total)", value: PercentFormat.string(usage),
+                id: "cpu.usage", name: "CPU 使用率（总体）", value: PercentFormat.string(usage),
                 numeric: usage, unit: "%",
-                source: .computed, method: "host_statistics64(HOST_CPU_LOAD_INFO) tick delta",
+                source: .computed, method: "host_statistics64(HOST_CPU_LOAD_INFO) 差分计算",
                 status: .ok, collectedAt: now, category: .cpu
             ))
         }
         if let breakdown = readLoadBreakdown() {
             cards.append(MetricCard(
-                id: "cpu.user", name: "User Time", value: PercentFormat.string(breakdown.user),
+                id: "cpu.user", name: "用户态占比", value: PercentFormat.string(breakdown.user),
                 numeric: breakdown.user, unit: "%",
-                source: .computed, method: "Tick delta / total ticks", status: .ok,
+                source: .computed, method: "tick 差分 ÷ 总 tick 数", status: .ok,
                 collectedAt: now, category: .cpu
             ))
             cards.append(MetricCard(
-                id: "cpu.system", name: "System Time", value: PercentFormat.string(breakdown.system),
+                id: "cpu.system", name: "系统态占比", value: PercentFormat.string(breakdown.system),
                 numeric: breakdown.system, unit: "%",
-                source: .computed, method: "Tick delta / total ticks", status: .ok,
+                source: .computed, method: "tick 差分 ÷ 总 tick 数", status: .ok,
                 collectedAt: now, category: .cpu
             ))
         }
         if cards.isEmpty {
             cards.append(MetricCard(
-                id: "cpu.usage", name: "CPU Usage (Total)", value: "—",
-                source: .appleAPI, method: "host_statistics64(HOST_CPU_LOAD_INFO) tick delta",
-                limitation: "First sample pending or host API unavailable",
+                id: "cpu.usage", name: "CPU 使用率（总体）", value: "—",
+                source: .appleAPI, method: "host_statistics64(HOST_CPU_LOAD_INFO) 差分计算",
+                limitation: "等待首次采样或系统接口不可用",
                 status: .degraded, collectedAt: now, category: .cpu
             ))
         }
@@ -223,9 +245,9 @@ public final class CPUProvider: @unchecked Sendable, StreamableProvider {
         let coreText = parts.joined(separator: "  ")
 
         return [MetricCard(
-            id: "cpu.percore", name: "Per-Core Usage", value: coreText,
+            id: "cpu.percore", name: "每核使用率", value: coreText,
             numeric: avg, unit: "%",
-            source: .computed, method: "host_processor_info(PROCESSOR_CPU_LOAD_INFO) delta",
+            source: .computed, method: "host_processor_info(PROCESSOR_CPU_LOAD_INFO) 差分计算",
             status: .ok, collectedAt: now, category: .cpu
         )]
     }
@@ -233,7 +255,7 @@ public final class CPUProvider: @unchecked Sendable, StreamableProvider {
     /// CPU 频率：系统限制卡
     private static func frequencyCard() -> MetricCard {
         MetricCard.restricted(
-            "cpu.freq", "CPU Frequency",
+            "cpu.freq", "CPU 频率",
             reason: "iOS does not expose CPU frequency to apps (hw.cpufrequency is unavailable on iOS). Frequency-based claims in other apps are constants, not measurements.",
             category: .cpu
         )

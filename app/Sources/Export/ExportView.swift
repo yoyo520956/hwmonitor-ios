@@ -13,7 +13,7 @@ struct ExportView: View {
     enum ExportFormat: String, CaseIterable, Identifiable {
         case json = "JSON"
         case csv = "CSV"
-        case text = "Text"
+        case text = "文本"
         var id: String { rawValue }
         var fileExtension: String {
             switch self {
@@ -27,7 +27,7 @@ struct ExportView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                Picker("Format", selection: $format) {
+                Picker("格式", selection: $format) {
                     ForEach(ExportFormat.allCases) { f in
                         Text(f.rawValue).tag(f)
                     }
@@ -36,7 +36,7 @@ struct ExportView: View {
                 .padding(DSTokens.spaceL)
 
                 ScrollView {
-                    Text(content.isEmpty ? "Tap Refresh to generate the report from current live data." : content)
+                    Text(content.isEmpty ? "点击「刷新」用当前实时数据生成报告。" : content)
                         .font(.system(size: 11, design: .monospaced))
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(DSTokens.spaceL)
@@ -44,18 +44,18 @@ struct ExportView: View {
                 }
                 .background(Color(.secondarySystemGroupedBackground))
             }
-            .navigationTitle("Device Report")
+            .navigationTitle("设备报告")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Close") { dismiss() }
+                    Button("关闭") { dismiss() }
                 }
                 ToolbarItem(placement: .primaryAction) {
-                    Button("Refresh") { generate() }
+                    Button("刷新") { generate() }
                 }
                 ToolbarItem(placement: .bottomBar) {
                     HStack {
-                        Button("Clear History") {
+                        Button("清除历史") {
                             engine.cpu.resetHistory()
                             engine.memory.resetHistory()
                             engine.network.resetHistory()
@@ -65,7 +65,7 @@ struct ExportView: View {
                         Spacer()
                         if !content.isEmpty {
                             ShareLink(item: exportURL, preview: SharePreview(filename + "." + format.fileExtension)) {
-                                Label("Share", systemImage: "square.and.arrow.up")
+                                Label("分享", systemImage: "square.and.arrow.up")
                             }
                         }
                     }
@@ -134,9 +134,9 @@ public enum ReportBuilder {
         out += String(repeating: "=", count: 52) + "\n"
         let sections: [(String, [MetricCard])] = [
             ("DEVICE", snap.device), ("CPU", snap.cpu), ("MEMORY", snap.memory),
-            ("STORAGE", snap.storage), ("BATTERY & THERMAL", snap.battery),
-            ("GPU", snap.gpu), ("NETWORK", snap.network), ("SENSORS", snap.sensors),
-            ("DISPLAY", snap.display), ("PRIVACY", snap.privacy),
+            ("存储", snap.storage), ("电池与温度", snap.battery),
+            ("GPU", snap.gpu), ("网络", snap.network), ("传感器", snap.sensors),
+            ("显示", snap.display), ("隐私", snap.privacy),
         ]
         for (title, cards) in sections where !cards.isEmpty {
             out += "\n[\(title)]\n"

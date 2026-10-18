@@ -5,10 +5,10 @@ import Foundation
 
 /// 数据来源标注
 public enum MetricSource: String, Codable, Sendable {
-    case appleAPI = "Apple Official API"       // Apple 官方 API 直接读取
-    case computed = "Real Sampling"            // 基于真实采样值计算
-    case derived = "Derived"                   // 根据明确规则推导
-    case systemRestricted = "Not Exposed"      // 当前系统无法提供
+    case appleAPI = "Apple 官方 API"       // Apple 官方 API 直接读取
+    case computed = "真实采样计算"            // 基于真实采样值计算
+    case derived = "规则推导"                   // 根据明确规则推导
+    case systemRestricted = "系统未开放"      // 当前系统无法提供
 }
 
 /// 采集状态：不可用的数据绝不能看起来像检测成功
@@ -22,7 +22,7 @@ public enum MetricStatus: String, Codable, Sendable {
 /// 单条指标卡片：UI 的最小数据单元
 public struct MetricCard: Identifiable, Codable, Sendable, Hashable {
     public var id: String
-    /// 显示名（如 "CPU Usage (Total)"）
+    /// 显示名（如 "CPU 使用率（总体）"）
     public var name: String
     /// 主值（已格式化字符串，如 "23.4%"、"6.02 GB"）
     public var value: String
@@ -70,7 +70,7 @@ public struct MetricCard: Identifiable, Codable, Sendable, Hashable {
             id: id, name: name,
             value: "—",
             source: .systemRestricted,
-            method: "No public iOS API",
+            method: "无公开 iOS API",
             limitation: reason,
             status: .unavailable,
             category: category
@@ -99,20 +99,20 @@ public enum MetricCategory: String, Codable, Sendable, CaseIterable, Identifiabl
 
     public var title: String {
         switch self {
-        case .overview: return "Overview"
-        case .hardware: return "Hardware"
+        case .overview: return "总览"
+        case .hardware: return "硬件"
         case .cpu: return "CPU"
-        case .memory: return "Memory"
-        case .storage: return "Storage"
-        case .battery: return "Battery"
-        case .thermal: return "Thermal"
+        case .memory: return "内存"
+        case .storage: return "存储"
+        case .battery: return "电池"
+        case .thermal: return "温度"
         case .gpu: return "GPU"
-        case .network: return "Network"
-        case .sensors: return "Sensors"
-        case .display: return "Display"
-        case .camera: return "Camera"
-        case .privacy: return "Privacy"
-        case .system: return "System"
+        case .network: return "网络"
+        case .sensors: return "传感器"
+        case .display: return "显示"
+        case .camera: return "相机"
+        case .privacy: return "隐私"
+        case .system: return "系统"
         }
     }
 }

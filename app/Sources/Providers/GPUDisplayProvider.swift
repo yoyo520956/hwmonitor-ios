@@ -17,19 +17,19 @@ public final class GPUProvider: @unchecked Sendable {
             cards.append(MetricCard(
                 id: "gpu.device", name: "GPU", value: "—",
                 source: .appleAPI, method: "MTLCreateSystemDefaultDevice",
-                limitation: "No default Metal device (simulator may not report a GPU)",
+                limitation: "无默认 Metal 设备（模拟器可能无 GPU）",
                 status: .unavailable, collectedAt: now, category: .gpu
             ))
             return cards
         }
 
         cards.append(MetricCard(
-            id: "gpu.name", name: "GPU Name", value: device.name,
-            source: .appleAPI, method: "MTLDevice.name (e.g. Apple A15 GPU)",
+            id: "gpu.name", name: "GPU 名称", value: device.name,
+            source: .appleAPI, method: "MTLDevice.name（如 Apple A15 GPU）",
             status: .ok, collectedAt: now, category: .gpu
         ))
         cards.append(MetricCard(
-            id: "gpu.workingset", name: "Recommended Max Working Set", value: ByteFormat.gibibytes(Double(device.recommendedMaxWorkingSetSize)),
+            id: "gpu.workingset", name: "建议最大工作集", value: ByteFormat.gibibytes(Double(device.recommendedMaxWorkingSetSize)),
             numeric: Double(device.recommendedMaxWorkingSetSize), unit: "bytes",
             source: .appleAPI, method: "MTLDevice.recommendedMaxWorkingSetSize",
             status: .ok, collectedAt: now, category: .gpu
@@ -38,7 +38,7 @@ public final class GPUProvider: @unchecked Sendable {
         // 统一内存
         if #available(iOS 13.0, *) {
             cards.append(MetricCard(
-                id: "gpu.unified", name: "Unified Memory", value: device.hasUnifiedMemory ? "Yes" : "No",
+                id: "gpu.unified", name: "统一内存", value: device.hasUnifiedMemory ? "是" : "否",
                 source: .appleAPI, method: "MTLDevice.hasUnifiedMemory", status: .ok,
                 collectedAt: now, category: .gpu
             ))
@@ -46,16 +46,16 @@ public final class GPUProvider: @unchecked Sendable {
 
         // Metal 特性
         let features: [(String, Bool)] = [
-            ("Ray Tracing", device.supportsRaytracing),
-            ("Function Pointers", device.supportsFunctionPointers),
-            ("32-bit Float Filtering", device.supports32BitFloatFiltering),
+            ("光线追踪", device.supportsRaytracing),
+            ("函数指针", device.supportsFunctionPointers),
+            ("32 位浮点过滤", device.supports32BitFloatFiltering),
         ]
         for (name, supported) in features {
             let idPart = name.lowercased().replacingOccurrences(of: " ", with: "")
             cards.append(MetricCard(
                 id: "gpu.\(idPart)",
-                name: name, value: supported ? "Yes" : "No",
-                source: .appleAPI, method: "MTLDevice feature flag", status: .ok,
+                name: name, value: supported ? "是" : "否",
+                source: .appleAPI, method: "MTLDevice 特性标志", status: .ok,
                 collectedAt: now, category: .gpu
             ))
         }
@@ -83,15 +83,15 @@ public final class GPUProvider: @unchecked Sendable {
         }
         if !supportedFamilies.isEmpty {
             cards.append(MetricCard(
-                id: "gpu.families", name: "Metal GPU Families", value: supportedFamilies.joined(separator: ", "),
-                source: .appleAPI, method: "MTLDevice.supportsFamily enumeration",
+                id: "gpu.families", name: "Metal 支持家族", value: supportedFamilies.joined(separator: ", "),
+                source: .appleAPI, method: "MTLDevice.supportsFamily 枚举",
                 status: .ok, collectedAt: now, category: .gpu
             ))
         }
 
         // 系统限制
         cards.append(.restricted(
-            "gpu.util", "GPU Utilization",
+            "gpu.util", "GPU 利用率",
             reason: "iOS does not expose real-time GPU utilization or frequency to apps. Apps claiming live GPU meters are using animations or estimates.",
             category: .gpu
         ))
@@ -114,32 +114,32 @@ public final class DisplayProvider: @unchecked Sendable {
         let nativeBounds = screen.nativeBounds
         let bounds = screen.bounds
         cards.append(MetricCard(
-            id: "disp.native", name: "Native Resolution", value: "\(Int(nativeBounds.width)) × \(Int(nativeBounds.height)) px",
+            id: "disp.native", name: "物理分辨率", value: "\(Int(nativeBounds.width)) × \(Int(nativeBounds.height)) px",
             numeric: Double(nativeBounds.width * nativeBounds.height), unit: "px",
             source: .appleAPI, method: "UIScreen.nativeBounds", status: .ok,
             collectedAt: now, category: .display
         ))
         cards.append(MetricCard(
-            id: "disp.logical", name: "Logical Resolution", value: "\(Int(bounds.width)) × \(Int(bounds.height)) pt",
+            id: "disp.logical", name: "逻辑分辨率", value: "\(Int(bounds.width)) × \(Int(bounds.height)) pt",
             numeric: Double(bounds.width * bounds.height), unit: "pt",
             source: .appleAPI, method: "UIScreen.bounds", status: .ok,
             collectedAt: now, category: .display
         ))
         cards.append(MetricCard(
-            id: "disp.scale", name: "Scale Factor", value: "@\(Int(screen.nativeScale))x",
+            id: "disp.scale", name: "缩放系数", value: "@\(Int(screen.nativeScale))x",
             numeric: Double(screen.nativeScale), unit: "x",
             source: .appleAPI, method: "UIScreen.nativeScale", status: .ok,
             collectedAt: now, category: .display
         ))
         cards.append(MetricCard(
-            id: "disp.refresh", name: "Max Refresh Rate", value: "\(screen.maximumFramesPerSecond) Hz",
+            id: "disp.refresh", name: "最大刷新率", value: "\(screen.maximumFramesPerSecond) Hz",
             numeric: Double(screen.maximumFramesPerSecond), unit: "Hz",
             source: .appleAPI, method: "UIScreen.maximumFramesPerSecond",
             limitation: "Maximum supported rate; ProMotion devices adapt dynamically and iOS does not expose the live rate",
             status: .ok, collectedAt: now, category: .display
         ))
         cards.append(MetricCard(
-            id: "disp.brightness", name: "Brightness", value: PercentFormat.string(Double(screen.brightness), digits: 0),
+            id: "disp.brightness", name: "屏幕亮度", value: PercentFormat.string(Double(screen.brightness), digits: 0),
             numeric: Double(screen.brightness), unit: "%",
             source: .appleAPI, method: "UIScreen.brightness (0...1)", status: .ok,
             collectedAt: now, category: .display

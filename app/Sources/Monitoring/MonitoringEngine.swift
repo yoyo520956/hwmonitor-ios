@@ -89,6 +89,7 @@ public final class MonitoringEngine: @unchecked Sendable, ObservableObject {
         cpu.tick()
         memory.tick()
         network.tick()
+        storage.tick()
 
         // 快照：低频全量刷新（每 5 tick，默认 5s）
         if tickCount % 5 == 0 {
@@ -119,12 +120,12 @@ public final class MonitoringEngine: @unchecked Sendable, ObservableObject {
     public func runDiagnostics() -> [(name: String, status: MetricStatus, note: String?)] {
         var results: [(String, MetricStatus, String?)] = []
         let modules: [(String, [MetricCard])] = [
-            ("Device", device.collect()), ("CPU", cpu.collect()),
-            ("Memory", memory.collect()), ("Storage", storage.collect()),
-            ("Battery & Thermal", battery.collect()), ("GPU", gpu.collect()),
-            ("Network", network.collect()), ("Sensors", sensors.collect()),
-            ("Display", display.collect()), ("Privacy", privacy.collect()),
-            ("Camera", camera.collect()),
+            ("设备", device.collect()), ("CPU", cpu.collect()),
+            ("内存", memory.collect()), ("存储", storage.collect()),
+            ("电池与温度", battery.collect()), ("GPU", gpu.collect()),
+            ("网络", network.collect()), ("传感器", sensors.collect()),
+            ("显示", display.collect()), ("隐私", privacy.collect()),
+            ("相机", camera.collect()),
         ]
         for (name, cards) in modules {
             // 模块内有 unavailable 的卡片不等于模块失败；取整体状态
@@ -147,7 +148,7 @@ public final class MonitoringEngine: @unchecked Sendable, ObservableObject {
                 case .ok: return nil
                 case .degraded: return "\(criticalCount) item(s) limited by system"
                 case .unauthorized: return "\(unauthorizedCount) item(s) need permission"
-                case .unavailable: return "No data available"
+                case .unavailable: return "暂无数据"
                 }
             }()
             results.append((name, worst, note))

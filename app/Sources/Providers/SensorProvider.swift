@@ -19,11 +19,11 @@ public final class SensorProvider: @unchecked Sendable {
 
     public func statusText() -> (value: String, status: MetricStatus) {
         switch authorizationStatus() {
-        case .notDetermined: return ("Not Requested", .degraded)
-        case .denied: return ("Denied", .unauthorized)
-        case .restricted: return ("Restricted", .unauthorized)
-        case .authorized: return ("Authorized", .ok)
-        @unknown default: return ("Unknown", .degraded)
+        case .notDetermined: return ("未请求", .degraded)
+        case .denied: return ("已拒绝", .unauthorized)
+        case .restricted: return ("受限", .unauthorized)
+        case .authorized: return ("已授权", .ok)
+        @unknown default: return ("未知", .degraded)
         }
     }
 
@@ -33,7 +33,7 @@ public final class SensorProvider: @unchecked Sendable {
         let (permText, permStatus) = statusText()
 
         cards.append(MetricCard(
-            id: "sensor.motionperm", name: "Motion Permission", value: permText,
+            id: "sensor.motionperm", name: "运动与健身权限", value: permText,
             source: .appleAPI, method: "CMMotionActivityManager.authorizationStatus",
             limitation: permStatus == .unauthorized ? "Enable in Settings → Privacy & Security → Motion & Fitness to read live sensor data" : nil,
             status: permStatus, collectedAt: now, category: .sensors
@@ -41,25 +41,25 @@ public final class SensorProvider: @unchecked Sendable {
 
         // 传感器可用性（设备硬件能力，不需要权限）
         cards.append(MetricCard(
-            id: "sensor.accel", name: "Accelerometer", value: motionManager.isAccelerometerAvailable ? "Available" : "Unavailable",
+            id: "sensor.accel", name: "加速度计", value: motionManager.isAccelerometerAvailable ? "可用" : "不可用",
             source: .appleAPI, method: "CMMotionManager.isAccelerometerAvailable",
             status: motionManager.isAccelerometerAvailable ? .ok : .unavailable,
             collectedAt: now, category: .sensors
         ))
         cards.append(MetricCard(
-            id: "sensor.gyro", name: "Gyroscope", value: motionManager.isGyroAvailable ? "Available" : "Unavailable",
+            id: "sensor.gyro", name: "陀螺仪", value: motionManager.isGyroAvailable ? "可用" : "不可用",
             source: .appleAPI, method: "CMMotionManager.isGyroAvailable",
             status: motionManager.isGyroAvailable ? .ok : .unavailable,
             collectedAt: now, category: .sensors
         ))
         cards.append(MetricCard(
-            id: "sensor.magnet", name: "Magnetometer", value: motionManager.isMagnetometerAvailable ? "Available" : "Unavailable",
+            id: "sensor.magnet", name: "磁力计", value: motionManager.isMagnetometerAvailable ? "可用" : "不可用",
             source: .appleAPI, method: "CMMotionManager.isMagnetometerAvailable",
             status: motionManager.isMagnetometerAvailable ? .ok : .unavailable,
             collectedAt: now, category: .sensors
         ))
         cards.append(MetricCard(
-            id: "sensor.devicemotion", name: "Device Motion (fused)", value: motionManager.isDeviceMotionAvailable ? "Available" : "Unavailable",
+            id: "sensor.devicemotion", name: "融合运动 (Device Motion)", value: motionManager.isDeviceMotionAvailable ? "可用" : "不可用",
             source: .appleAPI, method: "CMMotionManager.isDeviceMotionAvailable",
             status: motionManager.isDeviceMotionAvailable ? .ok : .unavailable,
             collectedAt: now, category: .sensors
@@ -68,10 +68,10 @@ public final class SensorProvider: @unchecked Sendable {
         // 采样率上限（设备能力标注）
         if motionManager.isAccelerometerAvailable {
             cards.append(MetricCard(
-                id: "sensor.accelrate", name: "Accelerometer Max Rate",
+                id: "sensor.accelrate", name: "加速度计最大采样率",
                 value: String(format: "%.0f Hz", motionManager.accelerometerUpdateInterval == 0 ? 0 : 1.0 / max(motionManager.accelerometerUpdateInterval, 0.001)),
-                source: .derived, method: "1 / current update interval (configurable up to hardware max)",
-                limitation: "iOS does not expose the hardware maximum rate constant",
+                source: .derived, method: "1 / 当前刷新间隔（上限为硬件最大值）",
+                limitation: "iOS 不开放硬件最大采样率常量",
                 status: .degraded, collectedAt: now, category: .sensors
             ))
         }

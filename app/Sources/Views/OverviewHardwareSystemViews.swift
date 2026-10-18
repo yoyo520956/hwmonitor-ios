@@ -1,6 +1,6 @@
 import SwiftUI
 
-// MARK: - 总览页：关键指标 + 诊断入口
+// MARK: - 总览页：关键指标 + 模块入口 + 诊断
 
 struct OverviewView: View {
     @EnvironmentObject var engine: MonitoringEngine
@@ -13,13 +13,14 @@ struct OverviewView: View {
                 VStack(spacing: DSTokens.spaceM) {
                     heroCard
                     quickGrid
+                    moduleEntries
                     diagnosticsPreview
                 }
                 .padding(.horizontal, DSTokens.spaceL)
                 .padding(.bottom, DSTokens.spaceXL)
             }
             .background(Color(.systemGroupedBackground))
-            .navigationTitle("Overview")
+            .navigationTitle("总览")
             .navigationBarTitleDisplayMode(.large)
         }
     }
@@ -45,9 +46,9 @@ struct OverviewView: View {
             HStack {
                 miniStat(title: "CPU", value: valueOf("cpu.usage", fallback: "—"), color: DSColor.cpu)
                 Divider().frame(height: 30)
-                miniStat(title: "Memory", value: valueOf("mem.used", fallback: "—"), color: DSColor.memory)
+                miniStat(title: "内存", value: valueOf("mem.used", fallback: "—"), color: DSColor.memory)
                 Divider().frame(height: 30)
-                miniStat(title: "Storage", value: valueOf("sto.free", fallback: "—"), color: DSColor.storage)
+                miniStat(title: "存储", value: valueOf("sto.free", fallback: "—"), color: DSColor.storage)
             }
         }
         .dsCard(tint: DSColor.accent)
@@ -76,11 +77,14 @@ struct OverviewView: View {
         }
     }
 
-    // 快速指标网格
+    // 快速指标网格（全部可点击进详情）
     private var quickGrid: some View {
         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: DSTokens.spaceM) {
             ForEach(quickCards, id: \.id) { card in
-                MetricCardView(card: card, compact: true)
+                NavigationLink { CardDetailView(card: card) } label: {
+                    MetricCardView(card: card, compact: true)
+                }
+                .buttonStyle(.plain)
             }
         }
     }
@@ -89,6 +93,39 @@ struct OverviewView: View {
         let ids = ["gpu.name", "net.status", "thermal.state", "disp.native"]
         return ids.compactMap { id in
             snap.allCards.first { $0.id == id }
+        }
+    }
+
+    // 全部模块入口（点击直达硬件页对应分区）
+    private var moduleEntries: some View {
+        VStack(alignment: .leading, spacing: DSTokens.spaceS) {
+            Text("功能模块")
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(.secondary)
+                .padding(.leading, 4)
+            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: DSTokens.spaceS) {
+                ForEach(FloatingModule.allCases) { module in
+                    NavigationLink { HardwareView() } label: {
+                        VStack(spacing: 6) {
+                            Image(systemName: module.icon)
+                                .font(.system(size: DSTokens.iconL))
+                                .foregroundStyle(module.color)
+                            Text(module.title)
+                                .font(.caption2.weight(.medium))
+                                .foregroundStyle(.primary)
+                                .lineLimit(1)
+                                .minimumScaleFactor(0.7)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, DSTokens.spaceM)
+                        .background(
+                            RoundedRectangle(cornerRadius: DSTokens.radiusM, style: .continuous)
+                                .fill(Color(.secondarySystemGroupedBackground))
+                        )
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
         }
     }
 
@@ -102,10 +139,10 @@ struct OverviewView: View {
                     .font(.system(size: DSTokens.iconL))
                     .foregroundStyle(DSColor.accent)
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Run Diagnostics")
+                    Text("运行全面诊断")
                         .font(.subheadline.weight(.semibold))
                         .foregroundStyle(.primary)
-                    Text("Test all 11 modules and review status")
+                    Text("测试全部 11 个模块并查看状态")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -142,7 +179,7 @@ struct OverviewView: View {
     }
 }
 
-// MARK: - 硬件页：设备 / CPU / GPU / 屏幕
+// MARK: - 硬件页：设备 / CPU / GPU / 显示（全部行可点击进详情）
 
 struct HardwareView: View {
     @EnvironmentObject var engine: MonitoringEngine
@@ -150,28 +187,30 @@ struct HardwareView: View {
     private var snap: Snapshot { engine.snapshot }
 
     var body: some View {
-        NavigationStack {
-            List {
-                section("Device", category: .hardware, cards: snap.device)
-                section("CPU", category: .cpu, cards: snap.cpu)
-                section("GPU", category: .gpu, cards: snap.gpu)
-                section("Display", category: .display, cards: snap.display)
-            }
-            .scrollContentBackground(.hidden)
-            .background(Color(.systemGroupedBackground))
-            .navigationTitle("Hardware")
+        List {
+            section("设备", cards: snap.device)
+            section("CPU", cards: snap.cpu)
+            section("GPU", cards: snap.gpu)
+            section("显示", cards: snap.display)
         }
+        .scrollContentBackground(.hidden)
+        .background(Color(.systemGroupedBackground))
+        .navigationTitle("硬件")
     }
 
     @ViewBuilder
-    private func section(_ title: String, category: MetricCategory, cards: [MetricCard]) -> some View {
+    private func section(_ title: String, cards: [MetricCard]) -> some View {
         if !cards.isEmpty {
             Section {
                 ForEach(cards) { card in
-                    MetricCardListRow(card: card)
+                    NavigableCard(card: card) {
+                        MetricCardListRow(card: card)
+                    }
                 }
             } header: {
                 Text(title)
+            } footer: {
+                Text("点击任意一栏可查看数据来源、采集方法与限制说明")
             }
         }
     }
@@ -206,7 +245,7 @@ struct MetricCardListRow: View {
     }
 }
 
-// MARK: - 系统页：网络 / 存储 / 隐私
+// MARK: - 系统页：网络 / 存储 / 电池 / 隐私（全部行可点击进详情）
 
 struct SystemView: View {
     @EnvironmentObject var engine: MonitoringEngine
@@ -214,25 +253,28 @@ struct SystemView: View {
     private var snap: Snapshot { engine.snapshot }
 
     var body: some View {
-        NavigationStack {
-            List {
-                section("Network", cards: snap.network)
-                section("Storage", cards: snap.storage)
-                section("Privacy & Permissions", cards: snap.privacy)
-            }
-            .scrollContentBackground(.hidden)
-            .background(Color(.systemGroupedBackground))
-            .navigationTitle("System")
+        List {
+            section("网络", cards: snap.network)
+            section("存储", cards: snap.storage)
+            section("电池与温度", cards: snap.battery)
+            section("隐私与权限", cards: snap.privacy)
         }
+        .scrollContentBackground(.hidden)
+        .background(Color(.systemGroupedBackground))
+        .navigationTitle("系统")
     }
 
     @ViewBuilder
     private func section(_ title: String, cards: [MetricCard]) -> some View {
         if !cards.isEmpty {
-            Section(title) {
+            Section {
                 ForEach(cards) { card in
-                    MetricCardListRow(card: card)
+                    NavigableCard(card: card) {
+                        MetricCardListRow(card: card)
+                    }
                 }
+            } header: {
+                Text(title)
             }
         }
     }

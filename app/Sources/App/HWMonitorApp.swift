@@ -12,27 +12,38 @@ struct HWMonitorApp: App {
     }
 }
 
-// MARK: - 六页签根导航（SE3 375pt 宽实测：iconOnly 紧凑排布）
+// MARK: - 六页签根导航 + 悬浮窗（SE3 375pt 宽实测：iconOnly 紧凑排布）
 
 struct RootTabView: View {
     @EnvironmentObject var engine: MonitoringEngine
+    @State private var selectedTab = 0
 
     var body: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
             OverviewView()
-                .tabItem { Label("Overview", systemImage: "gauge") }
+                .tabItem { Label("总览", systemImage: "gauge") }
+                .tag(0)
             HardwareView()
-                .tabItem { Label("Hardware", systemImage: "cpu") }
+                .tabItem { Label("硬件", systemImage: "cpu") }
+                .tag(1)
             MonitorView()
-                .tabItem { Label("Monitor", systemImage: "chart.xyaxis.line") }
+                .tabItem { Label("监控", systemImage: "chart.xyaxis.line") }
+                .tag(2)
             SensorsTabView()
-                .tabItem { Label("Sensors", systemImage: "sensor.tag.radiowaves.forward") }
+                .tabItem { Label("传感器", systemImage: "sensor.tag.radiowaves.forward") }
+                .tag(3)
             SystemView()
-                .tabItem { Label("System", systemImage: "shield.lefthalf.filled") }
+                .tabItem { Label("系统", systemImage: "shield.lefthalf.filled") }
+                .tag(4)
             SettingsView()
-                .tabItem { Label("Settings", systemImage: "gearshape") }
+                .tabItem { Label("设置", systemImage: "gearshape") }
+                .tag(5)
         }
         .tint(DSColor.accent)
+        .overlay { FloatingWindowOverlay() }
+        .onReceive(NotificationCenter.default.publisher(for: .floatingJumpToTab)) { note in
+            if let tab = note.userInfo?["tab"] as? Int { selectedTab = tab }
+        }
         .onAppear {
             engine.rebuildSnapshot()
             engine.resume()

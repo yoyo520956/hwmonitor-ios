@@ -171,9 +171,9 @@ public struct StatusBadge: View {
 
     private var label: String {
         switch status {
-        case .ok: return "OK"
-        case .degraded: return "PARTIAL"
-        case .unauthorized: return "PERM"
+        case .ok: return "正常"
+        case .degraded: return "部分"
+        case .unauthorized: return "权限"
         case .unavailable: return "N/A"
         }
     }

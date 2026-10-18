@@ -24,16 +24,16 @@ public final class CameraProvider: @unchecked Sendable {
 
         if devices.isEmpty {
             cards.append(MetricCard(
-                id: "cam.count", name: "Cameras", value: "0",
+                id: "cam.count", name: "摄像头", value: "0",
                 source: .appleAPI, method: "AVCaptureDevice.DiscoverySession(.video)",
-                limitation: "No cameras discovered (simulator or restricted device)",
+                limitation: "未发现摄像头（模拟器或受限设备）",
                 status: .unavailable, collectedAt: now, category: .camera
             ))
             return cards
         }
 
         cards.append(MetricCard(
-            id: "cam.count", name: "Cameras Found", value: "\(devices.count)",
+            id: "cam.count", name: "发现的摄像头", value: "\(devices.count)",
             numeric: Double(devices.count), unit: "lenses",
             source: .appleAPI, method: "AVCaptureDevice.DiscoverySession(.video, position: .unspecified)",
             status: .ok, collectedAt: now, category: .camera
@@ -42,12 +42,12 @@ public final class CameraProvider: @unchecked Sendable {
         for (index, device) in devices.prefix(6).enumerated() {
             let position: String
             switch device.position {
-            case .back: position = "Back"
-            case .front: position = "Front"
-            default: position = "Unknown"
+            case .back: position = "后置"
+            case .front: position = "前置"
+            default: position = "未知"
             }
             let lensLabel = device.deviceType == .builtInTrueDepthCamera
-                ? "TrueDepth" : "Lens \(index + 1)"
+                ? "深感 (TrueDepth)" : "镜头 \(index + 1)"
 
             // 最大分辨率与最高帧率
             var maxDim: (w: Int32, h: Int32) = (0, 0)
@@ -61,12 +61,26 @@ public final class CameraProvider: @unchecked Sendable {
                     maxFPS = max(maxFPS, range.maxFrameRate)
                 }
             }
+            // 光圈与视场角（真机可用）
+            let aperture = device.lensAperture
+            let fov = device.activeFormat.videoFieldOfView
+            var specParts: [String] = ["\(maxDim.w)×\(maxDim.h) @ \(Int(maxFPS))fps"]
+            if aperture > 0 {
+                let apStr = String(format: "f/%.1f", aperture)
+                specParts.append(apStr)
+            }
+            if fov > 0 {
+                specParts.append("视场 \(Int(fov))°")
+            }
+            if device.isVirtualDevice || device.constituentDevices.count > 1 {
+                specParts.append("多摄融合")
+            }
             cards.append(MetricCard(
                 id: "cam.\(index)", name: "\(lensLabel) (\(position))",
-                value: "\(maxDim.w)×\(maxDim.h) @ \(Int(maxFPS))fps",
+                value: specParts.joined(separator: " · "),
                 source: .appleAPI,
-                method: "AVCaptureDevice.formats → CMVideoFormatDescription dimensions + frame rate ranges",
-                limitation: device.deviceType == .builtInTrueDepthCamera ? "Depth camera" : nil,
+                method: "AVCaptureDevice.formats（分辨率/帧率）+ lensAperture（光圈）+ videoFieldOfView（视场角）",
+                limitation: device.deviceType == .builtInTrueDepthCamera ? "景深镜头" : nil,
                 status: .ok, collectedAt: now, category: .camera
             ))
         }

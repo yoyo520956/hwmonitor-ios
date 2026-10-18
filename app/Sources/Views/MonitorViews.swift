@@ -20,7 +20,7 @@ struct MonitorView: View {
                 .padding(.bottom, DSTokens.spaceXL)
             }
             .background(Color(.systemGroupedBackground))
-            .navigationTitle("Monitor")
+            .navigationTitle("监控")
             .navigationBarTitleDisplayMode(.inline)
         }
     }
@@ -31,14 +31,14 @@ struct MonitorView: View {
             Button {
                 engine.setRunning(!engine.isRunning)
             } label: {
-                Label(engine.isRunning ? "Pause" : "Resume", systemImage: engine.isRunning ? "pause.fill" : "play.fill")
+                Label(engine.isRunning ? "暂停" : "继续", systemImage: engine.isRunning ? "pause.fill" : "play.fill")
                     .font(.caption.weight(.semibold))
             }
             .buttonStyle(DSPrimaryButtonStyle())
 
             Spacer()
 
-            Picker("Interval", selection: $engine.interval) {
+            Picker("间隔", selection: $engine.interval) {
                 Text("1s").tag(1.0)
                 Text("5s").tag(5.0)
                 Text("30s").tag(30.0)
@@ -51,7 +51,7 @@ struct MonitorView: View {
 
     private var cpuChart: some View {
         chartCard(
-            title: "CPU Usage", tint: DSColor.cpu, unit: "%",
+            title: "CPU 使用率", tint: DSColor.cpu, unit: "%",
             data: engine.cpu.history.map { SamplePoint(timestamp: $0.timestamp, value: $0.value * 100) },
             format: { String(format: "%.1f", $0) }
         )
@@ -59,7 +59,7 @@ struct MonitorView: View {
 
     private var memoryChart: some View {
         chartCard(
-            title: "This App Memory (phys_footprint)", tint: DSColor.memory, unit: "MB",
+            title: "本 App 内存 (phys_footprint)", tint: DSColor.memory, unit: "MB",
             data: engine.memory.history.map { SamplePoint(timestamp: $0.timestamp, value: $0.value / 1_048_576) },
             format: { String(format: "%.1f", $0) }
         )
@@ -67,7 +67,7 @@ struct MonitorView: View {
 
     private var networkChart: some View {
         chartCard(
-            title: "Network Throughput (all interfaces)", tint: DSColor.network, unit: "KB/s",
+            title: "网络吞吐（全部接口）", tint: DSColor.network, unit: "KB/s",
             data: engine.network.history.map { SamplePoint(timestamp: $0.timestamp, value: $0.value / 1024) },
             format: { String(format: "%.0f", $0) }
         )
@@ -75,7 +75,7 @@ struct MonitorView: View {
 
     private var storageChart: some View {
         chartCard(
-            title: "Storage Usage Ratio", tint: DSColor.storage, unit: "%",
+            title: "存储使用率", tint: DSColor.storage, unit: "%",
             data: engine.storage.history.map { SamplePoint(timestamp: $0.timestamp, value: $0.value * 100) },
             format: { String(format: "%.1f", $0) }
         )
@@ -94,8 +94,8 @@ struct MonitorView: View {
             if data.count >= 2 {
                 Chart(data) { point in
                     AreaMark(
-                        x: .value("Time", point.timestamp),
-                        y: .value("Value", point.value)
+                        x: .value("时间", point.timestamp),
+                        y: .value("数值", point.value)
                     )
                     .foregroundStyle(
                         LinearGradient(
@@ -105,8 +105,8 @@ struct MonitorView: View {
                     )
                     .interpolationMethod(.catmullRom)
                     LineMark(
-                        x: .value("Time", point.timestamp),
-                        y: .value("Value", point.value)
+                        x: .value("时间", point.timestamp),
+                        y: .value("数值", point.value)
                     )
                     .foregroundStyle(tint)
                     .lineStyle(StrokeStyle(lineWidth: 2, lineCap: .round))
@@ -121,21 +121,21 @@ struct MonitorView: View {
                     }
                 }
                 .frame(height: 120)
-                Text("Sampled every \(Int(engine.interval))s via unified engine tick — real measured values")
+                Text("统一引擎每 \(Int(engine.interval)) 秒采样一次，全部为真实测量值")
                     .font(.caption2)
                     .foregroundStyle(.tertiary)
             } else if engine.isRunning {
                 HStack {
                     Spacer()
                     ProgressView()
-                    Text("Collecting samples…")
+                    Text("正在采集样本…")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     Spacer()
                 }
                 .frame(height: 120)
             } else {
-                Text("Sampling paused")
+                Text("采样已暂停")
                     .font(.caption)
                     .foregroundStyle(.secondary)
                     .frame(maxWidth: .infinity, minHeight: 120)
@@ -161,7 +161,7 @@ struct DiagnosticsView: View {
                 } label: {
                     HStack {
                         Image(systemName: "stethoscope")
-                        Text(running ? "Running…" : "Run Full Diagnostics")
+                        Text(running ? "运行中…" : "运行全面诊断")
                     }
                 }
                 .disabled(running)
@@ -174,7 +174,7 @@ struct DiagnosticsView: View {
             }
 
             if !results.isEmpty {
-                Section("Results") {
+                Section("结果") {
                     ForEach(results.indices, id: \.self) { index in
                         HStack {
                             Image(systemName: iconFor(results[index].status))
@@ -195,7 +195,7 @@ struct DiagnosticsView: View {
                 }
             }
         }
-        .navigationTitle("Diagnostics")
+        .navigationTitle("诊断")
         .navigationBarTitleDisplayMode(.inline)
     }
 

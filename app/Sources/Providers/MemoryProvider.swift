@@ -96,7 +96,7 @@ public final class MemoryProvider: @unchecked Sendable, StreamableProvider {
         let total = readPhysicalMemoryBytes()
         if total > 0 {
             cards.append(MetricCard(
-                id: "mem.total", name: "Physical Memory", value: ByteFormat.gibibytes(total),
+                id: "mem.total", name: "物理内存", value: ByteFormat.gibibytes(total),
                 numeric: total, unit: "bytes",
                 source: .appleAPI, method: "host_info(HOST_BASIC_INFO).max_mem",
                 status: .ok, collectedAt: now, category: .memory
@@ -121,40 +121,52 @@ public final class MemoryProvider: @unchecked Sendable, StreamableProvider {
 
             if total > 0 {
                 cards.append(MetricCard(
-                    id: "mem.used", name: "Memory In Use", value: ByteFormat.gibibytes(using),
+                    id: "mem.used", name: "已用内存", value: ByteFormat.gibibytes(using),
                     numeric: using, unit: "bytes",
-                    source: .computed, method: "vm_statistics64: app(active+inactive+speculative-cached) + pressure(wired+compressed), × page size",
+                    source: .computed, method: "vm_statistics64 分类求和 × 页大小（app 段 + 压力段）",
                     status: .ok, collectedAt: now, category: .memory
                 ))
                 cards.append(MetricCard(
-                    id: "mem.pressure", name: "Memory Pressure", value: PercentFormat.string(pressure / total),
+                    id: "mem.pressure", name: "内存压力", value: PercentFormat.string(pressure / total),
                     numeric: pressure / total, unit: "%",
-                    source: .computed, method: "(wired + compressed) / max_mem",
+                    source: .computed, method: "公式：(wired + compressed) / max_mem",
                     status: .ok, collectedAt: now, category: .memory
                 ))
             }
             cards.append(MetricCard(
-                id: "mem.app", name: "App Memory", value: ByteFormat.gibibytes(app),
+                id: "mem.app", name: "应用内存", value: ByteFormat.gibibytes(app),
                 numeric: app, unit: "bytes",
-                source: .computed, method: "active + inactive + speculative - purgeable - external (pages × page size)",
+                source: .computed, method: "公式：active + inactive + speculative - purgeable - external（页数 × 页大小）",
                 status: .ok, collectedAt: now, category: .memory
             ))
             cards.append(MetricCard(
-                id: "mem.wired", name: "Wired", value: ByteFormat.gibibytes(wired),
+                id: "mem.wired", name: "固定内存 (wired)", value: ByteFormat.gibibytes(wired),
                 numeric: wired, unit: "bytes",
-                source: .computed, method: "vm_statistics64.wire_count", status: .ok,
+                source: .computed, method: "vm_statistics64 wired 页数（内核锁定不可换出）", status: .ok,
                 collectedAt: now, category: .memory
             ))
             cards.append(MetricCard(
-                id: "mem.compressed", name: "Compressed", value: ByteFormat.gibibytes(compressed),
+                id: "mem.active", name: "活跃内存 (active)", value: ByteFormat.gibibytes(active),
+                numeric: active, unit: "bytes",
+                source: .computed, method: "vm_statistics64 active 页数（最近使用）", status: .ok,
+                collectedAt: now, category: .memory
+            ))
+            cards.append(MetricCard(
+                id: "mem.inactive", name: "非活跃内存 (inactive)", value: ByteFormat.gibibytes(inactive),
+                numeric: inactive, unit: "bytes",
+                source: .computed, method: "vm_statistics64 inactive 页数（可回收缓存）", status: .ok,
+                collectedAt: now, category: .memory
+            ))
+            cards.append(MetricCard(
+                id: "mem.compressed", name: "已压缩", value: ByteFormat.gibibytes(compressed),
                 numeric: compressed, unit: "bytes",
-                source: .computed, method: "vm_statistics64.compressor_page_count", status: .ok,
+                source: .computed, method: "vm_statistics64 压缩器页数", status: .ok,
                 collectedAt: now, category: .memory
             ))
             cards.append(MetricCard(
-                id: "mem.free", name: "Free", value: ByteFormat.gibibytes(free),
+                id: "mem.free", name: "可用", value: ByteFormat.gibibytes(free),
                 numeric: free, unit: "bytes",
-                source: .computed, method: "vm_statistics64.free_count", status: .ok,
+                source: .computed, method: "vm_statistics64 空闲页数", status: .ok,
                 collectedAt: now, category: .memory
             ))
         }
@@ -162,10 +174,10 @@ public final class MemoryProvider: @unchecked Sendable, StreamableProvider {
         // 当前 App 内存（与"系统内存统计"明确区分）
         if let footprint = readProcessFootprintBytes() {
             cards.append(MetricCard(
-                id: "mem.footprint", name: "This App (Phys Footprint)", value: ByteFormat.gibibytes(footprint),
+                id: "mem.footprint", name: "本 App 占用 (phys_footprint)", value: ByteFormat.gibibytes(footprint),
                 numeric: footprint, unit: "bytes",
                 source: .appleAPI, method: "task_info(TASK_VM_INFO).phys_footprint",
-                limitation: "Measures this app only; iOS does not expose other apps' memory",
+                limitation: "仅统计本 App；iOS 不开放其他 App 的内存占用",
                 status: .ok, collectedAt: now, category: .memory
             ))
         }

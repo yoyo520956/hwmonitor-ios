@@ -1,7 +1,7 @@
 import CoreMotion
 import SwiftUI
 
-// MARK: - 传感器页：权限门 + 实时读数 + 摄像头规格
+// MARK: - 传感器页：权限门 + 实时读数 + 相机规格（全部可点击进详情）
 
 struct SensorsTabView: View {
     @EnvironmentObject var engine: MonitoringEngine
@@ -9,24 +9,31 @@ struct SensorsTabView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("Motion Sensors") {
+                Section {
                     MotionLiveRow()
+                } header: {
+                    Text("运动传感器")
+                } footer: {
+                    Text("运动读数仅在本页打开时采集，离开即停")
                 }
-                Section("Camera Hardware") {
-                    ForEach(engine.snapshot.sensors.filter { $0.id.hasPrefix("sensor.") }) { card in
-                        MetricCardListRow(card: card)
-                    }
-                    ForEach(engine.snapshot.sensors.filter { $0.id == "sensor.motionperm" }) { card in
-                        MetricCardListRow(card: card)
+                Section {
+                    ForEach(engine.snapshot.sensors) { card in
+                        NavigableCard(card: card) {
+                            MetricCardListRow(card: card)
+                        }
                     }
                     ForEach(engine.camera.collect()) { card in
-                        MetricCardListRow(card: card)
+                        NavigableCard(card: card) {
+                            MetricCardListRow(card: card)
+                        }
                     }
+                } header: {
+                    Text("相机硬件")
                 }
             }
             .scrollContentBackground(.hidden)
             .background(Color(.systemGroupedBackground))
-            .navigationTitle("Sensors")
+            .navigationTitle("传感器")
         }
     }
 }
@@ -41,7 +48,7 @@ struct MotionLiveRow: View {
     var body: some View {
         VStack(alignment: .leading, spacing: DSTokens.spaceS) {
             HStack {
-                Text("Live Sensor Readings")
+                Text("传感器实时读数")
                     .font(.subheadline.weight(.medium))
                 Spacer()
                 StatusBadge(status: motionManager.isDeviceMotionAvailable ? .ok : .unavailable)
@@ -50,7 +57,7 @@ struct MotionLiveRow: View {
             Group {
                 if authorized == .denied || authorized == .restricted {
                     Label(
-                        "Motion permission denied. Enable it in Settings → Privacy & Security → Motion & Fitness.",
+                        "运动与健身权限被拒绝。可在 设置 → 隐私与安全性 → 运动与健身 中开启。",
                         systemImage: "lock.fill"
                     )
                     .font(.caption)
@@ -60,16 +67,16 @@ struct MotionLiveRow: View {
                             UIApplication.shared.open(url)
                         }
                     } label: {
-                        Text("Open Settings").font(.caption.weight(.semibold))
+                        Text("打开设置").font(.caption.weight(.semibold))
                     }
                 } else if authorized == .notDetermined {
-                    Text("Motion & Fitness permission is needed to read accelerometer, gyroscope and magnetometer. No data leaves this device.")
+                    Text("需要「运动与健身」权限才能读取加速度计、陀螺仪与磁力计。所有数据仅在本机处理，不会上传。")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     Button {
                         requestPermission()
                     } label: {
-                        Text("Allow Motion Access").font(.caption.weight(.semibold))
+                        Text("允许运动与健身访问").font(.caption.weight(.semibold))
                     }
                 } else {
                     Text(motionText)
@@ -109,7 +116,7 @@ struct MotionLiveRow: View {
             let r = d.rotationRate
             let g = d.gravity
             motionText = String(
-                format: "accel  x %+.2f  y %+.2f  z %+.2f  (g)\nrot    x %+.2f  y %+.2f  z %+.2f  (rad/s)\ngravity y %+.2f  → tilt %.0f°",
+                format: "加速度 x %+.2f y %+.2f z %+.2f (g)\n旋转 x %+.2f y %+.2f z %+.2f (rad/s)\n重力 y %+.2f → 倾角 %.0f°",
                 a.x, a.y, a.z, r.x, r.y, r.z, g.y,
                 acos(min(max(abs(g.y), 0), 1)) * 180 / .pi
             )
@@ -121,56 +128,94 @@ struct MotionLiveRow: View {
     }
 }
 
-// MARK: - 设置页：采样 / 导出 / 关于
+// MARK: - 设置页：监控 / 悬浮窗 / 报告 / 关于
 
 struct SettingsView: View {
     @EnvironmentObject var engine: MonitoringEngine
     @State private var showExport = false
+    @AppStorage(FloatingConfig.enabledKey) private var floatingEnabled = true
+    @State private var floatingModules: [FloatingModule] = FloatingConfig.loadModules()
 
     var body: some View {
         NavigationStack {
             List {
                 Section {
-                    Picker("Sampling Interval", selection: $engine.interval) {
-                        Text("1 second").tag(1.0)
-                        Text("5 seconds").tag(5.0)
-                        Text("30 seconds").tag(30.0)
+                    Picker("采样间隔", selection: $engine.interval) {
+                        Text("1 秒").tag(1.0)
+                        Text("5 秒").tag(5.0)
+                        Text("30 秒").tag(30.0)
                     }
-                    Toggle("Auto-refresh", isOn: Binding(
+                    Toggle("自动刷新", isOn: Binding(
                         get: { engine.isRunning },
                         set: { engine.setRunning($0) }
                     ))
                 } header: {
-                    Text("Monitoring")
+                    Text("监控")
                 } footer: {
-                    Text("Sampling pauses automatically in background. Higher frequency costs more battery.")
+                    Text("进入后台自动暂停采样。采样频率越高耗电越多。")
                 }
 
-                Section("Report") {
+                // 悬浮窗自定义
+                Section {
+                    Toggle("启用悬浮窗", isOn: $floatingEnabled)
+                    if floatingEnabled {
+                        ForEach(FloatingModule.allCases) { module in
+                            Toggle(isOn: moduleBinding(module)) {
+                                HStack(spacing: 10) {
+                                    Image(systemName: module.icon)
+                                        .font(.system(size: DSTokens.iconM))
+                                        .foregroundStyle(module.color)
+                                        .frame(width: 24)
+                                    Text(module.title)
+                                }
+                            }
+                        }
+                    }
+                } header: {
+                    Text("悬浮窗")
+                } footer: {
+                    Text("悬浮球可拖动到任意位置（自动吸附屏幕边缘），点按展开快捷监测面板。勾选的模块会出现在面板中，点击面板模块卡可直达对应功能页。")
+                }
+
+                Section("报告") {
                     Button {
                         showExport = true
                     } label: {
-                        Label("Export Device Report", systemImage: "square.and.arrow.up")
+                        Label("导出设备报告", systemImage: "square.and.arrow.up")
                     }
                 }
 
                 Section {
-                    LabeledContent("Version", value: "1.0.0")
-                    LabeledContent("Data Policy", value: "All local")
-                    NavigationLink("Open-Source Notices") {
+                    LabeledContent("版本", value: "2.0.0")
+                    LabeledContent("数据政策", value: "全部本地")
+                    NavigationLink("开源致谢") {
                         NoticesView()
                     }
                 } header: {
-                    Text("About")
+                    Text("关于")
                 } footer: {
-                    Text("All data is collected on-device via public Apple APIs. Nothing is uploaded. Items the system does not expose are marked N/A with reasons.")
+                    Text("所有数据均通过 Apple 公开 API 在本机采集，不上传任何内容。系统未开放的项目一律标注 N/A 并注明原因。")
                 }
             }
-            .navigationTitle("Settings")
+            .navigationTitle("设置")
             .sheet(isPresented: $showExport) {
                 ExportView()
             }
         }
+    }
+
+    private func moduleBinding(_ module: FloatingModule) -> Binding<Bool> {
+        Binding<Bool>(
+            get: { floatingModules.contains(module) },
+            set: { on in
+                if on {
+                    if !floatingModules.contains(module) { floatingModules.append(module) }
+                } else {
+                    floatingModules.removeAll { $0 == module }
+                }
+                FloatingConfig.saveModules(floatingModules)
+            }
+        )
     }
 }
 
@@ -179,14 +224,18 @@ struct SettingsView: View {
 struct NoticesView: View {
     var body: some View {
         List {
-            Section("This app's architecture and selected implementations are informed by the following open-source projects. Their licenses are honored below.") {}
-            notice("Loupe", "mysk-research/loupe", "MIT License © 2026 Mysk", "Architecture inspiration: Provider/Signal model, permission gates, sysctl helper pattern. Original branding, icons and copy are NOT used.")
-            notice("SystemInfoKit", "Kyome22/SystemInfoKit", "Apache License 2.0 © 2020 Takuto Nakamura", "Implementation reference: host_statistics64 CPU tick delta, vm_statistics64 memory classification, URL volume resource values.")
-            notice("iOS-System-Services", "Shmoopi/iOS-System-Services", "MIT License © 2012 Shmoopi LLC", "Per-core CPU usage via host_processor_info(PROCESSOR_CPU_LOAD_INFO).")
-            notice("DeviceKit", "devicekit/DeviceKit", "MIT License", "Model-identifier mapping table concept (table rebuilt independently).")
-            notice("Luminous", "andrealufino/Luminous", "MIT License © 2019 Andrea Lufino", "Reference for thermal state, display and process info details.")
+            Section {
+                Text("本 App 的架构与部分实现思路参考了以下开源项目，许可证信息如下。未使用任何项目的品牌、图标与文案。")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            notice("Loupe", "mysk-research/loupe", "MIT 许可证 © 2026 Mysk", "架构灵感：Provider/Signal 模型、权限门、sysctl 辅助模式。")
+            notice("SystemInfoKit", "Kyome22/SystemInfoKit", "Apache 2.0 许可证 © 2020 Takuto Nakamura", "实现参考：host_statistics64 CPU tick 差分、vm_statistics64 内存分类、URL 卷资源值。")
+            notice("iOS-System-Services", "Shmoopi/iOS-System-Services", "MIT 许可证 © 2012 Shmoopi LLC", "每核 CPU 使用率 host_processor_info(PROCESSOR_CPU_LOAD_INFO) 做法。")
+            notice("DeviceKit", "devicekit/DeviceKit", "MIT 许可证", "型号标识映射表思路（表内容独立重建）")
+            notice("Luminous", "andrealufino/Luminous", "MIT 许可证 © 2019 Andrea Lufino", "热状态/屏幕/进程信息细节参考")
         }
-        .navigationTitle("Open-Source Notices")
+        .navigationTitle("开源致谢")
         .navigationBarTitleDisplayMode(.inline)
     }
 

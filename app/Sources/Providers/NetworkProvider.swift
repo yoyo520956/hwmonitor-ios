@@ -9,7 +9,7 @@ public final class NetworkProvider: @unchecked Sendable, StreamableProvider {
     private let monitor = NWPathMonitor()
     private let monitorLock = NSLock()
     private var _pathStatus: NWPath.Status = .unsatisfied
-    private var _interfaceType: String = "Unknown"
+    private var _interfaceType: String = "未知"
     private var _expensive: Bool = false
     private var _constrained: Bool = false
 
@@ -38,13 +38,13 @@ public final class NetworkProvider: @unchecked Sendable, StreamableProvider {
             if path.usesInterfaceType(.wifi) {
                 self._interfaceType = "Wi-Fi"
             } else if path.usesInterfaceType(.cellular) {
-                self._interfaceType = "Cellular"
+                self._interfaceType = "蜂窝网络"
             } else if path.usesInterfaceType(.wiredEthernet) {
-                self._interfaceType = "Ethernet"
+                self._interfaceType = "以太网"
             } else if path.status == .satisfied {
-                self._interfaceType = "Other"
+                self._interfaceType = "其他"
             } else {
-                self._interfaceType = "Offline"
+                self._interfaceType = "离线"
             }
             self.monitorLock.unlock()
         }
@@ -121,6 +121,42 @@ public final class NetworkProvider: @unchecked Sendable, StreamableProvider {
         return nil
     }
 
+    /// 全接口明细（en0/awdl0/utun0/pdp_ip0… 名称+地址族）
+    public func readInterfaceList() -> String? {
+        var ifaddr: UnsafeMutablePointer<ifaddrs>? = nil
+        guard getifaddrs(&ifaddr) == 0, let first = ifaddr else { return nil }
+        defer { freeifaddrs(ifaddr) }
+
+        var seen: [String] = []
+        var names: [String] = []
+        var ptr: UnsafeMutablePointer<ifaddrs>? = first
+        while let current = ptr {
+            defer { ptr = current.pointee.ifa_next }
+            let rawName = String(cString: current.pointee.ifa_name)
+            // 去掉 % 接口索引后缀
+            let name = rawName.split(separator: "%").first.map(String.init) ?? rawName
+            if seen.contains(name) { continue }
+            seen.append(name)
+            let family: String
+            if let addr = current.pointee.ifa_addr {
+                switch addr.pointee.sa_family {
+                case UInt8(AF_INET): family = "IPv4"
+                case UInt8(AF_INET6): family = "IPv6"
+                default: family = ""
+                }
+            } else {
+                family = ""
+            }
+            if family.isEmpty {
+                names.append(name)
+            } else {
+                names.append("\(name)(\(family))")
+            }
+        }
+        guard !names.isEmpty else { return nil }
+        return names.joined(separator: "  ")
+    }
+
     public func collect() -> [MetricCard] {
         var cards: [MetricCard] = []
         let now = Date()
@@ -133,43 +169,52 @@ public final class NetworkProvider: @unchecked Sendable, StreamableProvider {
 
         let connected = status == .satisfied
         cards.append(MetricCard(
-            id: "net.status", name: "Connection", value: connected ? type : "Offline",
+            id: "net.status", name: "连接", value: connected ? type : "离线",
             source: .appleAPI, method: "NWPathMonitor.pathUpdateHandler",
             status: connected ? .ok : .degraded, collectedAt: now, category: .network
         ))
         if connected {
             cards.append(MetricCard(
-                id: "net.expensive", name: "Expensive Link",
-                value: expensive ? "Yes (cellular / hotspot)" : "No",
+                id: "net.expensive", name: "计费网络（蜂窝/热点）",
+                value: expensive ? "是（蜂窝/热点）" : "否",
                 source: .appleAPI, method: "NWPath.isExpensive", status: .ok,
                 collectedAt: now, category: .network
             ))
             cards.append(MetricCard(
-                id: "net.constrained", name: "Low Data Mode",
-                value: constrained ? "On" : "Off",
+                id: "net.constrained", name: "低数据模式",
+                value: constrained ? "开" : "关",
                 source: .appleAPI, method: "NWPath.isConstrained", status: .ok,
                 collectedAt: now, category: .network
             ))
         }
         if let ip = readPrimaryIPv4() {
             cards.append(MetricCard(
-                id: "net.ip", name: "Local IPv4", value: ip,
+                id: "net.ip", name: "本机 IPv4", value: ip,
                 source: .appleAPI, method: "getifaddrs + getnameinfo(NI_NUMERICHOST)",
-                limitation: "Local network address only; not the public/VPN exit IP",
+                limitation: "仅局域网地址，不含公网出口/VPN IP",
                 status: .ok, collectedAt: now, category: .network
             ))
         }
         if let (rx, tx) = readInterfaceBytes() {
             cards.append(MetricCard(
-                id: "net.rx", name: "Total Received", value: ByteFormat.gigabytes(Double(rx)),
+                id: "net.rx", name: "累计接收", value: ByteFormat.gigabytes(Double(rx)),
                 numeric: Double(rx), unit: "bytes",
-                source: .computed, method: "Σ ifa_data.ifi_ibytes across non-loopback interfaces (since boot)",
+                source: .computed, method: "Σ ifa_data.ifi_ibytes（非回环接口，开机起累计）",
                 status: .ok, collectedAt: now, category: .network
             ))
             cards.append(MetricCard(
-                id: "net.tx", name: "Total Sent", value: ByteFormat.gigabytes(Double(tx)),
+                id: "net.tx", name: "累计发送", value: ByteFormat.gigabytes(Double(tx)),
                 numeric: Double(tx), unit: "bytes",
-                source: .computed, method: "Σ ifa_data.ifi_obytes across non-loopback interfaces (since boot)",
+                source: .computed, method: "Σ ifa_data.ifi_obytes（非回环接口，开机起累计）",
+                status: .ok, collectedAt: now, category: .network
+            ))
+        }
+
+        if let ifList = readInterfaceList() {
+            cards.append(MetricCard(
+                id: "net.iflist", name: "网络接口明细", value: ifList,
+                source: .appleAPI, method: "getifaddrs 遍历全部接口（名称与地址族）",
+                limitation: "en0=Wi-Fi，pdp_ip0=蜂窝，awdl0=隔空投送链路，utun*=VPN 隧道",
                 status: .ok, collectedAt: now, category: .network
             ))
         }
