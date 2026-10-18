@@ -10,7 +10,8 @@ public final class CPUProvider: @unchecked Sendable, StreamableProvider {
 
     private let lock = NSLock()
     private var previousLoad: host_cpu_load_info = host_cpu_load_info()
-    private var previousPerCore: [host_cpu_load_info] = []
+    /// 每核 tick 缓存：[核][user,system,idle,nice]
+    private var previousPerCore: [[UInt32]] = []
     private var _history: [SamplePoint] = []
     public var history: [SamplePoint] { get { lock.lock(); defer { lock.unlock() }; return _history } }
 
@@ -119,12 +120,15 @@ public final class CPUProvider: @unchecked Sendable, StreamableProvider {
 
         var usages: [Double] = []
         for i in 0..<current.count {
-            let user = Double(current[i][0] &- prev[i][0])
-            let system = Double(current[i][1] &- prev[i][1])
-            let idle = Double(current[i][2] &- prev[i][2])
-            let nice = Double(current[i][3] &- prev[i][3])
+            let cur = current[i]
+            let old = prev[i]
+            let user = Double(cur[0] &- old[0])
+            let system = Double(cur[1] &- old[1])
+            let idle = Double(cur[2] &- old[2])
+            let nice = Double(cur[3] &- old[3])
             let total = user + system + idle + nice
-            usages.append(total > 0 ? min((user + system + nice) / total, 1.0) : 0)
+            let usage = total > 0 ? min((user + system + nice) / total, 1.0) : 0.0
+            usages.append(usage)
         }
         return usages
     }
