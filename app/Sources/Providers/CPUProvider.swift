@@ -129,39 +129,48 @@ public final class CPUProvider: @unchecked Sendable, StreamableProvider {
         return usages
     }
 
-    // MARK: - MetricsProvider
+    // MARK: - MetricsProvider（拆分为小函数，防止 type-check 超时）
 
     public func collect() -> [MetricCard] {
         var cards: [MetricCard] = []
         let now = Date()
+        cards.append(contentsOf: staticCards(now: now))
+        cards.append(contentsOf: usageCards(now: now))
+        cards.append(contentsOf: perCoreCards(now: now))
+        cards.append(Self.frequencyCard())
+        return cards
+    }
 
-        // 架构与核心数
+    /// 架构与核心数（静态项）
+    private func staticCards(now: Date) -> [MetricCard] {
         let procInfo = ProcessInfo.processInfo
-        let arch = SysctlReader.machineIdentifier() != nil
-            ? (String(cString: uname_machine()) == "arm64" ? "ARM64 (Apple Silicon)" : uname_machine())
-            : "unknown"
-        _ = arch
-
         var machine = SysctlReader.unameFields()["machine"] ?? "unknown"
         if machine.isEmpty { machine = "unknown" }
 
         let coreCount = procInfo.processorCount
         let activeCores = procInfo.activeProcessorCount
+        let coreLimitation: String? = (activeCores != coreCount)
+            ? "\(activeCores) active cores"
+            : nil
 
-        cards.append(MetricCard(
+        let archCard = MetricCard(
             id: "cpu.arch", name: "Architecture", value: machine,
             source: .appleAPI, method: "uname(3) machine field", status: .ok,
             collectedAt: now, category: .cpu
-        ))
-        cards.append(MetricCard(
+        )
+        let coresCard = MetricCard(
             id: "cpu.cores", name: "CPU Cores", value: "\(coreCount)",
             numeric: Double(coreCount), unit: "cores",
             source: .appleAPI, method: "NSProcessInfo.processorCount",
-            limitation: activeCores != coreCount ? "\(activeCores) active cores" : nil,
+            limitation: coreLimitation,
             status: .ok, collectedAt: now, category: .cpu
-        ))
+        )
+        return [archCard, coresCard]
+    }
 
-        // 总使用率
+    /// 总使用率与分量
+    private func usageCards(now: Date) -> [MetricCard] {
+        var cards: [MetricCard] = []
         if let usage = readTotalUsage() {
             cards.append(MetricCard(
                 id: "cpu.usage", name: "CPU Usage (Total)", value: PercentFormat.string(usage),
@@ -169,16 +178,7 @@ public final class CPUProvider: @unchecked Sendable, StreamableProvider {
                 source: .computed, method: "host_statistics64(HOST_CPU_LOAD_INFO) tick delta",
                 status: .ok, collectedAt: now, category: .cpu
             ))
-        } else {
-            cards.append(MetricCard(
-                id: "cpu.usage", name: "CPU Usage (Total)", value: "—",
-                source: .appleAPI, method: "host_statistics64(HOST_CPU_LOAD_INFO) tick delta",
-                limitation: "First sample pending or host API unavailable",
-                status: .degraded, collectedAt: now, category: .cpu
-            ))
         }
-
-        // 分量
         if let breakdown = readLoadBreakdown() {
             cards.append(MetricCard(
                 id: "cpu.user", name: "User Time", value: PercentFormat.string(breakdown.user),
@@ -193,35 +193,45 @@ public final class CPUProvider: @unchecked Sendable, StreamableProvider {
                 collectedAt: now, category: .cpu
             ))
         }
-
-        // 每核
-        if let perCore = readPerCoreUsage(), !perCore.isEmpty {
-            let avg = perCore.reduce(0, +) / Double(perCore.count)
-            var parts: [String] = []
-            for (idx, u) in perCore.enumerated() {
-                let pct = Int((u * 100).rounded())
-                parts.append("C\(idx): \(pct)%")
-            }
-            let coreText = parts.joined(separator: "  ")
+        if cards.isEmpty {
             cards.append(MetricCard(
-                id: "cpu.percore", name: "Per-Core Usage", value: coreText,
-                numeric: avg, unit: "%",
-                source: .computed, method: "host_processor_info(PROCESSOR_CPU_LOAD_INFO) delta",
-                status: .ok, collectedAt: now, category: .cpu
+                id: "cpu.usage", name: "CPU Usage (Total)", value: "—",
+                source: .appleAPI, method: "host_statistics64(HOST_CPU_LOAD_INFO) tick delta",
+                limitation: "First sample pending or host API unavailable",
+                status: .degraded, collectedAt: now, category: .cpu
             ))
         }
-
-        // 频率：系统限制
-        cards.append(.restricted(
-            "cpu.freq", "CPU Frequency",
-            reason: "iOS does not expose CPU frequency to apps (hw.cpufrequency is unavailable on iOS). Frequency-based claims in other apps are constants, not measurements.",
-            category: .cpu
-        ))
-
         return cards
     }
 
-    private func uname_machine() -> String {
-        SysctlReader.unameFields()["machine"] ?? "unknown"
+    /// 每核使用率
+    private func perCoreCards(now: Date) -> [MetricCard] {
+        guard let perCore = readPerCoreUsage(), !perCore.isEmpty else { return [] }
+        let sum = perCore.reduce(0, +)
+        let count = Double(perCore.count)
+        let avg = sum / count
+
+        var parts: [String] = []
+        for (idx, u) in perCore.enumerated() {
+            let pct = Int((u * 100).rounded())
+            parts.append("C\(idx): \(pct)%")
+        }
+        let coreText = parts.joined(separator: "  ")
+
+        return [MetricCard(
+            id: "cpu.percore", name: "Per-Core Usage", value: coreText,
+            numeric: avg, unit: "%",
+            source: .computed, method: "host_processor_info(PROCESSOR_CPU_LOAD_INFO) delta",
+            status: .ok, collectedAt: now, category: .cpu
+        )]
+    }
+
+    /// CPU 频率：系统限制卡
+    private static func frequencyCard() -> MetricCard {
+        MetricCard.restricted(
+            "cpu.freq", "CPU Frequency",
+            reason: "iOS does not expose CPU frequency to apps (hw.cpufrequency is unavailable on iOS). Frequency-based claims in other apps are constants, not measurements.",
+            category: .cpu
+        )
     }
 }

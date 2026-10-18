@@ -33,18 +33,14 @@ public final class MemoryProvider: @unchecked Sendable, StreamableProvider {
 
     private var pageSize: Double {
         var size: vm_size_t = 0
-        var hostPort = mach_host_self()
+        let hostPort = mach_host_self()
         defer { _ = mach_port_deallocate(mach_task_self_, hostPort) }
-        _ = withUnsafeMutablePointer(to: &size) { ptr in
-            host_page_size(hostPort, ptr)
-        }
-        _ = hostPort
-        hostPort = mach_host_self()
+        _ = host_page_size(hostPort, &size)
         return Double(size)
     }
 
     public func readPhysicalMemoryBytes() -> Double {
-        var hostPort = mach_host_self()
+        let hostPort = mach_host_self()
         defer { _ = mach_port_deallocate(mach_task_self_, hostPort) }
         var info = host_basic_info()
         var count = mach_msg_type_number_t(
@@ -55,14 +51,12 @@ public final class MemoryProvider: @unchecked Sendable, StreamableProvider {
                 host_info(hostPort, HOST_BASIC_INFO, intPtr, &count)
             }
         }
-        _ = hostPort
-        hostPort = mach_host_self()
         guard result == KERN_SUCCESS else { return 0 }
         return Double(info.max_mem)
     }
 
     private func readVMStatistics64() -> vm_statistics64? {
-        var hostPort = mach_host_self()
+        let hostPort = mach_host_self()
         defer { _ = mach_port_deallocate(mach_task_self_, hostPort) }
         var stats = vm_statistics64()
         var count = mach_msg_type_number_t(
@@ -73,8 +67,6 @@ public final class MemoryProvider: @unchecked Sendable, StreamableProvider {
                 host_statistics64(hostPort, HOST_VM_INFO64, intPtr, &count)
             }
         }
-        _ = hostPort
-        hostPort = mach_host_self()
         return result == KERN_SUCCESS ? stats : nil
     }
 

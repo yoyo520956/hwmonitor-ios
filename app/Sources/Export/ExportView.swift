@@ -64,7 +64,7 @@ struct ExportView: View {
                         }
                         Spacer()
                         if !content.isEmpty {
-                            ShareLink(item: exportItem, preview: SharePreview(filename + ".\(format.fileExtension)")) {
+                            ShareLink(item: exportURL, preview: SharePreview(filename + "." + format.fileExtension)) {
                                 Label("Share", systemImage: "square.and.arrow.up")
                             }
                         }
@@ -76,12 +76,12 @@ struct ExportView: View {
         }
     }
 
-    private var exportItem: String {
+    private var exportURL: URL {
         // 写临时文件再分享（保留扩展名以便系统识别）
         let url = FileManager.default.temporaryDirectory
             .appendingPathComponent("\(filename)-\(Int(Date().timeIntervalSince1970)).\(format.fileExtension)")
         try? content.write(to: url, atomically: true, encoding: .utf8)
-        return url.absoluteString
+        return url
     }
 
     private func generate() {

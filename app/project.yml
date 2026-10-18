@@ -32,7 +32,6 @@ targets:
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         SWIFT_EMIT_LOC_STRINGS: "YES"
         GCC_TREAT_WARNINGS_AS_ERRORS: "NO"
-        OTHER_SWIFT_FLAGS: "-Xfrontend -warn-long-function-bodies=500"
   HWMonitorTests:
     type: bundle.unit-test
     platform: iOS
