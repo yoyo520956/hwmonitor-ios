@@ -152,6 +152,7 @@ public final class PrivacyProvider: @unchecked Sendable {
         case .authorized: return "Authorized"
         case .denied: return "Denied"
         case .restricted: return "Restricted"
+        case .limited: return "Limited"
         case .notDetermined: return "Not Requested"
         @unknown default: return "Unknown"
         }
@@ -160,6 +161,7 @@ public final class PrivacyProvider: @unchecked Sendable {
         switch s {
         case .authorized: return .ok
         case .denied, .restricted: return .unauthorized
+        case .limited: return .degraded
         case .notDetermined: return .degraded
         @unknown default: return .degraded
         }

@@ -130,7 +130,7 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("Monitoring") {
+                Section {
                     Picker("Sampling Interval", selection: $engine.interval) {
                         Text("1 second").tag(1.0)
                         Text("5 seconds").tag(5.0)
@@ -140,6 +140,8 @@ struct SettingsView: View {
                         get: { engine.isRunning },
                         set: { engine.setRunning($0) }
                     ))
+                } header: {
+                    Text("Monitoring")
                 } footer: {
                     Text("Sampling pauses automatically in background. Higher frequency costs more battery.")
                 }
@@ -152,12 +154,14 @@ struct SettingsView: View {
                     }
                 }
 
-                Section("About") {
+                Section {
                     LabeledContent("Version", value: "1.0.0")
                     LabeledContent("Data Policy", value: "All local")
                     NavigationLink("Open-Source Notices") {
                         NoticesView()
                     }
+                } header: {
+                    Text("About")
                 } footer: {
                     Text("All data is collected on-device via public Apple APIs. Nothing is uploaded. Items the system does not expose are marked N/A with reasons.")
                 }
