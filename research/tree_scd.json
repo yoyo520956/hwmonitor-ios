@@ -1,0 +1,333 @@
+{
+  "sha": "988d426c935d07a5213bf405866f19fbef5ffdf5",
+  "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/trees/988d426c935d07a5213bf405866f19fbef5ffdf5",
+  "tree": [
+    {
+      "path": ".github",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "86f610441d521d34dc76e7c312c7efe96ab625c5",
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/trees/86f610441d521d34dc76e7c312c7efe96ab625c5"
+    },
+    {
+      "path": ".github/workflows",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ef3932aaa20b44417dcb53fecd8a16f701d8d671",
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/trees/ef3932aaa20b44417dcb53fecd8a16f701d8d671"
+    },
+    {
+      "path": ".github/workflows/swift.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9726b5fb98c46589291e5e2a0b5b6b7bd7ec7a87",
+      "size": 1139,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/9726b5fb98c46589291e5e2a0b5b6b7bd7ec7a87"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bb460e7be912c891c334b80bcba6f61383c00f96",
+      "size": 126,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/bb460e7be912c891c334b80bcba6f61383c00f96"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8000a6faacf471c537530805ab29523c7732e11a",
+      "size": 26526,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/8000a6faacf471c537530805ab29523c7732e11a"
+    },
+    {
+      "path": "Package.resolved",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1eedbabe83ff5b2bf834e8ef508ed482b8873450",
+      "size": 346,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/1eedbabe83ff5b2bf834e8ef508ed482b8873450"
+    },
+    {
+      "path": "Package.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c5bdf18d152b13dbcb097e7fbc887d4da0e97507",
+      "size": 2509,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/c5bdf18d152b13dbcb097e7fbc887d4da0e97507"
+    },
+    {
+      "path": "Playgrounds",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "39c00a36d0309b0a6fc7fe103075e4763ec1f684",
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/trees/39c00a36d0309b0a6fc7fe103075e4763ec1f684"
+    },
+    {
+      "path": "Playgrounds/Demo.playground",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "dcbd5e2d59a77ade753285ba0545da28f50e1c5c",
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/trees/dcbd5e2d59a77ade753285ba0545da28f50e1c5c"
+    },
+    {
+      "path": "Playgrounds/Demo.playground/Contents.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "62a442a6b4a89929344f064a230f6a2ebb980803",
+      "size": 2997,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/62a442a6b4a89929344f064a230f6a2ebb980803"
+    },
+    {
+      "path": "Playgrounds/Demo.playground/contents.xcplayground",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b9ca8146f2ee4b1eda7dfb1310d582eb91fe1054",
+      "size": 233,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/b9ca8146f2ee4b1eda7dfb1310d582eb91fe1054"
+    },
+    {
+      "path": "Playgrounds/Demo.playground/playground.xcworkspace",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "43ecd5058a4ed26ee65272bb81572253d67b6484",
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/trees/43ecd5058a4ed26ee65272bb81572253d67b6484"
+    },
+    {
+      "path": "Playgrounds/Demo.playground/playground.xcworkspace/contents.xcworkspacedata",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ca3329e1a18abe7249c23385b288436d85ed4b75",
+      "size": 136,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/ca3329e1a18abe7249c23385b288436d85ed4b75"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d1bc67308576dc11d3d9d447399264c691a57dde",
+      "size": 5766,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/d1bc67308576dc11d3d9d447399264c691a57dde"
+    },
+    {
+      "path": "Sources",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b65c2210dc06d89bf72ae2c92d68bc3dd3687e44",
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/trees/b65c2210dc06d89bf72ae2c92d68bc3dd3687e44"
+    },
+    {
+      "path": "Sources/SwiftCPUDetect",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3a538597ced6473cf483f28185171352ddc9bc20",
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/trees/3a538597ced6473cf483f28185171352ddc9bc20"
+    },
+    {
+      "path": "Sources/SwiftCPUDetect/AppExecution.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b2f578a8828ffe224bba35206211ca134cd0d51a",
+      "size": 2248,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/b2f578a8828ffe224bba35206211ca134cd0d51a"
+    },
+    {
+      "path": "Sources/SwiftCPUDetect/CPUArchitecture.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3ef748b99f476e82cf24f6d194b27f29989bcfa0",
+      "size": 11595,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/3ef748b99f476e82cf24f6d194b27f29989bcfa0"
+    },
+    {
+      "path": "Sources/SwiftCPUDetect/Extensions.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3c4358d9f83307dc940a3fda78930d3bc2a7a66f",
+      "size": 1274,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/3c4358d9f83307dc940a3fda78930d3bc2a7a66f"
+    },
+    {
+      "path": "Sources/SwiftCPUDetect/GPUInfo.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c9086db7924f8a76782e07ecf2f8f799f4acdb16",
+      "size": 2651,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/c9086db7924f8a76782e07ecf2f8f799f4acdb16"
+    },
+    {
+      "path": "Sources/SwiftCPUDetect/HwInfo.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "45d4a01cd8eb4c51d9fd0f3ce5200b5bd6f3ab39",
+      "size": 8310,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/45d4a01cd8eb4c51d9fd0f3ce5200b5bd6f3ab39"
+    },
+    {
+      "path": "Sources/SwiftCPUDetect/Print.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c8a1731d554a5fc4ae5673f07b168062a00b48f",
+      "size": 1654,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/6c8a1731d554a5fc4ae5673f07b168062a00b48f"
+    },
+    {
+      "path": "Sources/SwiftCPUDetect/UnameReimplementation.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d697c74b7a19bee6132a774b93a887f2e7500de6",
+      "size": 9911,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/d697c74b7a19bee6132a774b93a887f2e7500de6"
+    },
+    {
+      "path": "Sources/SwiftSystemValues",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "79820d08475fa80ef3a44322f3a305b1e2f81b48",
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/trees/79820d08475fa80ef3a44322f3a305b1e2f81b48"
+    },
+    {
+      "path": "Sources/SwiftSystemValues/FileSystemFetch.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8624780dd937e85024331d6334bd5cb31c192c7a",
+      "size": 7332,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/8624780dd937e85024331d6334bd5cb31c192c7a"
+    },
+    {
+      "path": "Sources/SwiftSystemValues/FileSystemFetchCPULinux.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "245e149c6032895716c96fcbb73283aa288d8453",
+      "size": 3381,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/245e149c6032895716c96fcbb73283aa288d8453"
+    },
+    {
+      "path": "Sources/SwiftSystemValues/FileSystemFetchLinux.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "50faec46de6898edeb7ce920e98148c7af640cd4",
+      "size": 5518,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/50faec46de6898edeb7ce920e98148c7af640cd4"
+    },
+    {
+      "path": "Sources/SwiftSystemValues/Print.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5fc38ea805a9f77bf9e3d23eeb68a59a036db976",
+      "size": 1651,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/5fc38ea805a9f77bf9e3d23eeb68a59a036db976"
+    },
+    {
+      "path": "Sources/SwiftSystemValues/Sysctl.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "03ae0b0c944ddceb786b4256504db929b77992f3",
+      "size": 2347,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/03ae0b0c944ddceb786b4256504db929b77992f3"
+    },
+    {
+      "path": "Sources/SwiftSystemValues/SysctlCPU.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5bfd2f2aca024f9b67e9a675cea84829c7294014",
+      "size": 2519,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/5bfd2f2aca024f9b67e9a675cea84829c7294014"
+    },
+    {
+      "path": "Sources/SwiftSystemValues/SysctlDarwin.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "32d6fd3304f2556e8c709b561516b45903c3aead",
+      "size": 2952,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/32d6fd3304f2556e8c709b561516b45903c3aead"
+    },
+    {
+      "path": "Sources/SwiftSystemValues/SysctlHW.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3fa98a21c4067642c65fc91278836d322ce0101e",
+      "size": 5826,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/3fa98a21c4067642c65fc91278836d322ce0101e"
+    },
+    {
+      "path": "Sources/SwiftSystemValues/SysctlKernel.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5ec45e6b2857a1d36e9a6bac1df4e0bfd75511aa",
+      "size": 2782,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/5ec45e6b2857a1d36e9a6bac1df4e0bfd75511aa"
+    },
+    {
+      "path": "Sources/SwiftSystemValues/SysctlLinux.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "96c6a3df1a9d486ea9cf3603210e32e8306bfd03",
+      "size": 1074,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/96c6a3df1a9d486ea9cf3603210e32e8306bfd03"
+    },
+    {
+      "path": "Sources/SwiftSystemValues/SysctlMachdep.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7d19201fef56d1e0b51d29156beeb7a63eb02f92",
+      "size": 4897,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/7d19201fef56d1e0b51d29156beeb7a63eb02f92"
+    },
+    {
+      "path": "Sources/SwiftSystemValues/SysctlProtocols.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1d5a9c68800f2758ef1029311731cdc2f4fd69c0",
+      "size": 1173,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/1d5a9c68800f2758ef1029311731cdc2f4fd69c0"
+    },
+    {
+      "path": "Sources/SwiftSystemValues/x86_CPUID.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c0bfab16a07004b208e1c2ed652e726c5380603b",
+      "size": 4336,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/c0bfab16a07004b208e1c2ed652e726c5380603b"
+    },
+    {
+      "path": "Sources/SwiftSystemValues/x86_CPUIDValues.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5963453eff5b8b4b4cd3868b2f86a4df9271a470",
+      "size": 5318,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/5963453eff5b8b4b4cd3868b2f86a4df9271a470"
+    },
+    {
+      "path": "Tests",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0333ec1ac77e2c64daf0f50546b776988dfd39a3",
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/trees/0333ec1ac77e2c64daf0f50546b776988dfd39a3"
+    },
+    {
+      "path": "Tests/LinuxMain.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "39d755dd2d8df62c12ee0f61238f4b7a348ed7f5",
+      "size": 933,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/39d755dd2d8df62c12ee0f61238f4b7a348ed7f5"
+    },
+    {
+      "path": "Tests/SwiftCPUDetectTests",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3fdd39e38ef90c7d7789f75d4f35c116db768336",
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/trees/3fdd39e38ef90c7d7789f75d4f35c116db768336"
+    },
+    {
+      "path": "Tests/SwiftCPUDetectTests/SwiftCPUDetectTests.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bf0451d633e4df0b6d2a8bb39b5f073ffd1d0acf",
+      "size": 7497,
+      "url": "https://api.github.com/repos/ITzTravelInTime/SwiftCPUDetect/git/blobs/bf0451d633e4df0b6d2a8bb39b5f073ffd1d0acf"
+    }
+  ],
+  "truncated": false
+}

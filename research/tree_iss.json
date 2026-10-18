@@ -1,0 +1,811 @@
+{
+  "sha": "f0d6251a5432e7c8d53187a9a4b9533c8fd3a965",
+  "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/trees/f0d6251a5432e7c8d53187a9a4b9533c8fd3a965",
+  "tree": [
+    {
+      "path": ".github",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f34f14f158001976e902e03207de8f14933c99fa",
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/trees/f34f14f158001976e902e03207de8f14933c99fa"
+    },
+    {
+      "path": ".github/workflows",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "15fd52e0728caed436eaeb98a25704af1cbc90e1",
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/trees/15fd52e0728caed436eaeb98a25704af1cbc90e1"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f8ba661625ee251b9a7360a07b6e71f357a83432",
+      "size": 1064,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/f8ba661625ee251b9a7360a07b6e71f357a83432"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f3be06d16a1ff8d58280f4ebe54209d462450f11",
+      "size": 520,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/f3be06d16a1ff8d58280f4ebe54209d462450f11"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "05d2737092c3d057e3db0d214e8534bf2d93cdb8",
+      "size": 2277,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/05d2737092c3d057e3db0d214e8534bf2d93cdb8"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "115bb880a19bef14f6edeb5d3f3e9e26d055e061",
+      "size": 1428,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/115bb880a19bef14f6edeb5d3f3e9e26d055e061"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1cf1c3513e0144cbff5d85681b3bc94b4bed5cbf",
+      "size": 1068,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/1cf1c3513e0144cbff5d85681b3bc94b4bed5cbf"
+    },
+    {
+      "path": "Package.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5124d6013347e23dfa780598ee04f081978e641b",
+      "size": 671,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/5124d6013347e23dfa780598ee04f081978e641b"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9d313377ad9669090640f3968bc461b051b6d61d",
+      "size": 10170,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/9d313377ad9669090640f3968bc461b051b6d61d"
+    },
+    {
+      "path": "Sample Images",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "de35de9e4c4e207760e821e62e1117181f526ba3",
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/trees/de35de9e4c4e207760e821e62e1117181f526ba3"
+    },
+    {
+      "path": "Sample Images/Disk.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7336c6ebbc6c4e778042606f1908d91658c4cb52",
+      "size": 276130,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/7336c6ebbc6c4e778042606f1908d91658c4cb52"
+    },
+    {
+      "path": "Sample Images/Hardware.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6593575a0722403ff6228461ccc889384294eca4",
+      "size": 489566,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/6593575a0722403ff6228461ccc889384294eca4"
+    },
+    {
+      "path": "Sample Images/Memory.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a47613c77b38f0992339675ea8dcfa6b66b10722",
+      "size": 334092,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/a47613c77b38f0992339675ea8dcfa6b66b10722"
+    },
+    {
+      "path": "Sample Images/Network.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5e9565f734c73848d58b6fabf2b9f55e61c2865f",
+      "size": 259293,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/5e9565f734c73848d58b6fabf2b9f55e61c2865f"
+    },
+    {
+      "path": "Sample Images/Screenshot1.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a47613c77b38f0992339675ea8dcfa6b66b10722",
+      "size": 334092,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/a47613c77b38f0992339675ea8dcfa6b66b10722"
+    },
+    {
+      "path": "Sample Images/Screenshot2.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7336c6ebbc6c4e778042606f1908d91658c4cb52",
+      "size": 276130,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/7336c6ebbc6c4e778042606f1908d91658c4cb52"
+    },
+    {
+      "path": "System Services",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c6ae26815cc292254ebde8200cc2c7efae4fd594",
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/trees/c6ae26815cc292254ebde8200cc2c7efae4fd594"
+    },
+    {
+      "path": "System Services/SystemServices.h",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "14537d248f6cc4c66dc193a545f441ee37de1f58",
+      "size": 7939,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/14537d248f6cc4c66dc193a545f441ee37de1f58"
+    },
+    {
+      "path": "System Services/SystemServices.m",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "77d9922cd1ca714e44ceca22dd8ad2d8cafe804f",
+      "size": 37115,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/77d9922cd1ca714e44ceca22dd8ad2d8cafe804f"
+    },
+    {
+      "path": "System Services/Utilities",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6bc8384724b88a2ec3c9b0af052307e2c5f23f23",
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/trees/6bc8384724b88a2ec3c9b0af052307e2c5f23f23"
+    },
+    {
+      "path": "System Services/Utilities/SSAccelerometerInfo.h",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "af2fee6dea802b56b752567b25554b136af9e213",
+      "size": 1875,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/af2fee6dea802b56b752567b25554b136af9e213"
+    },
+    {
+      "path": "System Services/Utilities/SSAccelerometerInfo.m",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "9d4f1dbddc872347efa2957c220d81ebb46d388f",
+      "size": 6460,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/9d4f1dbddc872347efa2957c220d81ebb46d388f"
+    },
+    {
+      "path": "System Services/Utilities/SSAccessoryInfo.h",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "bfb4e1f5f9b420c8da98007f0b4a97f3529d45a8",
+      "size": 566,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/bfb4e1f5f9b420c8da98007f0b4a97f3529d45a8"
+    },
+    {
+      "path": "System Services/Utilities/SSAccessoryInfo.m",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "d86834e75e12c4df40f81f731f6c9eaf21021238",
+      "size": 4988,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/d86834e75e12c4df40f81f731f6c9eaf21021238"
+    },
+    {
+      "path": "System Services/Utilities/SSApplicationInfo.h",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "bcbc4f826fe1610c237f745e531ed15d2adc29e5",
+      "size": 475,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/bcbc4f826fe1610c237f745e531ed15d2adc29e5"
+    },
+    {
+      "path": "System Services/Utilities/SSApplicationInfo.m",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "4699790c14f40f59afdbc6f71e458f0921636b94",
+      "size": 3801,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/4699790c14f40f59afdbc6f71e458f0921636b94"
+    },
+    {
+      "path": "System Services/Utilities/SSBatteryInfo.h",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "8a11ca86238f17f57cee39ad9b21a868341634fd",
+      "size": 364,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/8a11ca86238f17f57cee39ad9b21a868341634fd"
+    },
+    {
+      "path": "System Services/Utilities/SSBatteryInfo.m",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "da73c51e624985a7a4a697b9249cff1ef48fa8e4",
+      "size": 2447,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/da73c51e624985a7a4a697b9249cff1ef48fa8e4"
+    },
+    {
+      "path": "System Services/Utilities/SSCarrierInfo.h",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "fdedbcc81cc260135d3cbec7f75f8cf45a15a96c",
+      "size": 650,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/fdedbcc81cc260135d3cbec7f75f8cf45a15a96c"
+    },
+    {
+      "path": "System Services/Utilities/SSCarrierInfo.m",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "818e9a4ead7641d1cf3ec59cfd9a2487d037851c",
+      "size": 5239,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/818e9a4ead7641d1cf3ec59cfd9a2487d037851c"
+    },
+    {
+      "path": "System Services/Utilities/SSDiskInfo.h",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "f9f166d0ea2d7c04b1ec8f0cc72688c856fad2bc",
+      "size": 609,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/f9f166d0ea2d7c04b1ec8f0cc72688c856fad2bc"
+    },
+    {
+      "path": "System Services/Utilities/SSDiskInfo.m",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "80d1a5d187fd37e7c93b338683c4dc8e3ef1665e",
+      "size": 8460,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/80d1a5d187fd37e7c93b338683c4dc8e3ef1665e"
+    },
+    {
+      "path": "System Services/Utilities/SSHardwareInfo.h",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "81405b846ede49c2f32c6b0845ae1e1337fbff69",
+      "size": 1206,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/81405b846ede49c2f32c6b0845ae1e1337fbff69"
+    },
+    {
+      "path": "System Services/Utilities/SSHardwareInfo.m",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "711c468eea18212de8daa96b0de22daa86f07aa8",
+      "size": 30677,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/711c468eea18212de8daa96b0de22daa86f07aa8"
+    },
+    {
+      "path": "System Services/Utilities/SSJailbreakCheck.h",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "6bc412390aeca3e247ca9e9821609211c5c228c8",
+      "size": 1605,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/6bc412390aeca3e247ca9e9821609211c5c228c8"
+    },
+    {
+      "path": "System Services/Utilities/SSJailbreakCheck.m",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "c733613814c83bcf2e61a26790b3f0b5d76693b7",
+      "size": 8862,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/c733613814c83bcf2e61a26790b3f0b5d76693b7"
+    },
+    {
+      "path": "System Services/Utilities/SSLocalizationInfo.h",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "9e957c4ab698650e99fcba91bce353d43c56cbf5",
+      "size": 454,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/9e957c4ab698650e99fcba91bce353d43c56cbf5"
+    },
+    {
+      "path": "System Services/Utilities/SSLocalizationInfo.m",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "fa1160a72ae52a73d58d9d1cf6dbfaa4a50d653a",
+      "size": 2491,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/fa1160a72ae52a73d58d9d1cf6dbfaa4a50d653a"
+    },
+    {
+      "path": "System Services/Utilities/SSMemoryInfo.h",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "b9e073dcd87d429570731a160911a4ae42e1a5b9",
+      "size": 633,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/b9e073dcd87d429570731a160911a4ae42e1a5b9"
+    },
+    {
+      "path": "System Services/Utilities/SSMemoryInfo.m",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "73bf65e0f4ba82330eb524545f7c05bf6a6c3cd8",
+      "size": 10360,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/73bf65e0f4ba82330eb524545f7c05bf6a6c3cd8"
+    },
+    {
+      "path": "System Services/Utilities/SSNetworkInfo.h",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "b768060faef2dc8500e29f7f179db08fe4b6e6f6",
+      "size": 1129,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/b768060faef2dc8500e29f7f179db08fe4b6e6f6"
+    },
+    {
+      "path": "System Services/Utilities/SSNetworkInfo.m",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "7652916e50bcd3ea3e87428824a00b628270eea5",
+      "size": 25529,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/7652916e50bcd3ea3e87428824a00b628270eea5"
+    },
+    {
+      "path": "System Services/Utilities/SSProcessInfo.h",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "8dc696de3f63256c846a8c00bd0ca1a2e0a52c57",
+      "size": 283,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/8dc696de3f63256c846a8c00bd0ca1a2e0a52c57"
+    },
+    {
+      "path": "System Services/Utilities/SSProcessInfo.m",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "cde82dea9084b077f1e31ca24f2a584edcb7566f",
+      "size": 642,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/cde82dea9084b077f1e31ca24f2a584edcb7566f"
+    },
+    {
+      "path": "System Services/Utilities/SSProcessorInfo.h",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "80ad9d401fc98c0af47b9ed0c29166da371cdf46",
+      "size": 481,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/80ad9d401fc98c0af47b9ed0c29166da371cdf46"
+    },
+    {
+      "path": "System Services/Utilities/SSProcessorInfo.m",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "518c5819c5a963d0ddca872a548b451c5753fa93",
+      "size": 4161,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/518c5819c5a963d0ddca872a548b451c5753fa93"
+    },
+    {
+      "path": "System Services/Utilities/SSUUID.h",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "bd12216c06b698a9d6515f22fd40b91d913aa1e3",
+      "size": 305,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/bd12216c06b698a9d6515f22fd40b91d913aa1e3"
+    },
+    {
+      "path": "System Services/Utilities/SSUUID.m",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "fbd64fcfdb177266836148fd0146ce25604cb056",
+      "size": 1628,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/fbd64fcfdb177266836148fd0146ce25604cb056"
+    },
+    {
+      "path": "System Services/Utilities/route.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eff8b1d98879bf47217bbdc9fcee09aef8ceb695",
+      "size": 10830,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/eff8b1d98879bf47217bbdc9fcee09aef8ceb695"
+    },
+    {
+      "path": "System Services/module.modulemap",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b4ad01d0f82cf19e2793792eb883c31cdf39274",
+      "size": 78,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/2b4ad01d0f82cf19e2793792eb883c31cdf39274"
+    },
+    {
+      "path": "SystemServices.podspec",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b74b2fdb83f5f9dd801fe9aa6423dd9aa23aadf4",
+      "size": 1420,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/b74b2fdb83f5f9dd801fe9aa6423dd9aa23aadf4"
+    },
+    {
+      "path": "SystemServicesDemo",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c2959c6cd5cfc7acef4459335b1a52ba01628ed9",
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/trees/c2959c6cd5cfc7acef4459335b1a52ba01628ed9"
+    },
+    {
+      "path": "SystemServicesDemo/Default-568h@2x.png",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "0891b7aabfcf3422423b109c8beed2bab838c607",
+      "size": 18594,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/0891b7aabfcf3422423b109c8beed2bab838c607"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo.xcodeproj",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b14de59ac5df79a28515b73ff2f97bb3b92d4bba",
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/trees/b14de59ac5df79a28515b73ff2f97bb3b92d4bba"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo.xcodeproj/project.pbxproj",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "fd7c37ef405a2531c1c8cbaadef5f0e063b77a89",
+      "size": 42413,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/fd7c37ef405a2531c1c8cbaadef5f0e063b77a89"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo.xcodeproj/project.xcworkspace",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b04824a7b22048692b7b28406d16efbc8d793cb6",
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/trees/b04824a7b22048692b7b28406d16efbc8d793cb6"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo.xcodeproj/project.xcworkspace/contents.xcworkspacedata",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "dcf4ca7f17914130e0f6917639418119ab527d34",
+      "size": 163,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/dcf4ca7f17914130e0f6917639418119ab527d34"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f13abcc0fde237c2fc0cd12e06124fcba3f1fdf5",
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/trees/f13abcc0fde237c2fc0cd12e06124fcba3f1fdf5"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/Gauges",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "291e34ce2bf5de0dec8baf3712902b0faa3064c3",
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/trees/291e34ce2bf5de0dec8baf3712902b0faa3064c3"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/Gauges/MSAnnotatedGauge.h",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "0ea8ba9dc6e9aa01c8c185c0003480bc85696e1f",
+      "size": 461,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/0ea8ba9dc6e9aa01c8c185c0003480bc85696e1f"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/Gauges/MSAnnotatedGauge.m",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "903585cbc7da78dbe511f8bf02a00fd1cb3298fa",
+      "size": 4182,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/903585cbc7da78dbe511f8bf02a00fd1cb3298fa"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/Gauges/MSArcLayer.h",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "2409c24f8812b6b92f19c7c325ab4ec3c05cbc7a",
+      "size": 698,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/2409c24f8812b6b92f19c7c325ab4ec3c05cbc7a"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/Gauges/MSArcLayer.m",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "5869cff44f93d537730e7eb6eaa3fba1d27c796e",
+      "size": 4089,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/5869cff44f93d537730e7eb6eaa3fba1d27c796e"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/Gauges/MSArcLayerSubclass.h",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "ef5a8adfb1b9307aafefe5924f99ce4e193c0146",
+      "size": 352,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/ef5a8adfb1b9307aafefe5924f99ce4e193c0146"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/Gauges/MSGradientArcLayer.h",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "6c7cfeefa1732f8a904c5d9143d5cfa3360d238a",
+      "size": 352,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/6c7cfeefa1732f8a904c5d9143d5cfa3360d238a"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/Gauges/MSGradientArcLayer.m",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "ba1492fdddfc5886a51c3f6fc6ee3d87a5a59dca",
+      "size": 1707,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/ba1492fdddfc5886a51c3f6fc6ee3d87a5a59dca"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/Gauges/MSNeedleView.h",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "616b1b772e4dcb7831d0679f4dffd3f05663476b",
+      "size": 252,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/616b1b772e4dcb7831d0679f4dffd3f05663476b"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/Gauges/MSNeedleView.m",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "17d6e407cf48c5a02b15fa39080f2b8444c1f3b7",
+      "size": 1498,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/17d6e407cf48c5a02b15fa39080f2b8444c1f3b7"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/Gauges/MSRangeGauge.h",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "50121c8c776119fe9d97c5844b8019eec796ec7d",
+      "size": 526,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/50121c8c776119fe9d97c5844b8019eec796ec7d"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/Gauges/MSRangeGauge.m",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "4d659fc93656ae0a0cb54e96e3cb7f7272bb430e",
+      "size": 2070,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/4d659fc93656ae0a0cb54e96e3cb7f7272bb430e"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/Gauges/MSSimpleGauge.h",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "4f1d0d4fd52e0f58682e37166093ac570e905b34",
+      "size": 1053,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/4f1d0d4fd52e0f58682e37166093ac570e905b34"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/Gauges/MSSimpleGauge.m",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "a88a4d7ce74d64e972b6ccb27c229fb550ea5b47",
+      "size": 8436,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/a88a4d7ce74d64e972b6ccb27c229fb550ea5b47"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/Gauges/MSSimpleGaugeSubclass.h",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "9a3aeea0856bd01155166d1fcc2e4912637a7355",
+      "size": 739,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/9a3aeea0856bd01155166d1fcc2e4912637a7355"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/Images",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f8deb99108bc0c8898582ffb22a636d6433bb3aa",
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/trees/f8deb99108bc0c8898582ffb22a636d6433bb3aa"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/Images/Disk.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dd21886c016f0c82a8cc862c4cd25f96ce38855f",
+      "size": 3518,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/dd21886c016f0c82a8cc862c4cd25f96ce38855f"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/Images/Disk@2x.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ecf3afd171eec30ff7de4f39be209383604513c",
+      "size": 4805,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/1ecf3afd171eec30ff7de4f39be209383604513c"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/Images/Hardware.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "af21cec8f9c0dbbd95ea46a5a04ff445cb6a1dbb",
+      "size": 3489,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/af21cec8f9c0dbbd95ea46a5a04ff445cb6a1dbb"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/Images/Hardware@2x.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1e57ab60e5a2ca1b02fe700f34d8239c0de9ba7b",
+      "size": 4534,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/1e57ab60e5a2ca1b02fe700f34d8239c0de9ba7b"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/Images/Memory.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4b6bac8d3dc557d723f4edec51ae68b7bb591fa4",
+      "size": 3920,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/4b6bac8d3dc557d723f4edec51ae68b7bb591fa4"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/Images/Memory@2x.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1c235f1ec78e5f28f9701bd735b597e65f279cca",
+      "size": 5837,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/1c235f1ec78e5f28f9701bd735b597e65f279cca"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/Images/Network.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "90749d3feea9bbf9492036731689e951ad06c884",
+      "size": 4731,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/90749d3feea9bbf9492036731689e951ad06c884"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/Images/Network@2x.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "97ae310e2efe07a24278762fac6785830c94c65c",
+      "size": 7566,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/97ae310e2efe07a24278762fac6785830c94c65c"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/PCPieChart.h",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "643123333a5ed6965adb5bbd9093c5c94de7a0fb",
+      "size": 2508,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/643123333a5ed6965adb5bbd9093c5c94de7a0fb"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/PCPieChart.m",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "7018af296cab6f6aa9700d87cbac19e1c826e5f5",
+      "size": 26603,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/7018af296cab6f6aa9700d87cbac19e1c826e5f5"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/SystemServicesDemo-Info.plist",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "8c63b9c168a0c67439c76a56df8aea411219eb08",
+      "size": 1446,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/8c63b9c168a0c67439c76a56df8aea411219eb08"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/SystemServicesDemo-Prefix.pch",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "5f294f333dc740e7eebb4780855b10e07e9e4677",
+      "size": 231,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/5f294f333dc740e7eebb4780855b10e07e9e4677"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/SystemServicesDemoAppDelegate.h",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "25d796cb2e9a20eb353c223289b6ab222ad5c60a",
+      "size": 324,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/25d796cb2e9a20eb353c223289b6ab222ad5c60a"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/SystemServicesDemoAppDelegate.m",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "47a3f4b97ceec5b3692c15bcf9d035dd7c6a9ba5",
+      "size": 2992,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/47a3f4b97ceec5b3692c15bcf9d035dd7c6a9ba5"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/SystemServicesDemoDiskViewController.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b5f62a32906a160e68fe2223aef71e04aabb2904",
+      "size": 497,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/b5f62a32906a160e68fe2223aef71e04aabb2904"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/SystemServicesDemoDiskViewController.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "24368cc2a46a6acf8eeb60f304a762a4b5f6b3ce",
+      "size": 5392,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/24368cc2a46a6acf8eeb60f304a762a4b5f6b3ce"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/SystemServicesDemoMemoryViewController.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d9c16962e6c17fce136bc9de69c10c98238ec156",
+      "size": 754,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/d9c16962e6c17fce136bc9de69c10c98238ec156"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/SystemServicesDemoMemoryViewController.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d247273e996f6d313cadb411e99ea3a9eefb7a22",
+      "size": 6548,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/d247273e996f6d313cadb411e99ea3a9eefb7a22"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/SystemServicesDemoNetworkViewController.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a7a6e1d924a2b17ba8b029fc18f68c7916032535",
+      "size": 365,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/a7a6e1d924a2b17ba8b029fc18f68c7916032535"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/SystemServicesDemoNetworkViewController.m",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "266ae1671c6e6faf0da7c9d078c96dad390ec939",
+      "size": 4292,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/266ae1671c6e6faf0da7c9d078c96dad390ec939"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/SystemServicesDemoViewController.h",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "45eca6ab79ab7a30e415e9f42f064f946a6d899f",
+      "size": 357,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/45eca6ab79ab7a30e415e9f42f064f946a6d899f"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/SystemServicesDemoViewController.m",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "9c48cc2dd060c1d10e6426302d14b7eb2626964e",
+      "size": 8483,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/9c48cc2dd060c1d10e6426302d14b7eb2626964e"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/en.lproj",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c8d79d4b08392de8213c5bec3e6a58ef66f7994c",
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/trees/c8d79d4b08392de8213c5bec3e6a58ef66f7994c"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/en.lproj/InfoPlist.strings",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "477b28ff8f86a3158a71c4934fbd3a2456717d7a",
+      "size": 45,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/477b28ff8f86a3158a71c4934fbd3a2456717d7a"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/en.lproj/MainStoryboard.storyboard",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "4fa9d2d4ae115afd79482b6489b5b47b568d463e",
+      "size": 14364,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/4fa9d2d4ae115afd79482b6489b5b47b568d463e"
+    },
+    {
+      "path": "SystemServicesDemo/SystemServicesDemo/main.m",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "9913f8a4c234cf3694422b65e0484489fc694e99",
+      "size": 383,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/9913f8a4c234cf3694422b65e0484489fc694e99"
+    },
+    {
+      "path": "SystemServicesDemo/icon.png",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "dd1b74cbfce67c6f7b39ea8158d05f41ed78aeeb",
+      "size": 7218,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/dd1b74cbfce67c6f7b39ea8158d05f41ed78aeeb"
+    },
+    {
+      "path": "SystemServicesDemo/icon@2x.png",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "4c16ed5f1a8db02b8ea24355e3582b0374a27266",
+      "size": 19232,
+      "url": "https://api.github.com/repos/Shmoopi/iOS-System-Services/git/blobs/4c16ed5f1a8db02b8ea24355e3582b0374a27266"
+    }
+  ],
+  "truncated": false
+}

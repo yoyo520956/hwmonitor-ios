@@ -1,0 +1,691 @@
+{
+  "sha": "326b3517925567292ab30908d067638f932b0587",
+  "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/trees/326b3517925567292ab30908d067638f932b0587",
+  "tree": [
+    {
+      "path": ".claude",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b4b2efd09854669a91d1be8708c73b1305efb807",
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/trees/b4b2efd09854669a91d1be8708c73b1305efb807"
+    },
+    {
+      "path": ".claude/skills",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b3fa6b89323d9e2bd856396d5e08bfd65475a4ba",
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/trees/b3fa6b89323d9e2bd856396d5e08bfd65475a4ba"
+    },
+    {
+      "path": ".claude/skills/add-language",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a4f19e037781619046bb9eb94ee25f23431fea43",
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/trees/a4f19e037781619046bb9eb94ee25f23431fea43"
+    },
+    {
+      "path": ".claude/skills/add-language/SKILL.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ad17d30104fa0e61b6e2f9e818d01c7d49211b6f",
+      "size": 13910,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/ad17d30104fa0e61b6e2f9e818d01c7d49211b6f"
+    },
+    {
+      "path": ".claude/skills/add-language/references",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a8ff5645d18b10a8482bc06f6bc1283a80d2ee78",
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/trees/a8ff5645d18b10a8482bc06f6bc1283a80d2ee78"
+    },
+    {
+      "path": ".claude/skills/add-language/references/keys.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5951ea4b42f95a34beaad880d8c68e34fd003dfb",
+      "size": 5002,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/5951ea4b42f95a34beaad880d8c68e34fd003dfb"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "96b1843374541365be9a00436f2bae640de87ebf",
+      "size": 112,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/96b1843374541365be9a00436f2bae640de87ebf"
+    },
+    {
+      "path": "CLAUDE.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6b59c51a773b239a51ce90970966d40ee50cf6f0",
+      "size": 11485,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/6b59c51a773b239a51ce90970966d40ee50cf6f0"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6311739057b58338cc97f14b267aa41d11d00d77",
+      "size": 10767,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/6311739057b58338cc97f14b267aa41d11d00d77"
+    },
+    {
+      "path": "MeasuredValues",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8f870f7c335b8ae7fed443dba9042b6eadb102e7",
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/trees/8f870f7c335b8ae7fed443dba9042b6eadb102e7"
+    },
+    {
+      "path": "MeasuredValues/AppleSmartBattery",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "cd49f6f3297bfef679a96622c2bd24a97fe30352",
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/trees/cd49f6f3297bfef679a96622c2bd24a97fe30352"
+    },
+    {
+      "path": "MeasuredValues/AppleSmartBattery/MacBook_Air_M2_macOS_27_appleAdapter.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1816cbd614f2a2cd7d363146dce167b538069ce2",
+      "size": 3539,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/1816cbd614f2a2cd7d363146dce167b538069ce2"
+    },
+    {
+      "path": "MeasuredValues/AppleSmartBattery/MacBook_Air_M3_macOS_27_unknownAdapter.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f2784cb91ea0aa8e76e6999104aeecef8cfc2046",
+      "size": 3363,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/f2784cb91ea0aa8e76e6999104aeecef8cfc2046"
+    },
+    {
+      "path": "MeasuredValues/AppleSmartBattery/MacBook_Air_M4_macOS_26_appleAdapter.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "85035db05b6adc069bf98d3b0af2475b4972b3dc",
+      "size": 5978,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/85035db05b6adc069bf98d3b0af2475b4972b3dc"
+    },
+    {
+      "path": "MeasuredValues/AppleSmartBattery/MacBook_Pro_M1_Pro_macOS_15_appleAdapter.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "450c75a20401f5e8512bdd731f5d1696efedcaaa",
+      "size": 6018,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/450c75a20401f5e8512bdd731f5d1696efedcaaa"
+    },
+    {
+      "path": "MeasuredValues/AppleSmartBattery/MacBook_Pro_M2_Max_macOS_15_onBattery.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a9b346241710e26dfdd4743f7667bd03e565fa9f",
+      "size": 5898,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/a9b346241710e26dfdd4743f7667bd03e565fa9f"
+    },
+    {
+      "path": "MeasuredValues/AppleSmartBattery/MacBook_Pro_M2_Pro_macOS_26_appleAdapter.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2104b271e4fa9f105ce10e08ed66fffd9f76098d",
+      "size": 5918,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/2104b271e4fa9f105ce10e08ed66fffd9f76098d"
+    },
+    {
+      "path": "MeasuredValues/AppleSmartBattery/MacBook_Pro_M4_Max_macOS_26_appleAdapter.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ad98065120e6355597c7815a3a0d009270f37d32",
+      "size": 5948,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/ad98065120e6355597c7815a3a0d009270f37d32"
+    },
+    {
+      "path": "MeasuredValues/AppleSmartBattery/MacBook_Pro_M4_Max_macOS_26_onBattery.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "158d4e95aa98d287664a6efdf563df2ad83abd28",
+      "size": 5122,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/158d4e95aa98d287664a6efdf563df2ad83abd28"
+    },
+    {
+      "path": "MeasuredValues/AppleSmartBattery/MacBook_Pro_M4_Pro_macOS_15_onBattery.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "246f83914d04caf9a625031df857d6bbd889294d",
+      "size": 5059,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/246f83914d04caf9a625031df857d6bbd889294d"
+    },
+    {
+      "path": "MeasuredValues/AppleSmartBattery/MacBook_Pro_M4_Pro_macOS_26_unknownAdapter.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e9f22322ebf6558b2d4bb32c058b76472fb73277",
+      "size": 7099,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/e9f22322ebf6558b2d4bb32c058b76472fb73277"
+    },
+    {
+      "path": "MeasuredValues/AppleSmartBattery/MacBook_Pro_M5_macOS_26_appleAdapter.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "12c0df9a772ddef59488a373824c2e5000248bfa",
+      "size": 5954,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/12c0df9a772ddef59488a373824c2e5000248bfa"
+    },
+    {
+      "path": "MeasuredValues/AppleSmartBattery/Mac_Studio_M4_Max_macOS_26_noBattery.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d7e6638692d94052db2184bcc9921984983949de",
+      "size": 1377,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/d7e6638692d94052db2184bcc9921984983949de"
+    },
+    {
+      "path": "MeasuredValues/AppleSmartBattery/Mac_mini_M4_macOS_26_noBattery.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dfba4a37d4f2b9e2147929a97f63d292c7d702d0",
+      "size": 543,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/dfba4a37d4f2b9e2147929a97f63d292c7d702d0"
+    },
+    {
+      "path": "MeasuredValues/AppleSmartBatteryPack",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "be1246c9d24ba39ad063e4e2ba2a14c7ddc747fe",
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/trees/be1246c9d24ba39ad063e4e2ba2a14c7ddc747fe"
+    },
+    {
+      "path": "MeasuredValues/AppleSmartBatteryPack/MacBook_Air_M2_macOS_27_appleAdapter.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ee4364e513adbcf278e9a55c9b7214588dabc2f2",
+      "size": 2261,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/ee4364e513adbcf278e9a55c9b7214588dabc2f2"
+    },
+    {
+      "path": "MeasuredValues/AppleSmartBatteryPack/MacBook_Air_M3_macOS_27_unknownAdapter.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ac6e6f5688d7862dba2b4f9bc3555525d4b9474b",
+      "size": 2205,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/ac6e6f5688d7862dba2b4f9bc3555525d4b9474b"
+    },
+    {
+      "path": "MeasuredValues/KeyMatrix.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "76d19b77df6fd08b9771bc64fb54cd6979b7802d",
+      "size": 23552,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/76d19b77df6fd08b9771bc64fb54cd6979b7802d"
+    },
+    {
+      "path": "MeasuredValues/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b49338ff6d64175282ea686ccf1e9d930d291f2c",
+      "size": 6174,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/b49338ff6d64175282ea686ccf1e9d930d291f2c"
+    },
+    {
+      "path": "MeasuredValues/normalize.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "af6b986a01551b5172958c409e053e3cef468fef",
+      "size": 8433,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/af6b986a01551b5172958c409e053e3cef468fef"
+    },
+    {
+      "path": "Package.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3b195aeb9eb1f5acc8d7307140ece36331f0252f",
+      "size": 749,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/3b195aeb9eb1f5acc8d7307140ece36331f0252f"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "40e4f48e871e472b07a3cfa92eae6ddb6cbfec2a",
+      "size": 4273,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/40e4f48e871e472b07a3cfa92eae6ddb6cbfec2a"
+    },
+    {
+      "path": "Sources",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "907897f5c8b002cf9bd843bc64cc5c3309b2a1d2",
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/trees/907897f5c8b002cf9bd843bc64cc5c3309b2a1d2"
+    },
+    {
+      "path": "Sources/SystemInfoKit",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "692baeebe372f4243d46c90aa50d008c40057030",
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/trees/692baeebe372f4243d46c90aa50d008c40057030"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Dependencies",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ef044e0cad3efa0c488355891978275edf0b1fcb",
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/trees/ef044e0cad3efa0c488355891978275edf0b1fcb"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Dependencies/Dependencies.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "06b2434f92e0314fab53aa145f914617cc3efe0a",
+      "size": 1848,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/06b2434f92e0314fab53aa145f914617cc3efe0a"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Dependencies/DependencyClient.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e2d1419aebe14100020cb59fc39ec45e1d10a6e5",
+      "size": 333,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/e2d1419aebe14100020cb59fc39ec45e1d10a6e5"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Dependencies/HostClient.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9ca30c17882a464f0b2efdb00ccf587a906ce814",
+      "size": 1255,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/9ca30c17882a464f0b2efdb00ccf587a906ce814"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Dependencies/IOKitClient.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e513739ba4d145ad6fcee1bf3c8ecf7ba692a13c",
+      "size": 963,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/e513739ba4d145ad6fcee1bf3c8ecf7ba692a13c"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Dependencies/NWPathMonitorClient.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "13c01b7d008ec405e8f2a2bb0543fd45a6e828d3",
+      "size": 1051,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/13c01b7d008ec405e8f2a2bb0543fd45a6e828d3"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Dependencies/POSIXClient.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6baf61d807f5e00644fd3089afaa1ec3bc1f9dc4",
+      "size": 738,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/6baf61d807f5e00644fd3089afaa1ec3bc1f9dc4"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Dependencies/StateClient.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa52a02803114068ad8da4b02c4b6229fe2f6127",
+      "size": 952,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/aa52a02803114068ad8da4b02c4b6229fe2f6127"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Dependencies/UIDeviceClient.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d93349726c2c2ff1847b8b67be660bd53e1cdba7",
+      "size": 799,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/d93349726c2c2ff1847b8b67be660bd53e1cdba7"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Dependencies/URLResourceValuesClient.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5312c4d8702a4cc5afef430cf98a8ebc6ceb3f07",
+      "size": 570,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/5312c4d8702a4cc5afef430cf98a8ebc6ceb3f07"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Entities",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e6adde5eaa2c571e6209de3c76448d61d5f6b22d",
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/trees/e6adde5eaa2c571e6209de3c76448d61d5f6b22d"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Entities/Info",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9942bfc717d06b2aba5ea58f63e432601dc80d8e",
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/trees/9942bfc717d06b2aba5ea58f63e432601dc80d8e"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Entities/Info/BatteryInfo.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "298865106879a246c389fd26034f756122e12610",
+      "size": 5331,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/298865106879a246c389fd26034f756122e12610"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Entities/Info/CPUInfo.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "44dafa6b6a6179c751d31db3890f8a5b7c5d13d3",
+      "size": 1577,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/44dafa6b6a6179c751d31db3890f8a5b7c5d13d3"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Entities/Info/MemoryInfo.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6bbbbeb830b42214058ce6908107e6d2baff55d1",
+      "size": 1904,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/6bbbbeb830b42214058ce6908107e6d2baff55d1"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Entities/Info/NetworkInfo.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7abcec7ec15026999e57bb90fcb68322ed6f6d80",
+      "size": 2627,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/7abcec7ec15026999e57bb90fcb68322ed6f6d80"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Entities/Info/StorageInfo.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f75d74f32af2494fb670f4767bb8476df1996038",
+      "size": 1498,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/f75d74f32af2494fb670f4767bb8476df1996038"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Entities/Info/SystemInfo.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "72173bc0c4db4ab194a790f054b4bf9d0ed80275",
+      "size": 481,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/72173bc0c4db4ab194a790f054b4bf9d0ed80275"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Entities/Language.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7bd6ce7d613e021216d80642bed3d972c4571848",
+      "size": 1325,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/7bd6ce7d613e021216d80642bed3d972c4571848"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Entities/State.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bbea53bc8c15fe36590d1c0255acaf4f6ce65e48",
+      "size": 308,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/bbea53bc8c15fe36590d1c0255acaf4f6ce65e48"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Entities/SystemInfoBundle.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3511bbc17f05c918bd0785a65d16404ce40352a7",
+      "size": 643,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/3511bbc17f05c918bd0785a65d16404ce40352a7"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Entities/SystemInfoType.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ea266af841e6b7336733afdd82b883c590eec51e",
+      "size": 860,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/ea266af841e6b7336733afdd82b883c590eec51e"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Entities/Values",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a11cb2e303121eab74424fb524b668bbc8f07d93",
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/trees/a11cb2e303121eab74424fb524b668bbc8f07d93"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Entities/Values/ByteData.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e9d18940f83373fa0dc25e88a488ddb610b73910",
+      "size": 1455,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/e9d18940f83373fa0dc25e88a488ddb610b73910"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Entities/Values/DataTraffic.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a318b1e2f503093eff3c3b73014e43a15b03d83d",
+      "size": 457,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/a318b1e2f503093eff3c3b73014e43a15b03d83d"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Entities/Values/NetworkInterface.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7fe7fc690aa78111cf0944819e6e27b99e1237e7",
+      "size": 128,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/7fe7fc690aa78111cf0944819e6e27b99e1237e7"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Entities/Values/Percentage.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "53fed2da38dbcf24d48aa996ae18b0ffbc2effb8",
+      "size": 909,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/53fed2da38dbcf24d48aa996ae18b0ffbc2effb8"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Entities/Values/Temperature.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "685ea36b98888b7bc8d91b410cfee40d8a8764cf",
+      "size": 687,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/685ea36b98888b7bc8d91b410cfee40d8a8764cf"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Extensions",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ef256c74848f898583cc47dfe79698f4ee680425",
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/trees/ef256c74848f898583cc47dfe79698f4ee680425"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Extensions/String+Extension.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a4579187805616814bea1ba30e74c2db5816f5c1",
+      "size": 864,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/a4579187805616814bea1ba30e74c2db5816f5c1"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Localizable.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b6d572c0ac53acd176a75e1f9f679a4682c8b5c2",
+      "size": 532,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/b6d572c0ac53acd176a75e1f9f679a4682c8b5c2"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Repositories",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "46ec2111dffd5b6605e8c37752eb6342227da1d0",
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/trees/46ec2111dffd5b6605e8c37752eb6342227da1d0"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Repositories/BatteryRepository.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d4a50c213a8ae8a52fdc7d191634369b0d1c7aab",
+      "size": 5503,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/d4a50c213a8ae8a52fdc7d191634369b0d1c7aab"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Repositories/CPURepository.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "edfc27e4ae6425ff96d37cc762591f380d72e751",
+      "size": 2532,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/edfc27e4ae6425ff96d37cc762591f380d72e751"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Repositories/MemoryRepository.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2db45d7333ae53c715154e174c7fdc41f9f5f0a6",
+      "size": 3385,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/2db45d7333ae53c715154e174c7fdc41f9f5f0a6"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Repositories/NetworkRepository.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "446c8c022ed481622a9da16e38c0823ac027cdf4",
+      "size": 4883,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/446c8c022ed481622a9da16e38c0823ac027cdf4"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Repositories/StorageRepository.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ab451d3edc6a3fe1a0085c78a692cfe049519e57",
+      "size": 1654,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/ab451d3edc6a3fe1a0085c78a692cfe049519e57"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Repositories/SystemRepository.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "29c07e3fc727860245666296a5a0b8167e62176a",
+      "size": 339,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/29c07e3fc727860245666296a5a0b8167e62176a"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Resources",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "575500f728f313d116b4a3f2837eaa0a719fc78f",
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/trees/575500f728f313d116b4a3f2837eaa0a719fc78f"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Resources/Localizable.xcstrings",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "97226d9b7ff7faa31d5f0133603526ab67b4a9a3",
+      "size": 39513,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/97226d9b7ff7faa31d5f0133603526ab67b4a9a3"
+    },
+    {
+      "path": "Sources/SystemInfoKit/Resources/PrivacyInfo.xcprivacy",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c9007e9244a9e5ff59a1b9d72fae15aa82b2ad5a",
+      "size": 595,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/c9007e9244a9e5ff59a1b9d72fae15aa82b2ad5a"
+    },
+    {
+      "path": "Sources/SystemInfoKit/SystemInfoObserver.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "afb109ee000657afae019f430991190feffd97a0",
+      "size": 3311,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/afb109ee000657afae019f430991190feffd97a0"
+    },
+    {
+      "path": "Tests",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7ce33b9e116d59cf3d1ba3197fd157f4111989f2",
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/trees/7ce33b9e116d59cf3d1ba3197fd157f4111989f2"
+    },
+    {
+      "path": "Tests/SystemInfoKitTests",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "31b3b90ac584e8395858bbec37b285ab0a6163e1",
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/trees/31b3b90ac584e8395858bbec37b285ab0a6163e1"
+    },
+    {
+      "path": "Tests/SystemInfoKitTests/EntityTests",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f435849fdeadd59cde45b4faaba8a75705753c84",
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/trees/f435849fdeadd59cde45b4faaba8a75705753c84"
+    },
+    {
+      "path": "Tests/SystemInfoKitTests/EntityTests/ByteDataTests.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "96e0f6066b86d7d468563c0a1a94c77b31b94401",
+      "size": 3494,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/96e0f6066b86d7d468563c0a1a94c77b31b94401"
+    },
+    {
+      "path": "Tests/SystemInfoKitTests/EntityTests/PercentageTests.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4b64d0ecd5cc1f6f511c59dd367ab5c42510b4b3",
+      "size": 1159,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/4b64d0ecd5cc1f6f511c59dd367ab5c42510b4b3"
+    },
+    {
+      "path": "Tests/SystemInfoKitTests/RepositoryTests",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6343ccb1100aa9d40ab13088111ed022fda1026b",
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/trees/6343ccb1100aa9d40ab13088111ed022fda1026b"
+    },
+    {
+      "path": "Tests/SystemInfoKitTests/RepositoryTests/BatteryRepositoryTests.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d9b6085486d35fb8fa70fb90f2d092df09e1e8be",
+      "size": 13484,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/d9b6085486d35fb8fa70fb90f2d092df09e1e8be"
+    },
+    {
+      "path": "Tests/SystemInfoKitTests/RepositoryTests/CPURepositoryTests.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "783b53be43d7b5328ae17de996bf6b0d1d411b04",
+      "size": 2834,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/783b53be43d7b5328ae17de996bf6b0d1d411b04"
+    },
+    {
+      "path": "Tests/SystemInfoKitTests/RepositoryTests/MemoryRepositoryTests.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c0d1bf17cfd2ce4e89ac031ff924b15f8a6a49bc",
+      "size": 3233,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/c0d1bf17cfd2ce4e89ac031ff924b15f8a6a49bc"
+    },
+    {
+      "path": "Tests/SystemInfoKitTests/RepositoryTests/NetworkRepositoryTests.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b58022e857b8e35a43cbf65df6b1382afd5d943a",
+      "size": 4092,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/b58022e857b8e35a43cbf65df6b1382afd5d943a"
+    },
+    {
+      "path": "Tests/SystemInfoKitTests/RepositoryTests/StorageRepositoryTests.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7fa9fe4e33976b18b843528bb28aeb99fae009e7",
+      "size": 1301,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/7fa9fe4e33976b18b843528bb28aeb99fae009e7"
+    },
+    {
+      "path": "Tests/SystemInfoKitTests/SystemInfoObserverTests.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6904fc48fa6cc69cc94d8e858cfe10c412e4634c",
+      "size": 1741,
+      "url": "https://api.github.com/repos/Kyome22/SystemInfoKit/git/blobs/6904fc48fa6cc69cc94d8e858cfe10c412e4634c"
+    }
+  ],
+  "truncated": false
+}

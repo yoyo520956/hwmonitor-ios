@@ -1,0 +1,4 @@
+app/build/
+app/HWMonitor.xcodeproj/
+*.ipa
+appicon_1024.png

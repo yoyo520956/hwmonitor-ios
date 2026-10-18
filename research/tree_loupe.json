@@ -1,0 +1,2214 @@
+{
+  "sha": "2262efd4456ecba802e1c69f6012859b92eec969",
+  "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/2262efd4456ecba802e1c69f6012859b92eec969",
+  "tree": [
+    {
+      "path": ".github",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8d39386731fa4a2bae9d53b8b8d517c1fea51a44",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/8d39386731fa4a2bae9d53b8b8d517c1fea51a44"
+    },
+    {
+      "path": ".github/FUNDING.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5ee7188d96be33f5d7f1b9459545c86b1b6d1e0c",
+      "size": 87,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/5ee7188d96be33f5d7f1b9459545c86b1b6d1e0c"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2a3a1394d13d7464d48967aef78e204bda708b0e",
+      "size": 658,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/2a3a1394d13d7464d48967aef78e204bda708b0e"
+    },
+    {
+      "path": "AGENTS.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ff7ea5ca2602d23cfea70f4ebc2a2a70c09f66bd",
+      "size": 19548,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/ff7ea5ca2602d23cfea70f4ebc2a2a70c09f66bd"
+    },
+    {
+      "path": "Gemfile",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a118b49be750543e59f7b9c55123e11322b00c6",
+      "size": 46,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/7a118b49be750543e59f7b9c55123e11322b00c6"
+    },
+    {
+      "path": "Gemfile.lock",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "067f575ac37cd95c110b864407b8a7adbb5a3a43",
+      "size": 6313,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/067f575ac37cd95c110b864407b8a7adbb5a3a43"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a008d3fa2beafe234e31fe2f589e32c415809f92",
+      "size": 1584,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/a008d3fa2beafe234e31fe2f589e32c415809f92"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "646490b340db2dd22ad8b3a145472487370b81ec",
+      "size": 3421,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/646490b340db2dd22ad8b3a145472487370b81ec"
+    },
+    {
+      "path": "app-store",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3421cfc47352b87b4ca39255db956db841328524",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/3421cfc47352b87b4ca39255db956db841328524"
+    },
+    {
+      "path": "app-store/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b3c5e53752f1ed1112347a408b603edfdd58e92b",
+      "size": 4654,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/b3c5e53752f1ed1112347a408b603edfdd58e92b"
+    },
+    {
+      "path": "app-store/metadata",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "43b8e65d68b0236191742de3f0a54d3b7c8b0ce0",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/43b8e65d68b0236191742de3f0a54d3b7c8b0ce0"
+    },
+    {
+      "path": "app-store/metadata/ar-SA",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "cc9c574e69e326ec85f0e1905ebefeefe8293a72",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/cc9c574e69e326ec85f0e1905ebefeefe8293a72"
+    },
+    {
+      "path": "app-store/metadata/ar-SA/description.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e3a400e8b3632a19bfef159b634e167f156c0eac",
+      "size": 3668,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/e3a400e8b3632a19bfef159b634e167f156c0eac"
+    },
+    {
+      "path": "app-store/metadata/ar-SA/keywords.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "08bb9532f372cd46ab105f6590b677d80f32dcdf",
+      "size": 165,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/08bb9532f372cd46ab105f6590b677d80f32dcdf"
+    },
+    {
+      "path": "app-store/metadata/ar-SA/marketing_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d9a8990bda5d4564ea6004d1ae40e557f2431c5",
+      "size": 15,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/2d9a8990bda5d4564ea6004d1ae40e557f2431c5"
+    },
+    {
+      "path": "app-store/metadata/ar-SA/name.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ba0e5c8e3986372ccc651b0bfb719fd5b833386d",
+      "size": 39,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/ba0e5c8e3986372ccc651b0bfb719fd5b833386d"
+    },
+    {
+      "path": "app-store/metadata/ar-SA/promotional_text.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0d47b93ec3512112f57c7630bffd0df9b6e503b2",
+      "size": 235,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/0d47b93ec3512112f57c7630bffd0df9b6e503b2"
+    },
+    {
+      "path": "app-store/metadata/ar-SA/release_notes.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "163af47ed04920a9342960b170a7910dbce1d8b6",
+      "size": 395,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/163af47ed04920a9342960b170a7910dbce1d8b6"
+    },
+    {
+      "path": "app-store/metadata/ar-SA/subtitle.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6137c17aa4a59025c8777dda5136ae7f3f9af743",
+      "size": 40,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/6137c17aa4a59025c8777dda5136ae7f3f9af743"
+    },
+    {
+      "path": "app-store/metadata/ar-SA/support_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d175e6643a1b243c41da91c03e139e0568c14939",
+      "size": 23,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/d175e6643a1b243c41da91c03e139e0568c14939"
+    },
+    {
+      "path": "app-store/metadata/copyright.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8e818336da3cb571ea1ff87361bcd8e9a55480f5",
+      "size": 4,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/8e818336da3cb571ea1ff87361bcd8e9a55480f5"
+    },
+    {
+      "path": "app-store/metadata/de-DE",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b4ea97131fd61ce0ead68d3a41839e7b41d06a1f",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/b4ea97131fd61ce0ead68d3a41839e7b41d06a1f"
+    },
+    {
+      "path": "app-store/metadata/de-DE/description.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "798096217b19e7f66cf5e2597ba70db8428ea987",
+      "size": 2208,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/798096217b19e7f66cf5e2597ba70db8428ea987"
+    },
+    {
+      "path": "app-store/metadata/de-DE/keywords.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "be522928cae89081e08f0c05e1445db0a85d0640",
+      "size": 98,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/be522928cae89081e08f0c05e1445db0a85d0640"
+    },
+    {
+      "path": "app-store/metadata/de-DE/marketing_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d9a8990bda5d4564ea6004d1ae40e557f2431c5",
+      "size": 15,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/2d9a8990bda5d4564ea6004d1ae40e557f2431c5"
+    },
+    {
+      "path": "app-store/metadata/de-DE/name.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "18643ac5050a3c7fc4c929c2830e1e732890bb85",
+      "size": 29,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/18643ac5050a3c7fc4c929c2830e1e732890bb85"
+    },
+    {
+      "path": "app-store/metadata/de-DE/promotional_text.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9b624f7fdde7524b40787e28c262e5813212a26e",
+      "size": 139,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/9b624f7fdde7524b40787e28c262e5813212a26e"
+    },
+    {
+      "path": "app-store/metadata/de-DE/release_notes.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7b6a66bc943f47d9992fce04d56301949fce7255",
+      "size": 321,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/7b6a66bc943f47d9992fce04d56301949fce7255"
+    },
+    {
+      "path": "app-store/metadata/de-DE/subtitle.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "85da410520f734679a348b17180c86ff7bcbfed1",
+      "size": 22,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/85da410520f734679a348b17180c86ff7bcbfed1"
+    },
+    {
+      "path": "app-store/metadata/de-DE/support_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d175e6643a1b243c41da91c03e139e0568c14939",
+      "size": 23,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/d175e6643a1b243c41da91c03e139e0568c14939"
+    },
+    {
+      "path": "app-store/metadata/en-CA",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9b785b7aac023c96f96bd088ba5f14841d90a78d",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/9b785b7aac023c96f96bd088ba5f14841d90a78d"
+    },
+    {
+      "path": "app-store/metadata/en-CA/description.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "620217dd509bd3b0504161d3431cc1609ee59a03",
+      "size": 1847,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/620217dd509bd3b0504161d3431cc1609ee59a03"
+    },
+    {
+      "path": "app-store/metadata/en-CA/keywords.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "60c7d7d4030cfe72c795640b97af764e3d037da1",
+      "size": 99,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/60c7d7d4030cfe72c795640b97af764e3d037da1"
+    },
+    {
+      "path": "app-store/metadata/en-CA/marketing_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d9a8990bda5d4564ea6004d1ae40e557f2431c5",
+      "size": 15,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/2d9a8990bda5d4564ea6004d1ae40e557f2431c5"
+    },
+    {
+      "path": "app-store/metadata/en-CA/name.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1359cb229679dd3299a66cd85db060c52b91b746",
+      "size": 24,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/1359cb229679dd3299a66cd85db060c52b91b746"
+    },
+    {
+      "path": "app-store/metadata/en-CA/promotional_text.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "82f0f12b24b2bb17b070a0751ba82a07db8ba08e",
+      "size": 143,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/82f0f12b24b2bb17b070a0751ba82a07db8ba08e"
+    },
+    {
+      "path": "app-store/metadata/en-CA/release_notes.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4d2721504aedb2f1a3b00a9484fd6703d3709b9f",
+      "size": 278,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/4d2721504aedb2f1a3b00a9484fd6703d3709b9f"
+    },
+    {
+      "path": "app-store/metadata/en-CA/subtitle.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d4226da1c266031224af2fdf81152750da189720",
+      "size": 24,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/d4226da1c266031224af2fdf81152750da189720"
+    },
+    {
+      "path": "app-store/metadata/en-CA/support_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d175e6643a1b243c41da91c03e139e0568c14939",
+      "size": 23,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/d175e6643a1b243c41da91c03e139e0568c14939"
+    },
+    {
+      "path": "app-store/metadata/es-ES",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f4409b8bbedb38251da7994d90e9f9df0661ef52",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/f4409b8bbedb38251da7994d90e9f9df0661ef52"
+    },
+    {
+      "path": "app-store/metadata/es-ES/description.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4d938d42fa9c2843965298976ed9f4b4e11b3741",
+      "size": 2133,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/4d938d42fa9c2843965298976ed9f4b4e11b3741"
+    },
+    {
+      "path": "app-store/metadata/es-ES/keywords.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "84046a5e89c036fdd6fa95f185d42a6dbcccf4e4",
+      "size": 100,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/84046a5e89c036fdd6fa95f185d42a6dbcccf4e4"
+    },
+    {
+      "path": "app-store/metadata/es-ES/marketing_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d9a8990bda5d4564ea6004d1ae40e557f2431c5",
+      "size": 15,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/2d9a8990bda5d4564ea6004d1ae40e557f2431c5"
+    },
+    {
+      "path": "app-store/metadata/es-ES/name.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b1d92dd7f226a319e8cd5d081efd02cc11a0e3fd",
+      "size": 27,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/b1d92dd7f226a319e8cd5d081efd02cc11a0e3fd"
+    },
+    {
+      "path": "app-store/metadata/es-ES/promotional_text.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6ffa939c974b8024422f4539ddf43fbd1d0c285f",
+      "size": 142,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/6ffa939c974b8024422f4539ddf43fbd1d0c285f"
+    },
+    {
+      "path": "app-store/metadata/es-ES/release_notes.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f6de41d76dab5738e293db0df3f554051be55e30",
+      "size": 301,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/f6de41d76dab5738e293db0df3f554051be55e30"
+    },
+    {
+      "path": "app-store/metadata/es-ES/subtitle.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f7ab691f253666be21e704d6370702b5022ac808",
+      "size": 32,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/f7ab691f253666be21e704d6370702b5022ac808"
+    },
+    {
+      "path": "app-store/metadata/es-ES/support_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d175e6643a1b243c41da91c03e139e0568c14939",
+      "size": 23,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/d175e6643a1b243c41da91c03e139e0568c14939"
+    },
+    {
+      "path": "app-store/metadata/fr-FR",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ae8c167c19d1118cc2d33fa114356af12b14bd66",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/ae8c167c19d1118cc2d33fa114356af12b14bd66"
+    },
+    {
+      "path": "app-store/metadata/fr-FR/description.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "03edf0c3339055ca2040eefb21d00034c9098443",
+      "size": 2300,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/03edf0c3339055ca2040eefb21d00034c9098443"
+    },
+    {
+      "path": "app-store/metadata/fr-FR/keywords.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c64dcca69a2b23a7f64bcd3bcbe945d3139072a9",
+      "size": 99,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/c64dcca69a2b23a7f64bcd3bcbe945d3139072a9"
+    },
+    {
+      "path": "app-store/metadata/fr-FR/marketing_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d9a8990bda5d4564ea6004d1ae40e557f2431c5",
+      "size": 15,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/2d9a8990bda5d4564ea6004d1ae40e557f2431c5"
+    },
+    {
+      "path": "app-store/metadata/fr-FR/name.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a2c19065dbf002727e15dd35f36786d0d9433ff0",
+      "size": 30,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/a2c19065dbf002727e15dd35f36786d0d9433ff0"
+    },
+    {
+      "path": "app-store/metadata/fr-FR/promotional_text.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4969a2de35b4678096131626dbb771b2b2e31e69",
+      "size": 146,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/4969a2de35b4678096131626dbb771b2b2e31e69"
+    },
+    {
+      "path": "app-store/metadata/fr-FR/release_notes.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "678654983baf97fe34d55c00f567866b97ec6d25",
+      "size": 316,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/678654983baf97fe34d55c00f567866b97ec6d25"
+    },
+    {
+      "path": "app-store/metadata/fr-FR/subtitle.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c686b5c93e90b296b873f2e542b7b974385734c8",
+      "size": 30,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/c686b5c93e90b296b873f2e542b7b974385734c8"
+    },
+    {
+      "path": "app-store/metadata/fr-FR/support_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d175e6643a1b243c41da91c03e139e0568c14939",
+      "size": 23,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/d175e6643a1b243c41da91c03e139e0568c14939"
+    },
+    {
+      "path": "app-store/metadata/it",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "43b4e05413b79c261908ebe5a70437ebd6419e6d",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/43b4e05413b79c261908ebe5a70437ebd6419e6d"
+    },
+    {
+      "path": "app-store/metadata/it/description.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9a878b1258279ded4541e40e82fbbcb8565814b8",
+      "size": 2149,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/9a878b1258279ded4541e40e82fbbcb8565814b8"
+    },
+    {
+      "path": "app-store/metadata/it/keywords.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7c4186652fe82675d4e2209e7fe934ad65d845b9",
+      "size": 100,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/7c4186652fe82675d4e2209e7fe934ad65d845b9"
+    },
+    {
+      "path": "app-store/metadata/it/marketing_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d9a8990bda5d4564ea6004d1ae40e557f2431c5",
+      "size": 15,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/2d9a8990bda5d4564ea6004d1ae40e557f2431c5"
+    },
+    {
+      "path": "app-store/metadata/it/name.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa6d731c5f037ac9333886c9d2055638a25557bb",
+      "size": 25,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/aa6d731c5f037ac9333886c9d2055638a25557bb"
+    },
+    {
+      "path": "app-store/metadata/it/promotional_text.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5031a51f97063b8880b1b47f393c9609dc285a8f",
+      "size": 148,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/5031a51f97063b8880b1b47f393c9609dc285a8f"
+    },
+    {
+      "path": "app-store/metadata/it/release_notes.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9569f6e92e24d76322b203ae02dacec912f9e46e",
+      "size": 281,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/9569f6e92e24d76322b203ae02dacec912f9e46e"
+    },
+    {
+      "path": "app-store/metadata/it/subtitle.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "573b97363b81cd93e4b5d39dddbae65da6890691",
+      "size": 27,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/573b97363b81cd93e4b5d39dddbae65da6890691"
+    },
+    {
+      "path": "app-store/metadata/it/support_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d175e6643a1b243c41da91c03e139e0568c14939",
+      "size": 23,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/d175e6643a1b243c41da91c03e139e0568c14939"
+    },
+    {
+      "path": "app-store/metadata/ja",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1870567571a546927c155f35bc4fc2ff8f40f33c",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/1870567571a546927c155f35bc4fc2ff8f40f33c"
+    },
+    {
+      "path": "app-store/metadata/ja/description.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c7e552e81d74befb23f6ab49f7eaaeb1ca01bb93",
+      "size": 2827,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/c7e552e81d74befb23f6ab49f7eaaeb1ca01bb93"
+    },
+    {
+      "path": "app-store/metadata/ja/keywords.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3af183f2340aff4bcad6c43d7b483da01fdfe1d8",
+      "size": 218,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/3af183f2340aff4bcad6c43d7b483da01fdfe1d8"
+    },
+    {
+      "path": "app-store/metadata/ja/marketing_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d9a8990bda5d4564ea6004d1ae40e557f2431c5",
+      "size": 15,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/2d9a8990bda5d4564ea6004d1ae40e557f2431c5"
+    },
+    {
+      "path": "app-store/metadata/ja/name.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f1949f84ff07f4457b3d708e8fa573f53b7b3171",
+      "size": 29,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/f1949f84ff07f4457b3d708e8fa573f53b7b3171"
+    },
+    {
+      "path": "app-store/metadata/ja/promotional_text.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0fe73686c4b95ff4a21c582ae5c8c20d2f7f5173",
+      "size": 222,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/0fe73686c4b95ff4a21c582ae5c8c20d2f7f5173"
+    },
+    {
+      "path": "app-store/metadata/ja/release_notes.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b3c51001a522776cbcbe92e05b85206584cdcc58",
+      "size": 417,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/b3c51001a522776cbcbe92e05b85206584cdcc58"
+    },
+    {
+      "path": "app-store/metadata/ja/subtitle.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eca0636ad916c936293051e7e22ee1df18b57cb1",
+      "size": 48,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/eca0636ad916c936293051e7e22ee1df18b57cb1"
+    },
+    {
+      "path": "app-store/metadata/ja/support_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d175e6643a1b243c41da91c03e139e0568c14939",
+      "size": 23,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/d175e6643a1b243c41da91c03e139e0568c14939"
+    },
+    {
+      "path": "app-store/metadata/ko",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ae0ad2d98fa974a2b39b004fdba4d43d8846df46",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/ae0ad2d98fa974a2b39b004fdba4d43d8846df46"
+    },
+    {
+      "path": "app-store/metadata/ko/description.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8ee3ca0c97d54a948fac1091133e5cddc4318ac9",
+      "size": 2189,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/8ee3ca0c97d54a948fac1091133e5cddc4318ac9"
+    },
+    {
+      "path": "app-store/metadata/ko/keywords.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "294e73bf254dac53ac24f7992332e6e8406ae77c",
+      "size": 133,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/294e73bf254dac53ac24f7992332e6e8406ae77c"
+    },
+    {
+      "path": "app-store/metadata/ko/marketing_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d9a8990bda5d4564ea6004d1ae40e557f2431c5",
+      "size": 15,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/2d9a8990bda5d4564ea6004d1ae40e557f2431c5"
+    },
+    {
+      "path": "app-store/metadata/ko/name.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fee9d83dc2e13f2012c49d7c08fd6c9035f7f725",
+      "size": 24,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/fee9d83dc2e13f2012c49d7c08fd6c9035f7f725"
+    },
+    {
+      "path": "app-store/metadata/ko/promotional_text.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7f0b18c76f232c5de7116652658256a07a60a5fc",
+      "size": 216,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/7f0b18c76f232c5de7116652658256a07a60a5fc"
+    },
+    {
+      "path": "app-store/metadata/ko/release_notes.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "145a786576e9683c6917492690e4269de850e5bb",
+      "size": 326,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/145a786576e9683c6917492690e4269de850e5bb"
+    },
+    {
+      "path": "app-store/metadata/ko/subtitle.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "75cf5c989460fe4fa8f08b7c9f014680280b9ed5",
+      "size": 40,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/75cf5c989460fe4fa8f08b7c9f014680280b9ed5"
+    },
+    {
+      "path": "app-store/metadata/ko/support_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d175e6643a1b243c41da91c03e139e0568c14939",
+      "size": 23,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/d175e6643a1b243c41da91c03e139e0568c14939"
+    },
+    {
+      "path": "app-store/metadata/pl",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d42271f78175e7b71c7de008a59ff19aca248c6b",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/d42271f78175e7b71c7de008a59ff19aca248c6b"
+    },
+    {
+      "path": "app-store/metadata/pl/description.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c9342c6bee3c98d71b612b5189867d3bae11cba7",
+      "size": 2166,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/c9342c6bee3c98d71b612b5189867d3bae11cba7"
+    },
+    {
+      "path": "app-store/metadata/pl/keywords.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2792e1b116c899dbd2974dd76659d4863c4d86f2",
+      "size": 102,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/2792e1b116c899dbd2974dd76659d4863c4d86f2"
+    },
+    {
+      "path": "app-store/metadata/pl/marketing_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d9a8990bda5d4564ea6004d1ae40e557f2431c5",
+      "size": 15,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/2d9a8990bda5d4564ea6004d1ae40e557f2431c5"
+    },
+    {
+      "path": "app-store/metadata/pl/name.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ae3298a3adb5be29bccfc908d0da9ee542bc036",
+      "size": 26,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/1ae3298a3adb5be29bccfc908d0da9ee542bc036"
+    },
+    {
+      "path": "app-store/metadata/pl/promotional_text.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "70837d93aa76899da36506c99496d457161e9558",
+      "size": 164,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/70837d93aa76899da36506c99496d457161e9558"
+    },
+    {
+      "path": "app-store/metadata/pl/release_notes.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c9bddeb25e5beec7e14b5393afcadcc2ea085220",
+      "size": 287,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/c9bddeb25e5beec7e14b5393afcadcc2ea085220"
+    },
+    {
+      "path": "app-store/metadata/pl/subtitle.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dc84a2dd1492c985fd24d98d62829544a1b9c1ef",
+      "size": 30,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/dc84a2dd1492c985fd24d98d62829544a1b9c1ef"
+    },
+    {
+      "path": "app-store/metadata/pl/support_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d175e6643a1b243c41da91c03e139e0568c14939",
+      "size": 23,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/d175e6643a1b243c41da91c03e139e0568c14939"
+    },
+    {
+      "path": "app-store/metadata/pt-BR",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f7c7eeedb9225ef67b98628c000245c5e42e6c54",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/f7c7eeedb9225ef67b98628c000245c5e42e6c54"
+    },
+    {
+      "path": "app-store/metadata/pt-BR/description.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6d1cb46804239dfa91dafd293425afe9e288d5a6",
+      "size": 2049,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/6d1cb46804239dfa91dafd293425afe9e288d5a6"
+    },
+    {
+      "path": "app-store/metadata/pt-BR/keywords.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0d1599e5ae2f1d86d73f911af160904d92095ae8",
+      "size": 101,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/0d1599e5ae2f1d86d73f911af160904d92095ae8"
+    },
+    {
+      "path": "app-store/metadata/pt-BR/marketing_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d9a8990bda5d4564ea6004d1ae40e557f2431c5",
+      "size": 15,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/2d9a8990bda5d4564ea6004d1ae40e557f2431c5"
+    },
+    {
+      "path": "app-store/metadata/pt-BR/name.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "049d9a3b2d05ae73844f1b743b85a1fac9b23208",
+      "size": 25,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/049d9a3b2d05ae73844f1b743b85a1fac9b23208"
+    },
+    {
+      "path": "app-store/metadata/pt-BR/promotional_text.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "efedbab1666c8764a988b98f35edd76f90fe80fc",
+      "size": 146,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/efedbab1666c8764a988b98f35edd76f90fe80fc"
+    },
+    {
+      "path": "app-store/metadata/pt-BR/release_notes.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5bd2cbf10ef0594b5186f5311b9593684ea76d44",
+      "size": 284,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/5bd2cbf10ef0594b5186f5311b9593684ea76d44"
+    },
+    {
+      "path": "app-store/metadata/pt-BR/subtitle.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4bfc30ba8e7f55dbe96920c3504da339fe97e63e",
+      "size": 30,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/4bfc30ba8e7f55dbe96920c3504da339fe97e63e"
+    },
+    {
+      "path": "app-store/metadata/pt-BR/support_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d175e6643a1b243c41da91c03e139e0568c14939",
+      "size": 23,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/d175e6643a1b243c41da91c03e139e0568c14939"
+    },
+    {
+      "path": "app-store/metadata/pt-PT",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ae517ed677a3035879eb4de85ca75fe2d07ec831",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/ae517ed677a3035879eb4de85ca75fe2d07ec831"
+    },
+    {
+      "path": "app-store/metadata/pt-PT/description.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "70a032a2a9dc8231fdc22324ed77f8d62f5b3e67",
+      "size": 2083,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/70a032a2a9dc8231fdc22324ed77f8d62f5b3e67"
+    },
+    {
+      "path": "app-store/metadata/pt-PT/keywords.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "466d4e411cc567f9669b9ba2af802500e0810805",
+      "size": 100,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/466d4e411cc567f9669b9ba2af802500e0810805"
+    },
+    {
+      "path": "app-store/metadata/pt-PT/marketing_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d9a8990bda5d4564ea6004d1ae40e557f2431c5",
+      "size": 15,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/2d9a8990bda5d4564ea6004d1ae40e557f2431c5"
+    },
+    {
+      "path": "app-store/metadata/pt-PT/name.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cc1ba06feec9c9fc0287976035a039a28fcc1cd5",
+      "size": 26,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/cc1ba06feec9c9fc0287976035a039a28fcc1cd5"
+    },
+    {
+      "path": "app-store/metadata/pt-PT/promotional_text.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "040740af167994818cc073044c09cb8e2f263496",
+      "size": 139,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/040740af167994818cc073044c09cb8e2f263496"
+    },
+    {
+      "path": "app-store/metadata/pt-PT/release_notes.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "444aec1c415d577001c9ed4cd210120e309db2b5",
+      "size": 302,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/444aec1c415d577001c9ed4cd210120e309db2b5"
+    },
+    {
+      "path": "app-store/metadata/pt-PT/subtitle.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7318a2409375cd9373c631d0fe67a7f56268da16",
+      "size": 31,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/7318a2409375cd9373c631d0fe67a7f56268da16"
+    },
+    {
+      "path": "app-store/metadata/pt-PT/support_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d175e6643a1b243c41da91c03e139e0568c14939",
+      "size": 23,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/d175e6643a1b243c41da91c03e139e0568c14939"
+    },
+    {
+      "path": "app-store/metadata/ru",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6e6f0cd73149e25d2707c9fa175a22b3043f3ae6",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/6e6f0cd73149e25d2707c9fa175a22b3043f3ae6"
+    },
+    {
+      "path": "app-store/metadata/ru/description.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "54269e8074fdf9d1b6e1c1beaeb758ed19900825",
+      "size": 3644,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/54269e8074fdf9d1b6e1c1beaeb758ed19900825"
+    },
+    {
+      "path": "app-store/metadata/ru/keywords.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "faefc5eab5da70c6483816c577bbbb124c484de3",
+      "size": 185,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/faefc5eab5da70c6483816c577bbbb124c484de3"
+    },
+    {
+      "path": "app-store/metadata/ru/marketing_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d9a8990bda5d4564ea6004d1ae40e557f2431c5",
+      "size": 15,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/2d9a8990bda5d4564ea6004d1ae40e557f2431c5"
+    },
+    {
+      "path": "app-store/metadata/ru/name.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e2e55f371a03d76be03b91d9b7d7458d2bdab017",
+      "size": 45,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/e2e55f371a03d76be03b91d9b7d7458d2bdab017"
+    },
+    {
+      "path": "app-store/metadata/ru/promotional_text.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a782e5e7f2b9114405b77cca4e52b0967d6e4a4e",
+      "size": 253,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/a782e5e7f2b9114405b77cca4e52b0967d6e4a4e"
+    },
+    {
+      "path": "app-store/metadata/ru/release_notes.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "00a23903bdda59b9d6bd924a321da5d10612db60",
+      "size": 504,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/00a23903bdda59b9d6bd924a321da5d10612db60"
+    },
+    {
+      "path": "app-store/metadata/ru/subtitle.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6237efa90e1939f4283ec25c3f22e30618db15b8",
+      "size": 50,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/6237efa90e1939f4283ec25c3f22e30618db15b8"
+    },
+    {
+      "path": "app-store/metadata/ru/support_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d175e6643a1b243c41da91c03e139e0568c14939",
+      "size": 23,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/d175e6643a1b243c41da91c03e139e0568c14939"
+    },
+    {
+      "path": "app-store/metadata/tr",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "278285e19666b8b8b23282ddfd820b98e341c218",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/278285e19666b8b8b23282ddfd820b98e341c218"
+    },
+    {
+      "path": "app-store/metadata/tr/description.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0561a710ce50c8ffd02d60cb646a93fe379c548c",
+      "size": 2155,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/0561a710ce50c8ffd02d60cb646a93fe379c548c"
+    },
+    {
+      "path": "app-store/metadata/tr/keywords.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1163b52050952c8d4dd0a5015496c94ef3d91c9e",
+      "size": 101,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/1163b52050952c8d4dd0a5015496c94ef3d91c9e"
+    },
+    {
+      "path": "app-store/metadata/tr/marketing_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d9a8990bda5d4564ea6004d1ae40e557f2431c5",
+      "size": 15,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/2d9a8990bda5d4564ea6004d1ae40e557f2431c5"
+    },
+    {
+      "path": "app-store/metadata/tr/name.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "40204ef8ffd0e4f704b432483fb427fc68e4a5c6",
+      "size": 30,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/40204ef8ffd0e4f704b432483fb427fc68e4a5c6"
+    },
+    {
+      "path": "app-store/metadata/tr/promotional_text.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "59ed5db29e503202b375385d7025ad4b8f799a1d",
+      "size": 137,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/59ed5db29e503202b375385d7025ad4b8f799a1d"
+    },
+    {
+      "path": "app-store/metadata/tr/release_notes.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c0f949fb690023ad5adcab0efde3b07f2aa549b1",
+      "size": 300,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/c0f949fb690023ad5adcab0efde3b07f2aa549b1"
+    },
+    {
+      "path": "app-store/metadata/tr/subtitle.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "727afcacc961fbe03d21295f0432de3171a22099",
+      "size": 30,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/727afcacc961fbe03d21295f0432de3171a22099"
+    },
+    {
+      "path": "app-store/metadata/tr/support_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d175e6643a1b243c41da91c03e139e0568c14939",
+      "size": 23,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/d175e6643a1b243c41da91c03e139e0568c14939"
+    },
+    {
+      "path": "app-store/metadata/uk",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "13cca1e1bf3fe67b874d5528f1b19df5478d3297",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/13cca1e1bf3fe67b874d5528f1b19df5478d3297"
+    },
+    {
+      "path": "app-store/metadata/uk/description.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "abf04883887a9374b738927a0c248bbb95d2d5f1",
+      "size": 3438,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/abf04883887a9374b738927a0c248bbb95d2d5f1"
+    },
+    {
+      "path": "app-store/metadata/uk/keywords.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fc1ff9161a210b08aa6cc90100e082a52cd060a7",
+      "size": 185,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/fc1ff9161a210b08aa6cc90100e082a52cd060a7"
+    },
+    {
+      "path": "app-store/metadata/uk/marketing_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d9a8990bda5d4564ea6004d1ae40e557f2431c5",
+      "size": 15,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/2d9a8990bda5d4564ea6004d1ae40e557f2431c5"
+    },
+    {
+      "path": "app-store/metadata/uk/name.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8868045b9ec2fcf5015046cb97f7a6c54941903f",
+      "size": 45,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/8868045b9ec2fcf5015046cb97f7a6c54941903f"
+    },
+    {
+      "path": "app-store/metadata/uk/promotional_text.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a986f0c9a36a8baaf381f0f2975e7d32e15721eb",
+      "size": 240,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/a986f0c9a36a8baaf381f0f2975e7d32e15721eb"
+    },
+    {
+      "path": "app-store/metadata/uk/release_notes.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0746a4b7f47540b2cdb0079de18197d5da3a945e",
+      "size": 475,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/0746a4b7f47540b2cdb0079de18197d5da3a945e"
+    },
+    {
+      "path": "app-store/metadata/uk/subtitle.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8e6adc83ddeb539a49e6146fc9b61f4d2739ce18",
+      "size": 50,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/8e6adc83ddeb539a49e6146fc9b61f4d2739ce18"
+    },
+    {
+      "path": "app-store/metadata/uk/support_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d175e6643a1b243c41da91c03e139e0568c14939",
+      "size": 23,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/d175e6643a1b243c41da91c03e139e0568c14939"
+    },
+    {
+      "path": "app-store/metadata/vi",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d29257bf948f6273a01c284aaf954e8b9cce0254",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/d29257bf948f6273a01c284aaf954e8b9cce0254"
+    },
+    {
+      "path": "app-store/metadata/vi/description.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4570f85668a600f1aeb8ec7e666c3e2a009e75d5",
+      "size": 2641,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/4570f85668a600f1aeb8ec7e666c3e2a009e75d5"
+    },
+    {
+      "path": "app-store/metadata/vi/keywords.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bb500939af487fb0eb0987c2fe0f12f8c04a1ece",
+      "size": 120,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/bb500939af487fb0eb0987c2fe0f12f8c04a1ece"
+    },
+    {
+      "path": "app-store/metadata/vi/marketing_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d9a8990bda5d4564ea6004d1ae40e557f2431c5",
+      "size": 15,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/2d9a8990bda5d4564ea6004d1ae40e557f2431c5"
+    },
+    {
+      "path": "app-store/metadata/vi/name.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "11deaab13d228d13dd3346520a8e095a7cdb86cb",
+      "size": 30,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/11deaab13d228d13dd3346520a8e095a7cdb86cb"
+    },
+    {
+      "path": "app-store/metadata/vi/promotional_text.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8a3f0c850b6a2c7c583f637462184265a0e4679b",
+      "size": 209,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/8a3f0c850b6a2c7c583f637462184265a0e4679b"
+    },
+    {
+      "path": "app-store/metadata/vi/release_notes.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b2473f7baa35309522a9699936f958303e9497b7",
+      "size": 366,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/b2473f7baa35309522a9699936f958303e9497b7"
+    },
+    {
+      "path": "app-store/metadata/vi/subtitle.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5c8e384c43f9e4f0ffce5c75dfcbb4ca8bb23ec4",
+      "size": 33,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/5c8e384c43f9e4f0ffce5c75dfcbb4ca8bb23ec4"
+    },
+    {
+      "path": "app-store/metadata/vi/support_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d175e6643a1b243c41da91c03e139e0568c14939",
+      "size": 23,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/d175e6643a1b243c41da91c03e139e0568c14939"
+    },
+    {
+      "path": "app-store/metadata/zh-Hans",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c33d9fb757016f866d80696757176f1dde4959b2",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/c33d9fb757016f866d80696757176f1dde4959b2"
+    },
+    {
+      "path": "app-store/metadata/zh-Hans/description.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3cc6b6318b88cb07ac95c90fc490e1304fdb6557",
+      "size": 1800,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/3cc6b6318b88cb07ac95c90fc490e1304fdb6557"
+    },
+    {
+      "path": "app-store/metadata/zh-Hans/keywords.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c81a4b682e016fc14ce337a81d47aea48ea51f38",
+      "size": 217,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/c81a4b682e016fc14ce337a81d47aea48ea51f38"
+    },
+    {
+      "path": "app-store/metadata/zh-Hans/marketing_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d9a8990bda5d4564ea6004d1ae40e557f2431c5",
+      "size": 15,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/2d9a8990bda5d4564ea6004d1ae40e557f2431c5"
+    },
+    {
+      "path": "app-store/metadata/zh-Hans/name.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7f489b5f4ad4aa4fa71a0d8f8bcc4b67405a9e55",
+      "size": 26,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/7f489b5f4ad4aa4fa71a0d8f8bcc4b67405a9e55"
+    },
+    {
+      "path": "app-store/metadata/zh-Hans/promotional_text.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b6ec3a20597309a96fb83c49dcb78c07f7447613",
+      "size": 138,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/b6ec3a20597309a96fb83c49dcb78c07f7447613"
+    },
+    {
+      "path": "app-store/metadata/zh-Hans/release_notes.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "450a58eeff7db9710b2f14c0517f9a1a4578a03f",
+      "size": 291,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/450a58eeff7db9710b2f14c0517f9a1a4578a03f"
+    },
+    {
+      "path": "app-store/metadata/zh-Hans/subtitle.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d39c163e7ed67e6e0fdd06abcd41d9de3ba9cf21",
+      "size": 21,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/d39c163e7ed67e6e0fdd06abcd41d9de3ba9cf21"
+    },
+    {
+      "path": "app-store/metadata/zh-Hans/support_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d175e6643a1b243c41da91c03e139e0568c14939",
+      "size": 23,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/d175e6643a1b243c41da91c03e139e0568c14939"
+    },
+    {
+      "path": "app-store/metadata/zh-Hant",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "28ece876bb5442ea8e220e88650446b00839c93a",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/28ece876bb5442ea8e220e88650446b00839c93a"
+    },
+    {
+      "path": "app-store/metadata/zh-Hant/description.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4763b57f5e0540f20109f5df993675f15263a824",
+      "size": 1816,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/4763b57f5e0540f20109f5df993675f15263a824"
+    },
+    {
+      "path": "app-store/metadata/zh-Hant/keywords.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ec800f5a56408a09600731aa8a93b66ffdba86c9",
+      "size": 161,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/ec800f5a56408a09600731aa8a93b66ffdba86c9"
+    },
+    {
+      "path": "app-store/metadata/zh-Hant/marketing_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d9a8990bda5d4564ea6004d1ae40e557f2431c5",
+      "size": 15,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/2d9a8990bda5d4564ea6004d1ae40e557f2431c5"
+    },
+    {
+      "path": "app-store/metadata/zh-Hant/name.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "10fcf8f82c529d42673ef9abf59fefb39172e44e",
+      "size": 26,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/10fcf8f82c529d42673ef9abf59fefb39172e44e"
+    },
+    {
+      "path": "app-store/metadata/zh-Hant/promotional_text.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "97edace8b0ce8be701b5fa82f23310426663baf0",
+      "size": 150,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/97edace8b0ce8be701b5fa82f23310426663baf0"
+    },
+    {
+      "path": "app-store/metadata/zh-Hant/release_notes.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b1ae2d4111e990116d9d837b678fba25fb182d43",
+      "size": 291,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/b1ae2d4111e990116d9d837b678fba25fb182d43"
+    },
+    {
+      "path": "app-store/metadata/zh-Hant/subtitle.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a79c9c39edae745ddb147a2b1bd6786135ec0c6d",
+      "size": 21,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/a79c9c39edae745ddb147a2b1bd6786135ec0c6d"
+    },
+    {
+      "path": "app-store/metadata/zh-Hant/support_url.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d175e6643a1b243c41da91c03e139e0568c14939",
+      "size": 23,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/d175e6643a1b243c41da91c03e139e0568c14939"
+    },
+    {
+      "path": "app-store/screenshots",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f63cb46e72963ea27bf28b40c8781696ae326a23",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/f63cb46e72963ea27bf28b40c8781696ae326a23"
+    },
+    {
+      "path": "app-store/screenshots/captions.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "313081814a46254f0f15c70fb63d30734e76309a",
+      "size": 434,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/313081814a46254f0f15c70fb63d30734e76309a"
+    },
+    {
+      "path": "code",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e8361f850575029636e267ea9801943104435526",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/e8361f850575029636e267ea9801943104435526"
+    },
+    {
+      "path": "code/Config",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "90927ffacc79232b64d9322da10dbbb0692b1a57",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/90927ffacc79232b64d9322da10dbbb0692b1a57"
+    },
+    {
+      "path": "code/Config/Signing.local.xcconfig.example",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aab438c65a36942a9e21ceb3ffe2c50da0b8efca",
+      "size": 396,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/aab438c65a36942a9e21ceb3ffe2c50da0b8efca"
+    },
+    {
+      "path": "code/Config/Signing.xcconfig",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8e423666391ab4972f07d9d44e6d7cd018be750c",
+      "size": 579,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/8e423666391ab4972f07d9d44e6d7cd018be750c"
+    },
+    {
+      "path": "code/Loupe.xcodeproj",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8daae9cfb27206aef3ce6e1c56738fb4b125fee6",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/8daae9cfb27206aef3ce6e1c56738fb4b125fee6"
+    },
+    {
+      "path": "code/Loupe.xcodeproj/project.pbxproj",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4d7037fafc47255ab440360d6c7caea504bc7b98",
+      "size": 20420,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/4d7037fafc47255ab440360d6c7caea504bc7b98"
+    },
+    {
+      "path": "code/Loupe.xcodeproj/project.xcworkspace",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d9c19cc17a1d6452956495c8f392c3673f08a9eb",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/d9c19cc17a1d6452956495c8f392c3673f08a9eb"
+    },
+    {
+      "path": "code/Loupe.xcodeproj/project.xcworkspace/contents.xcworkspacedata",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "919434a6254f0e9651f402737811be6634a03e9c",
+      "size": 135,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/919434a6254f0e9651f402737811be6634a03e9c"
+    },
+    {
+      "path": "code/Loupe",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3742a9cdb70d1b2844f3302b8be8b5daf743142b",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/3742a9cdb70d1b2844f3302b8be8b5daf743142b"
+    },
+    {
+      "path": "code/Loupe/Assets.xcassets",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "716b63633eefc0e58c2f515b9be3567da265eb13",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/716b63633eefc0e58c2f515b9be3567da265eb13"
+    },
+    {
+      "path": "code/Loupe/Assets.xcassets/AccentColor.colorset",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "989f95971521309a83ef833549e892b755db04df",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/989f95971521309a83ef833549e892b755db04df"
+    },
+    {
+      "path": "code/Loupe/Assets.xcassets/AccentColor.colorset/Contents.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1b0ec00a0f5f0ea7d4a147eae34c9bc13a82a11e",
+      "size": 332,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/1b0ec00a0f5f0ea7d4a147eae34c9bc13a82a11e"
+    },
+    {
+      "path": "code/Loupe/Assets.xcassets/Contents.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "73c00596a7fca3f3d4bdd64053b69d86745f9e10",
+      "size": 63,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/73c00596a7fca3f3d4bdd64053b69d86745f9e10"
+    },
+    {
+      "path": "code/Loupe/Assets.xcassets/loupe-icon.imageset",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a61f73ae29e57585457798da89a35fb17b905ae4",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/a61f73ae29e57585457798da89a35fb17b905ae4"
+    },
+    {
+      "path": "code/Loupe/Assets.xcassets/loupe-icon.imageset/Contents.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5e3567cfd85a1abf42df4a900993f624cc1f20ed",
+      "size": 160,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/5e3567cfd85a1abf42df4a900993f624cc1f20ed"
+    },
+    {
+      "path": "code/Loupe/Assets.xcassets/loupe-icon.imageset/loupe-icon.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "86b574c992fe1e5dbefde029b8711ecc46cbabed",
+      "size": 116136,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/86b574c992fe1e5dbefde029b8711ecc46cbabed"
+    },
+    {
+      "path": "code/Loupe/Assets.xcassets/psylo-icon.imageset",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2f973838c6e9ccc728934e778e243f87bb21a4e0",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/2f973838c6e9ccc728934e778e243f87bb21a4e0"
+    },
+    {
+      "path": "code/Loupe/Assets.xcassets/psylo-icon.imageset/Contents.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d2485d40e7289ec0016f02c96470afa92c65e14b",
+      "size": 178,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/d2485d40e7289ec0016f02c96470afa92c65e14b"
+    },
+    {
+      "path": "code/Loupe/Assets.xcassets/psylo-icon.imageset/psylo-iOS-Default-256x256@1x.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fcce644db67a2957ff967f058c045b8bad26b61b",
+      "size": 278390,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/fcce644db67a2957ff967f058c045b8bad26b61b"
+    },
+    {
+      "path": "code/Loupe/Info.plist",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1755359ed4145840d7598bd85db975c141b0256a",
+      "size": 5102,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/1755359ed4145840d7598bd85db975c141b0256a"
+    },
+    {
+      "path": "code/Loupe/InfoPlist.xcstrings",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1e759cb7ab52d06332df6d18fedad37a78dc5921",
+      "size": 59558,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/1e759cb7ab52d06332df6d18fedad37a78dc5921"
+    },
+    {
+      "path": "code/Loupe/Localizable.xcstrings",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fd72faff7a0532fdc2540bc71c05aed1220d92fe",
+      "size": 1952732,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/fd72faff7a0532fdc2540bc71c05aed1220d92fe"
+    },
+    {
+      "path": "code/Loupe/Loupe.icon",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "48127e788a3b7d548aa5b01901f50f1d84646268",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/48127e788a3b7d548aa5b01901f50f1d84646268"
+    },
+    {
+      "path": "code/Loupe/Loupe.icon/Assets",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3ecaff6460467d568cfbfc22e20e69f1fb2856df",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/3ecaff6460467d568cfbfc22e20e69f1fb2856df"
+    },
+    {
+      "path": "code/Loupe/Loupe.icon/Assets/loupe-icon-dark.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "702b8428c57f2979b67938ba570fcb9115304ef2",
+      "size": 734412,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/702b8428c57f2979b67938ba570fcb9115304ef2"
+    },
+    {
+      "path": "code/Loupe/Loupe.icon/Assets/loupe-icon-light.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "597a66e6b910b46238751d50c52a827b1835824c",
+      "size": 523344,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/597a66e6b910b46238751d50c52a827b1835824c"
+    },
+    {
+      "path": "code/Loupe/Loupe.icon/icon.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6aea174e49e68fdac487453e94f1bc15b242380f",
+      "size": 2356,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/6aea174e49e68fdac487453e94f1bc15b242380f"
+    },
+    {
+      "path": "code/Loupe/LoupeApp.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2212da803b00e7b42222930404edb2b4272dd9ac",
+      "size": 893,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/2212da803b00e7b42222930404edb2b4272dd9ac"
+    },
+    {
+      "path": "code/Loupe/Models",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "aecd66d88448d05c7e8b20e182a93479678f055d",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/aecd66d88448d05c7e8b20e182a93479678f055d"
+    },
+    {
+      "path": "code/Loupe/Models/CategoryStore.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b8a766e2fbb4ba3bb04addd7343a77e63d4f1c07",
+      "size": 7536,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/b8a766e2fbb4ba3bb04addd7343a77e63d4f1c07"
+    },
+    {
+      "path": "code/Loupe/Models/FingerprintSignal.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "513a521950c7712875bfd444726d9be3ae8bb997",
+      "size": 2308,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/513a521950c7712875bfd444726d9be3ae8bb997"
+    },
+    {
+      "path": "code/Loupe/Models/SignalCategory.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "db7fd1ce43bd42e535a422aa496eecd116a9b9ee",
+      "size": 15338,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/db7fd1ce43bd42e535a422aa496eecd116a9b9ee"
+    },
+    {
+      "path": "code/Loupe/Providers",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "127201346c5b13bd991c9a89b6c9d1e90c847b32",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/127201346c5b13bd991c9a89b6c9d1e90c847b32"
+    },
+    {
+      "path": "code/Loupe/Providers/AccessibilityProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5ca54898b40554e53d3a7f89e5c1c5e31b403194",
+      "size": 9483,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/5ca54898b40554e53d3a7f89e5c1c5e31b403194"
+    },
+    {
+      "path": "code/Loupe/Providers/AppInfoProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3fe852d52f1ba7022deccd88859479d86978ea86",
+      "size": 2054,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/3fe852d52f1ba7022deccd88859479d86978ea86"
+    },
+    {
+      "path": "code/Loupe/Providers/AppleAccountProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d45858d4f67641e20e99094882da9edb586316c0",
+      "size": 3889,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/d45858d4f67641e20e99094882da9edb586316c0"
+    },
+    {
+      "path": "code/Loupe/Providers/AudioRouteProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bda57b88e3b6ebaa14eeafe7a6c33c050f038c02",
+      "size": 15018,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/bda57b88e3b6ebaa14eeafe7a6c33c050f038c02"
+    },
+    {
+      "path": "code/Loupe/Providers/BatteryProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5373eeb6b07af8b5abff0f1c8dff31bb82794b11",
+      "size": 4182,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/5373eeb6b07af8b5abff0f1c8dff31bb82794b11"
+    },
+    {
+      "path": "code/Loupe/Providers/BluetoothProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "485af6250aa2f375f62acc4884987870c6c7cff8",
+      "size": 5002,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/485af6250aa2f375f62acc4884987870c6c7cff8"
+    },
+    {
+      "path": "code/Loupe/Providers/CalendarProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8fc7a4a9fd7ff3469155e04f9ab02e61cc367406",
+      "size": 4339,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/8fc7a4a9fd7ff3469155e04f9ab02e61cc367406"
+    },
+    {
+      "path": "code/Loupe/Providers/CameraProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5150e43e7808e3b336a550a8e475714b9a1c137b",
+      "size": 3878,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/5150e43e7808e3b336a550a8e475714b9a1c137b"
+    },
+    {
+      "path": "code/Loupe/Providers/ContactsProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "abb5be75dc37f8d3310277e2d840855d1f07c6b7",
+      "size": 5208,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/abb5be75dc37f8d3310277e2d840855d1f07c6b7"
+    },
+    {
+      "path": "code/Loupe/Providers/DeviceIdentityProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ba5ea3ca151dc98977819eb490ce18bcc920c446",
+      "size": 5126,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/ba5ea3ca151dc98977819eb490ce18bcc920c446"
+    },
+    {
+      "path": "code/Loupe/Providers/DeviceMotionProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "40b3e508f9d07f3bad26255b7faa775619353716",
+      "size": 14515,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/40b3e508f9d07f3bad26255b7faa775619353716"
+    },
+    {
+      "path": "code/Loupe/Providers/DisplayProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9a1228dda3991a630872fd3d8e7ae62317083cd5",
+      "size": 8162,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/9a1228dda3991a630872fd3d8e7ae62317083cd5"
+    },
+    {
+      "path": "code/Loupe/Providers/FontsProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5a19146a9a259a6cda7b07879c2bf158dff042b2",
+      "size": 1706,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/5a19146a9a259a6cda7b07879c2bf158dff042b2"
+    },
+    {
+      "path": "code/Loupe/Providers/InstalledAppsProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1b4ce20bf49d1546cd1f661730aff3ffacbb5e69",
+      "size": 5109,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/1b4ce20bf49d1546cd1f661730aff3ffacbb5e69"
+    },
+    {
+      "path": "code/Loupe/Providers/LocalNetworkProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c28fece866be1a61c88ec1342603a82f61220d7a",
+      "size": 5472,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/c28fece866be1a61c88ec1342603a82f61220d7a"
+    },
+    {
+      "path": "code/Loupe/Providers/LocaleProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dfb22b303795f8c9317cbdaf0a24e12e73d33e55",
+      "size": 4637,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/dfb22b303795f8c9317cbdaf0a24e12e73d33e55"
+    },
+    {
+      "path": "code/Loupe/Providers/LocationProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "873d77c37d0f5447449543bc6c849b2c5feaf720",
+      "size": 9711,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/873d77c37d0f5447449543bc6c849b2c5feaf720"
+    },
+    {
+      "path": "code/Loupe/Providers/MetalProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "425e154aed9eb2befb192950341e76cff19ffe38",
+      "size": 4450,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/425e154aed9eb2befb192950341e76cff19ffe38"
+    },
+    {
+      "path": "code/Loupe/Providers/MotionProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e064a2b1e44592cebf131750b9efe633531b3c41",
+      "size": 19777,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/e064a2b1e44592cebf131750b9efe633531b3c41"
+    },
+    {
+      "path": "code/Loupe/Providers/MusicLibraryProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "742c967395da5108ad7c68291a868f05ff916b2d",
+      "size": 8601,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/742c967395da5108ad7c68291a868f05ff916b2d"
+    },
+    {
+      "path": "code/Loupe/Providers/NetworkProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "12d1398ce9c8b0948c3e990f41f0c61a6ad9a585",
+      "size": 8610,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/12d1398ce9c8b0948c3e990f41f0c61a6ad9a585"
+    },
+    {
+      "path": "code/Loupe/Providers/PasteboardProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5f16676e00f8a107811c09b070a310f1441e9df0",
+      "size": 3456,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/5f16676e00f8a107811c09b070a310f1441e9df0"
+    },
+    {
+      "path": "code/Loupe/Providers/PhotosProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e0f987ab00eb905f58829dd925b0fb6266ea4fb8",
+      "size": 11313,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/e0f987ab00eb905f58829dd925b0fb6266ea4fb8"
+    },
+    {
+      "path": "code/Loupe/Providers/PreviousInstallsProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b4f4c8f618d8beaeee6c4425aabdc154729c71a1",
+      "size": 3169,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/b4f4c8f618d8beaeee6c4425aabdc154729c71a1"
+    },
+    {
+      "path": "code/Loupe/Providers/RemindersProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d936ac6f8131a6d93fad28c082a181f4b7d946e5",
+      "size": 2334,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/d936ac6f8131a6d93fad28c082a181f4b7d946e5"
+    },
+    {
+      "path": "code/Loupe/Providers/SignalProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bac0ef2ad906ce07d50bc3acce56656593067ddc",
+      "size": 792,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/bac0ef2ad906ce07d50bc3acce56656593067ddc"
+    },
+    {
+      "path": "code/Loupe/Providers/StorageProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "30c0f9dd356d019a0eb4606e843781a3aecf6d54",
+      "size": 6501,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/30c0f9dd356d019a0eb4606e843781a3aecf6d54"
+    },
+    {
+      "path": "code/Loupe/Providers/SystemInfoProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7b6c91630784e0a560ff728da254884352f0993e",
+      "size": 4729,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/7b6c91630784e0a560ff728da254884352f0993e"
+    },
+    {
+      "path": "code/Loupe/Providers/TelephonyProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ab0cd2be88589e8879be6065ae0fd4fbeeeb22ff",
+      "size": 3374,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/ab0cd2be88589e8879be6065ae0fd4fbeeeb22ff"
+    },
+    {
+      "path": "code/Loupe/Providers/VoicesProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "18b5580f497ca8359670f1ad5236cc57dd684f7b",
+      "size": 5560,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/18b5580f497ca8359670f1ad5236cc57dd684f7b"
+    },
+    {
+      "path": "code/Loupe/Providers/WebViewFingerprintProvider.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3a0f2c3ba000b2ad2ece65897c486f9fe13da2b2",
+      "size": 9365,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/3a0f2c3ba000b2ad2ece65897c486f9fe13da2b2"
+    },
+    {
+      "path": "code/Loupe/Support",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b66bcae8b8822e14cb2aeb89b67a1b16f3d45c4e",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/b66bcae8b8822e14cb2aeb89b67a1b16f3d45c4e"
+    },
+    {
+      "path": "code/Loupe/Support/AppInferenceEngine.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8d0e65f0acdc6158c2ec2265127e2902006471e5",
+      "size": 6707,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/8d0e65f0acdc6158c2ec2265127e2902006471e5"
+    },
+    {
+      "path": "code/Loupe/Support/CollectionConsent.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e98b03c4ac15048db2ae4724e6c272c4adf8ae64",
+      "size": 3275,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/e98b03c4ac15048db2ae4724e6c272c4adf8ae64"
+    },
+    {
+      "path": "code/Loupe/Support/Compatibility.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4b1ff95ff4690236c4bd64b7a4b8d84c9c520e8a",
+      "size": 2268,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/4b1ff95ff4690236c4bd64b7a4b8d84c9c520e8a"
+    },
+    {
+      "path": "code/Loupe/Support/DeviceModelNames.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "44c3ffd00f53dd356c885e9a92d36ede6ab191ba",
+      "size": 9830,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/44c3ffd00f53dd356c885e9a92d36ede6ab191ba"
+    },
+    {
+      "path": "code/Loupe/Support/FingerprintNarrative.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "14b80b066df9d07852793f517252a3e96bcfb18f",
+      "size": 30664,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/14b80b066df9d07852793f517252a3e96bcfb18f"
+    },
+    {
+      "path": "code/Loupe/Support/IfAddrsHelper.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b4f2ba463cbb8d1e0c64e4d7d71fa5e52721aa1e",
+      "size": 2696,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/b4f2ba463cbb8d1e0c64e4d7d71fa5e52721aa1e"
+    },
+    {
+      "path": "code/Loupe/Support/KeychainInstallLog.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9488d7635f2cccb9a85314f26fb557b2161d6570",
+      "size": 2572,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/9488d7635f2cccb9a85314f26fb557b2161d6570"
+    },
+    {
+      "path": "code/Loupe/Support/MockData.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed1ff1539161ebb74294c51301478c746a007ac2",
+      "size": 61856,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/ed1ff1539161ebb74294c51301478c746a007ac2"
+    },
+    {
+      "path": "code/Loupe/Support/PermissionAuthorization.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "335bef08bd72e1136d5b6edae7514b4f3cd34614",
+      "size": 1667,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/335bef08bd72e1136d5b6edae7514b4f3cd34614"
+    },
+    {
+      "path": "code/Loupe/Support/PermissionCenter.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "151eff18b7a0d12c6c23d48aa2bdd6eff2130e5f",
+      "size": 17898,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/151eff18b7a0d12c6c23d48aa2bdd6eff2130e5f"
+    },
+    {
+      "path": "code/Loupe/Support/PermissionKind.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6707c94f099cb7ec7f0f27f5c4c18416f5d2b5cc",
+      "size": 5337,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/6707c94f099cb7ec7f0f27f5c4c18416f5d2b5cc"
+    },
+    {
+      "path": "code/Loupe/Support/PlatformShim.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "241607f6a981eedaeae5c1b579ace08a4572ede0",
+      "size": 20044,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/241607f6a981eedaeae5c1b579ace08a4572ede0"
+    },
+    {
+      "path": "code/Loupe/Support/ScreenshotMode.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "910b5f713a91931ee5d397d77c24cfbc30a307c3",
+      "size": 915,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/910b5f713a91931ee5d397d77c24cfbc30a307c3"
+    },
+    {
+      "path": "code/Loupe/Support/Sensitivity.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "14c4be697a777def37f43e233704c2cd9c44df0d",
+      "size": 2717,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/14c4be697a777def37f43e233704c2cd9c44df0d"
+    },
+    {
+      "path": "code/Loupe/Support/SysctlHelper.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "05f33034bcdf8b76a1db89ae410e61309beefbc4",
+      "size": 2882,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/05f33034bcdf8b76a1db89ae410e61309beefbc4"
+    },
+    {
+      "path": "code/Loupe/Support/TimeZoneCountries.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a525480d6a6b325bb7b6c21bc546c2b9e3f8162a",
+      "size": 12674,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/a525480d6a6b325bb7b6c21bc546c2b9e3f8162a"
+    },
+    {
+      "path": "code/Loupe/Views",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8fc5808d74566874bc039fff3ef8bdd124d19fd5",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/8fc5808d74566874bc039fff3ef8bdd124d19fd5"
+    },
+    {
+      "path": "code/Loupe/Views/AboutView.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5db3bb6142d8d858f8cc30136035405880b1af6f",
+      "size": 4450,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/5db3bb6142d8d858f8cc30136035405880b1af6f"
+    },
+    {
+      "path": "code/Loupe/Views/CategoryDetailView.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "73458747f00500347165f05cfa490131394e71e0",
+      "size": 7097,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/73458747f00500347165f05cfa490131394e71e0"
+    },
+    {
+      "path": "code/Loupe/Views/CategoryRowView.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "37c90383895c95c682a9cd5b6caa9d8e314f9b5f",
+      "size": 3209,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/37c90383895c95c682a9cd5b6caa9d8e314f9b5f"
+    },
+    {
+      "path": "code/Loupe/Views/ExportView.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aba2d28797705606c920c9dc30cb1282e6b50998",
+      "size": 2323,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/aba2d28797705606c920c9dc30cb1282e6b50998"
+    },
+    {
+      "path": "code/Loupe/Views/FingerprintSummaryView.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "56bdb5c3cfdcb979632bf00ad7b1c58c553a0d1b",
+      "size": 7483,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/56bdb5c3cfdcb979632bf00ad7b1c58c553a0d1b"
+    },
+    {
+      "path": "code/Loupe/Views/HomeView.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "209cd1861e718c97427de1aae116e2aae90aa0a7",
+      "size": 7897,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/209cd1861e718c97427de1aae116e2aae90aa0a7"
+    },
+    {
+      "path": "code/Loupe/Views/Onboarding",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f0077a3bf2aed1f8bceb90d0f0fcff36c94faf62",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/f0077a3bf2aed1f8bceb90d0f0fcff36c94faf62"
+    },
+    {
+      "path": "code/Loupe/Views/Onboarding/OnboardingGradientBackground.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8dc471cc47b1f9443fbc3e434843d56df93bf7a7",
+      "size": 3267,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/8dc471cc47b1f9443fbc3e434843d56df93bf7a7"
+    },
+    {
+      "path": "code/Loupe/Views/Onboarding/OnboardingPage.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e97fcfee92383dd32745ba4b16c6ddd84bedad7a",
+      "size": 5912,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/e97fcfee92383dd32745ba4b16c6ddd84bedad7a"
+    },
+    {
+      "path": "code/Loupe/Views/Onboarding/OnboardingPageView.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c1f41ace50988835df0e6ac6374318416460f31",
+      "size": 7676,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/6c1f41ace50988835df0e6ac6374318416460f31"
+    },
+    {
+      "path": "code/Loupe/Views/Onboarding/OnboardingView.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6eca6ada1891ccc2f03db5e87e968914320951aa",
+      "size": 2949,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/6eca6ada1891ccc2f03db5e87e968914320951aa"
+    },
+    {
+      "path": "code/Loupe/Views/PermissionGateView.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "49f6aa33b9a42758097e4f72b98fc4b69b2e7753",
+      "size": 3755,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/49f6aa33b9a42758097e4f72b98fc4b69b2e7753"
+    },
+    {
+      "path": "code/Loupe/Views/PsyloPromotionView.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2adbc4bf18d3a9d1432cbf910fe553bff8649742",
+      "size": 4225,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/2adbc4bf18d3a9d1432cbf910fe553bff8649742"
+    },
+    {
+      "path": "code/Loupe/Views/SignalRowView.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "48feb24d590b7f339e3b0231053dbf758a4e061b",
+      "size": 8162,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/48feb24d590b7f339e3b0231053dbf758a4e061b"
+    },
+    {
+      "path": "code/LoupeUITests",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "54d8e7810fb047330ce4cc004a35777457c0ff64",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/54d8e7810fb047330ce4cc004a35777457c0ff64"
+    },
+    {
+      "path": "code/LoupeUITests/LoupeUITests.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "edb4598e3120866d696693eae91dbb82552f2970",
+      "size": 7770,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/edb4598e3120866d696693eae91dbb82552f2970"
+    },
+    {
+      "path": "code/LoupeUITests/SnapshotHelper.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6dec13020bed403c8887e88f16ef6b504fed0aaa",
+      "size": 11816,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/6dec13020bed403c8887e88f16ef6b504fed0aaa"
+    },
+    {
+      "path": "docs",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "470af5a6f40830e9ca706dcd4c9df4d838faced7",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/470af5a6f40830e9ca706dcd4c9df4d838faced7"
+    },
+    {
+      "path": "docs/images",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5e828e449e316fbeda7b9a2ff3d8a3028638479e",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/5e828e449e316fbeda7b9a2ff3d8a3028638479e"
+    },
+    {
+      "path": "docs/images/Loupe-iOS-Default-1024x1024@1x.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d3c37896c5b64bb6aca1479b5652b180f9cc955",
+      "size": 2146256,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/2d3c37896c5b64bb6aca1479b5652b180f9cc955"
+    },
+    {
+      "path": "docs/images/app-store-badge.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "072b425a1ab785ee7143f0f0fba305f55bfb9678",
+      "size": 10804,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/072b425a1ab785ee7143f0f0fba305f55bfb9678"
+    },
+    {
+      "path": "docs/images/iphone-1.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "780933d0348c50737f3ddfc9899e1b0dc7a17411",
+      "size": 1174581,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/780933d0348c50737f3ddfc9899e1b0dc7a17411"
+    },
+    {
+      "path": "docs/images/iphone-2.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f9171ef94f0200e96485b68d2bcdb2acfb3c1c39",
+      "size": 915391,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/f9171ef94f0200e96485b68d2bcdb2acfb3c1c39"
+    },
+    {
+      "path": "docs/images/iphone-3.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d429d44f39109505d8d3cd91dc3aa290aa47bcd5",
+      "size": 2652299,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/d429d44f39109505d8d3cd91dc3aa290aa47bcd5"
+    },
+    {
+      "path": "docs/images/loupe-icon.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b0181f9826b57a04da077fc1cff4934ec43d9ada",
+      "size": 244606,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/b0181f9826b57a04da077fc1cff4934ec43d9ada"
+    },
+    {
+      "path": "fastlane",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "859923208f3656fcbbfed26bdd200628ec0ab1e9",
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/trees/859923208f3656fcbbfed26bdd200628ec0ab1e9"
+    },
+    {
+      "path": "fastlane/.env.example",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9267efb2a9e9d3e784982ceff3a44c3fdf1aaa58",
+      "size": 972,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/9267efb2a9e9d3e784982ceff3a44c3fdf1aaa58"
+    },
+    {
+      "path": "fastlane/Appfile",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e9be361d68f5854a416dd4904a034cd4485c9db8",
+      "size": 611,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/e9be361d68f5854a416dd4904a034cd4485c9db8"
+    },
+    {
+      "path": "fastlane/Deliverfile",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9b3785aeed5fdedb92fd381d60ebd9bf1a2a7377",
+      "size": 759,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/9b3785aeed5fdedb92fd381d60ebd9bf1a2a7377"
+    },
+    {
+      "path": "fastlane/Fastfile",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6ffa6a7700b23c2c971ae4b8b15c3dd19d86b63c",
+      "size": 3757,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/6ffa6a7700b23c2c971ae4b8b15c3dd19d86b63c"
+    },
+    {
+      "path": "fastlane/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c2f3c511f20d34cd1eb0c1c10f5352fa8d831977",
+      "size": 1281,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/c2f3c511f20d34cd1eb0c1c10f5352fa8d831977"
+    },
+    {
+      "path": "fastlane/Snapfile",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5e6deae84e0bddcf5a3d35be1cb04c8a61377435",
+      "size": 1822,
+      "url": "https://api.github.com/repos/mysk-research/loupe/git/blobs/5e6deae84e0bddcf5a3d35be1cb04c8a61377435"
+    }
+  ],
+  "truncated": false
+}

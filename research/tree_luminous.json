@@ -1,0 +1,215 @@
+{
+  "sha": "4a882861b401d84d13fc2a5d530a8fea1f3ea39e",
+  "url": "https://api.github.com/repos/andrealufino/Luminous/git/trees/4a882861b401d84d13fc2a5d530a8fea1f3ea39e",
+  "tree": [
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "062b30aed9a67efc26c56f41cca4f95cc3192fbc",
+      "size": 282,
+      "url": "https://api.github.com/repos/andrealufino/Luminous/git/blobs/062b30aed9a67efc26c56f41cca4f95cc3192fbc"
+    },
+    {
+      "path": ".swiftpm",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0b6c3ae7a6e2226227ff5f9fb2d6a927ed4fd918",
+      "url": "https://api.github.com/repos/andrealufino/Luminous/git/trees/0b6c3ae7a6e2226227ff5f9fb2d6a927ed4fd918"
+    },
+    {
+      "path": ".swiftpm/xcode",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1dd7d23a6ef598f59c53ec6951c43a490e66cced",
+      "url": "https://api.github.com/repos/andrealufino/Luminous/git/trees/1dd7d23a6ef598f59c53ec6951c43a490e66cced"
+    },
+    {
+      "path": ".swiftpm/xcode/package.xcworkspace",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d9c19cc17a1d6452956495c8f392c3673f08a9eb",
+      "url": "https://api.github.com/repos/andrealufino/Luminous/git/trees/d9c19cc17a1d6452956495c8f392c3673f08a9eb"
+    },
+    {
+      "path": ".swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "919434a6254f0e9651f402737811be6634a03e9c",
+      "size": 135,
+      "url": "https://api.github.com/repos/andrealufino/Luminous/git/blobs/919434a6254f0e9651f402737811be6634a03e9c"
+    },
+    {
+      "path": "CLAUDE.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6924ec57b46e0cb9344681280b797cf77078cdad",
+      "size": 3305,
+      "url": "https://api.github.com/repos/andrealufino/Luminous/git/blobs/6924ec57b46e0cb9344681280b797cf77078cdad"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b9a130213cfcdd569e6d592ebcc2eef6c65f3d0",
+      "size": 1090,
+      "url": "https://api.github.com/repos/andrealufino/Luminous/git/blobs/8b9a130213cfcdd569e6d592ebcc2eef6c65f3d0"
+    },
+    {
+      "path": "Package.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "03f477f9dac9f6ad9e99bfa199fbbdd0d248430d",
+      "size": 602,
+      "url": "https://api.github.com/repos/andrealufino/Luminous/git/blobs/03f477f9dac9f6ad9e99bfa199fbbdd0d248430d"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4474d197a58a94ef11874797e6923fd3bc09ea12",
+      "size": 10214,
+      "url": "https://api.github.com/repos/andrealufino/Luminous/git/blobs/4474d197a58a94ef11874797e6923fd3bc09ea12"
+    },
+    {
+      "path": "Sources",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0e7725d52395dfc57c38fc7f7e0b00897ecf3e05",
+      "url": "https://api.github.com/repos/andrealufino/Luminous/git/trees/0e7725d52395dfc57c38fc7f7e0b00897ecf3e05"
+    },
+    {
+      "path": "Sources/Luminous",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "41ae52e29060184fb6ed0317420509f9897217ed",
+      "url": "https://api.github.com/repos/andrealufino/Luminous/git/trees/41ae52e29060184fb6ed0317420509f9897217ed"
+    },
+    {
+      "path": "Sources/Luminous/Luminous+Application.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0a4eb07971fc15f6f538206a20c11cc59151fd86",
+      "size": 1914,
+      "url": "https://api.github.com/repos/andrealufino/Luminous/git/blobs/0a4eb07971fc15f6f538206a20c11cc59151fd86"
+    },
+    {
+      "path": "Sources/Luminous/Luminous+Audio.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9b6a14abc2606a13fc65a3f878ad083b61e37f04",
+      "size": 2415,
+      "url": "https://api.github.com/repos/andrealufino/Luminous/git/blobs/9b6a14abc2606a13fc65a3f878ad083b61e37f04"
+    },
+    {
+      "path": "Sources/Luminous/Luminous+Battery.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6eafdb849f912cf8e17443fbcd5eb9bad9143abd",
+      "size": 1928,
+      "url": "https://api.github.com/repos/andrealufino/Luminous/git/blobs/6eafdb849f912cf8e17443fbcd5eb9bad9143abd"
+    },
+    {
+      "path": "Sources/Luminous/Luminous+Disk.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "70f5367b69478cab78d3883af9348c2290813673",
+      "size": 3899,
+      "url": "https://api.github.com/repos/andrealufino/Luminous/git/blobs/70f5367b69478cab78d3883af9348c2290813673"
+    },
+    {
+      "path": "Sources/Luminous/Luminous+Hardware.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "54126cf326e3e08731a5d0ff09713205445e464d",
+      "size": 9801,
+      "url": "https://api.github.com/repos/andrealufino/Luminous/git/blobs/54126cf326e3e08731a5d0ff09713205445e464d"
+    },
+    {
+      "path": "Sources/Luminous/Luminous+Locale.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1364d796e7dae8ff1aa98cb49d3d1a1f0c50e329",
+      "size": 1990,
+      "url": "https://api.github.com/repos/andrealufino/Luminous/git/blobs/1364d796e7dae8ff1aa98cb49d3d1a1f0c50e329"
+    },
+    {
+      "path": "Sources/Luminous/Luminous+Network.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d821fc81673282b428fd2e6eb836f93130300eb3",
+      "size": 3469,
+      "url": "https://api.github.com/repos/andrealufino/Luminous/git/blobs/d821fc81673282b428fd2e6eb836f93130300eb3"
+    },
+    {
+      "path": "Sources/Luminous/Luminous.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9b8ef74a5ffccb9a700434c2b76f3922f7e63889",
+      "size": 1103,
+      "url": "https://api.github.com/repos/andrealufino/Luminous/git/blobs/9b8ef74a5ffccb9a700434c2b76f3922f7e63889"
+    },
+    {
+      "path": "Sources/Luminous/OperatingSystemVersion+Comparable.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d3f7a9a6bae97a2fd9648a77129228b573616e87",
+      "size": 1278,
+      "url": "https://api.github.com/repos/andrealufino/Luminous/git/blobs/d3f7a9a6bae97a2fd9648a77129228b573616e87"
+    },
+    {
+      "path": "Tests",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1e4769fd302aae58c9c7d9a494eb2c48954dab78",
+      "url": "https://api.github.com/repos/andrealufino/Luminous/git/trees/1e4769fd302aae58c9c7d9a494eb2c48954dab78"
+    },
+    {
+      "path": "Tests/LuminousTests",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "54920f52e082437a89e143206835beb3dba3e44c",
+      "url": "https://api.github.com/repos/andrealufino/Luminous/git/trees/54920f52e082437a89e143206835beb3dba3e44c"
+    },
+    {
+      "path": "Tests/LuminousTests/LuminousTests.swift",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8428bb62dca9a84745185bd5a00c36661e9a3b01",
+      "size": 9049,
+      "url": "https://api.github.com/repos/andrealufino/Luminous/git/blobs/8428bb62dca9a84745185bd5a00c36661e9a3b01"
+    },
+    {
+      "path": "_Pods.xcodeproj",
+      "mode": "120000",
+      "type": "blob",
+      "sha": "3c5a8e715ad5e81a0fba3ef0190e77a68be83f4b",
+      "size": 27,
+      "url": "https://api.github.com/repos/andrealufino/Luminous/git/blobs/3c5a8e715ad5e81a0fba3ef0190e77a68be83f4b"
+    },
+    {
+      "path": "docs",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "182dc7dbe84a3d5b69492e566dd955618ae6dee1",
+      "url": "https://api.github.com/repos/andrealufino/Luminous/git/trees/182dc7dbe84a3d5b69492e566dd955618ae6dee1"
+    },
+    {
+      "path": "docs/architecture.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8f121c808354b5281a0be02d2717917902046407",
+      "size": 11950,
+      "url": "https://api.github.com/repos/andrealufino/Luminous/git/blobs/8f121c808354b5281a0be02d2717917902046407"
+    },
+    {
+      "path": "luminous.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d475ace068831ad31962eb56a452eb09618b625a",
+      "size": 75357,
+      "url": "https://api.github.com/repos/andrealufino/Luminous/git/blobs/d475ace068831ad31962eb56a452eb09618b625a"
+    }
+  ],
+  "truncated": false
+}
