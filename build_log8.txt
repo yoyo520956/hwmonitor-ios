@@ -1,0 +1,387 @@
+﻿2026-10-18T11:29:15.1686140Z Current runner version: '2.337.0'
+2026-10-18T11:29:15.1702620Z ##[group]Runner Image Provisioner
+2026-10-18T11:29:15.1703170Z Hosted Compute Agent
+2026-10-18T11:29:15.1703540Z Version: 20261012.601
+2026-10-18T11:29:15.1703940Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+2026-10-18T11:29:15.1704400Z Build Date: 2026-10-12T17:48:21Z
+2026-10-18T11:29:15.1704920Z Worker ID: {42f59bb5-bc33-4858-a6e5-1f942a4aeaa5}
+2026-10-18T11:29:15.1705470Z Region: westus
+2026-10-18T11:29:15.1705810Z Cloud: MacCloud
+2026-10-18T11:29:15.1706160Z ##[endgroup]
+2026-10-18T11:29:15.1707190Z ##[group]Operating System
+2026-10-18T11:29:15.1707620Z macOS
+2026-10-18T11:29:15.1707950Z 26.6.2
+2026-10-18T11:29:15.1708270Z 25G83
+2026-10-18T11:29:15.1708590Z ##[endgroup]
+2026-10-18T11:29:15.1708930Z ##[group]Runner Image
+2026-10-18T11:29:15.1709300Z Image: macos-26-arm64
+2026-10-18T11:29:15.1709660Z Version: 20261013.0424.1
+2026-10-18T11:29:15.1710470Z Included Software: https://github.com/actions/runner-images/blob/macos-26-arm64/20261013.0424/images/macos/macos-26-arm64-Readme.md
+2026-10-18T11:29:15.1711540Z Image Release: https://github.com/actions/runner-images/releases/tag/macos-26-arm64%2F20261013.0424
+2026-10-18T11:29:15.1712190Z ##[endgroup]
+2026-10-18T11:29:15.1712990Z ##[group]GITHUB_TOKEN Permissions
+2026-10-18T11:29:15.1714510Z Contents: read
+2026-10-18T11:29:15.1714890Z Metadata: read
+2026-10-18T11:29:15.1715240Z Packages: read
+2026-10-18T11:29:15.1715590Z ##[endgroup]
+2026-10-18T11:29:15.1717010Z Secret source: Actions
+2026-10-18T11:29:15.1717650Z Cache mode: write
+2026-10-18T11:29:15.1718090Z Prepare workflow directory
+2026-10-18T11:29:15.1942720Z Prepare all required actions
+2026-10-18T11:29:15.1979270Z Getting action download info
+2026-10-18T11:29:15.5879210Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-18T11:29:15.8641940Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-18T11:29:16.1004010Z Complete job name: build
+2026-10-18T11:29:16.1514390Z ##[group]Run actions/checkout@v4
+2026-10-18T11:29:16.1515140Z with:
+2026-10-18T11:29:16.1515500Z   repository: yoyo520956/hwmonitor-ios
+2026-10-18T11:29:16.1518740Z   token: ***
+2026-10-18T11:29:16.1519070Z   ssh-strict: true
+2026-10-18T11:29:16.1519420Z   ssh-user: git
+2026-10-18T11:29:16.1519840Z   persist-credentials: true
+2026-10-18T11:29:16.1520310Z   clean: true
+2026-10-18T11:29:16.1520660Z   sparse-checkout-cone-mode: true
+2026-10-18T11:29:16.1521080Z   fetch-depth: 1
+2026-10-18T11:29:16.1521430Z   fetch-tags: false
+2026-10-18T11:29:16.1521750Z   show-progress: true
+2026-10-18T11:29:16.1522370Z   lfs: false
+2026-10-18T11:29:16.1522870Z   submodules: false
+2026-10-18T11:29:16.1523260Z   set-safe-directory: true
+2026-10-18T11:29:16.1523650Z   allow-unsafe-pr-checkout: false
+2026-10-18T11:29:16.1524530Z ##[endgroup]
+2026-10-18T11:29:16.4991980Z Syncing repository: yoyo520956/hwmonitor-ios
+2026-10-18T11:29:16.4993390Z ##[group]Getting Git version info
+2026-10-18T11:29:16.4994190Z Working directory is '/Users/runner/work/hwmonitor-ios/hwmonitor-ios'
+2026-10-18T11:29:16.4995140Z [command]/opt/homebrew/bin/git version
+2026-10-18T11:29:16.5241100Z git version 2.56.0
+2026-10-18T11:29:16.5253690Z ##[endgroup]
+2026-10-18T11:29:16.5261200Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/ebea652a-f6ce-477e-b86b-b3058ab9875e/.gitconfig'
+2026-10-18T11:29:16.5268910Z Temporarily overriding HOME='/Users/runner/work/_temp/ebea652a-f6ce-477e-b86b-b3058ab9875e' before making global git config changes
+2026-10-18T11:29:16.5270150Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-18T11:29:16.5272840Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/hwmonitor-ios/hwmonitor-ios
+2026-10-18T11:29:16.5394790Z Deleting the contents of '/Users/runner/work/hwmonitor-ios/hwmonitor-ios'
+2026-10-18T11:29:16.5397490Z ##[group]Initializing the repository
+2026-10-18T11:29:16.5403530Z [command]/opt/homebrew/bin/git init /Users/runner/work/hwmonitor-ios/hwmonitor-ios
+2026-10-18T11:29:16.5934770Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-18T11:29:16.5936160Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-18T11:29:16.5937830Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-18T11:29:16.5938610Z hint: call:
+2026-10-18T11:29:16.5938970Z hint:
+2026-10-18T11:29:16.5939420Z hint: 	git config --global init.defaultBranch <name>
+2026-10-18T11:29:16.5939870Z hint:
+2026-10-18T11:29:16.5940330Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-18T11:29:16.5941580Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-18T11:29:16.5942220Z hint:
+2026-10-18T11:29:16.5942600Z hint: 	git branch -m <name>
+2026-10-18T11:29:16.5943020Z hint:
+2026-10-18T11:29:16.5943690Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-18T11:29:16.5950850Z Initialized empty Git repository in /Users/runner/work/hwmonitor-ios/hwmonitor-ios/.git/
+2026-10-18T11:29:16.5959060Z [command]/opt/homebrew/bin/git remote add origin https://github.com/yoyo520956/hwmonitor-ios
+2026-10-18T11:29:16.6091210Z ##[endgroup]
+2026-10-18T11:29:16.6092740Z ##[group]Disabling automatic garbage collection
+2026-10-18T11:29:16.6093540Z [command]/opt/homebrew/bin/git config --local gc.auto 0
+2026-10-18T11:29:16.6186510Z ##[endgroup]
+2026-10-18T11:29:16.6188140Z ##[group]Setting up auth
+2026-10-18T11:29:16.6193160Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-18T11:29:16.6311910Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-18T11:29:16.7906940Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-18T11:29:16.7995050Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-18T11:29:16.9867790Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-18T11:29:17.0174860Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-18T11:29:17.1692550Z [command]/opt/homebrew/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-18T11:29:17.1724910Z ##[endgroup]
+2026-10-18T11:29:17.1725870Z ##[group]Fetching the repository
+2026-10-18T11:29:17.1727870Z [command]/opt/homebrew/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +763b42c4e04f8c00ff721674b40abb569d0ae20a:refs/remotes/origin/main
+2026-10-18T11:29:17.6522160Z From https://github.com/yoyo520956/hwmonitor-ios
+2026-10-18T11:29:17.6523500Z  * [new ref]         763b42c4e04f8c00ff721674b40abb569d0ae20a -> origin/main
+2026-10-18T11:29:17.6526370Z ##[endgroup]
+2026-10-18T11:29:17.6527390Z ##[group]Determining the checkout info
+2026-10-18T11:29:17.6529190Z ##[endgroup]
+2026-10-18T11:29:17.6530170Z [command]/opt/homebrew/bin/git sparse-checkout disable
+2026-10-18T11:29:17.6612680Z [command]/opt/homebrew/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-18T11:29:17.6687900Z ##[group]Checking out the ref
+2026-10-18T11:29:17.6689610Z [command]/opt/homebrew/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-10-18T11:29:17.6939320Z Switched to a new branch 'main'
+2026-10-18T11:29:17.6943150Z branch 'main' set up to track 'origin/main'.
+2026-10-18T11:29:17.6948900Z ##[endgroup]
+2026-10-18T11:29:17.7050650Z [command]/opt/homebrew/bin/git log -1 --format=%H
+2026-10-18T11:29:17.7120090Z 763b42c4e04f8c00ff721674b40abb569d0ae20a
+2026-10-18T11:29:17.7339130Z ##[group]Run ls /Applications | grep Xcode || true
+2026-10-18T11:29:17.7340400Z [36;1mls /Applications | grep Xcode || true[0m
+2026-10-18T11:29:17.7341750Z [36;1msudo xcode-select -s /Applications/Xcode_26.2.app 2>/dev/null || true[0m
+2026-10-18T11:29:17.7343220Z [36;1mxcodebuild -version[0m
+2026-10-18T11:29:17.7404580Z shell: /bin/bash -e {0}
+2026-10-18T11:29:17.7405610Z ##[endgroup]
+2026-10-18T11:29:17.7711000Z Xcode_26.0.1.app
+2026-10-18T11:29:17.7713580Z Xcode_26.0.app
+2026-10-18T11:29:17.7714370Z Xcode_26.1.1.app
+2026-10-18T11:29:17.7715200Z Xcode_26.1.app
+2026-10-18T11:29:17.7716030Z Xcode_26.2.0.app
+2026-10-18T11:29:17.7716890Z Xcode_26.2.app
+2026-10-18T11:29:17.7717600Z Xcode_26.3.0.app
+2026-10-18T11:29:17.7718300Z Xcode_26.3.app
+2026-10-18T11:29:17.7719040Z Xcode_26.4.1.app
+2026-10-18T11:29:17.7719700Z Xcode_26.4.app
+2026-10-18T11:29:17.7720330Z Xcode_26.5.0.app
+2026-10-18T11:29:17.7721070Z Xcode_26.5.app
+2026-10-18T11:29:17.7721690Z Xcode_26.6.0.app
+2026-10-18T11:29:17.7723550Z Xcode_26.6.app
+2026-10-18T11:29:17.7724290Z Xcode.app
+2026-10-18T11:29:20.7574580Z Xcode 26.2
+2026-10-18T11:29:20.7576390Z Build version 17C52
+2026-10-18T11:29:20.7636090Z ##[group]Run brew install xcodegen
+2026-10-18T11:29:20.7636440Z [36;1mbrew install xcodegen[0m
+2026-10-18T11:29:20.7672940Z shell: /bin/bash -e {0}
+2026-10-18T11:29:20.7673260Z ##[endgroup]
+2026-10-18T11:29:23.9433980Z [32m==>[0m [1mDownloading bottle manifests[0m
+2026-10-18T11:29:23.9539970Z ✔︎ Bottle Manifest xcodegen (2.46.0)
+2026-10-18T11:29:23.9641860Z [32m==>[0m [1mFetching downloads for: [32mxcodegen[39m[0m
+2026-10-18T11:29:25.5961190Z ✔︎ Bottle xcodegen (2.46.0)
+2026-10-18T11:29:25.6569170Z [34m==>[0m [1mPouring xcodegen--2.46.0.arm64_tahoe.bottle.1.tar.gz[0m
+2026-10-18T11:29:26.4566380Z 🍺  /opt/homebrew/Cellar/xcodegen/2.46.0: 38 files, 7.4MB
+2026-10-18T11:29:26.4739940Z ##[group]Run cd app
+2026-10-18T11:29:26.4740310Z [36;1mcd app[0m
+2026-10-18T11:29:26.4740660Z [36;1mxcodegen generate[0m
+2026-10-18T11:29:26.4741340Z [36;1mls -la[0m
+2026-10-18T11:29:26.4793310Z shell: /bin/bash -e {0}
+2026-10-18T11:29:26.4793630Z ##[endgroup]
+2026-10-18T11:29:26.5509540Z ⚙️  Generating plists...
+2026-10-18T11:29:26.5511790Z ⚙️  Generating project...
+2026-10-18T11:29:26.5709880Z ⚙️  Writing project...
+2026-10-18T11:29:26.5959970Z Created project at /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/HWMonitor.xcodeproj
+2026-10-18T11:29:26.6100140Z total 8
+2026-10-18T11:29:26.6100580Z drwxr-xr-x   7 runner  staff   224 Oct 18 11:29 .
+2026-10-18T11:29:26.6101020Z drwxr-xr-x  24 runner  staff   768 Oct 18 11:29 ..
+2026-10-18T11:29:26.6101600Z drwxr-xr-x   5 runner  staff   160 Oct 18 11:29 HWMonitor.xcodeproj
+2026-10-18T11:29:26.6102150Z -rw-r--r--   1 runner  staff  1330 Oct 18 11:29 project.yml
+2026-10-18T11:29:26.6103010Z drwxr-xr-x   4 runner  staff   128 Oct 18 11:29 Resources
+2026-10-18T11:29:26.6103500Z drwxr-xr-x   9 runner  staff   288 Oct 18 11:29 Sources
+2026-10-18T11:29:26.6104010Z drwxr-xr-x   3 runner  staff    96 Oct 18 11:29 Tests
+2026-10-18T11:29:26.6158330Z ##[group]Run cd app
+2026-10-18T11:29:26.6158840Z [36;1mcd app[0m
+2026-10-18T11:29:26.6159110Z [36;1mset -o pipefail[0m
+2026-10-18T11:29:26.6159550Z [36;1mxcodebuild -project HWMonitor.xcodeproj \[0m
+2026-10-18T11:29:26.6159940Z [36;1m  -scheme HWMonitor \[0m
+2026-10-18T11:29:26.6160290Z [36;1m  -configuration Release \[0m
+2026-10-18T11:29:26.6160610Z [36;1m  -destination 'generic/platform=iOS' \[0m
+2026-10-18T11:29:26.6160880Z [36;1m  -derivedDataPath build \[0m
+2026-10-18T11:29:26.6161250Z [36;1m  CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \[0m
+2026-10-18T11:29:26.6161610Z [36;1m  build 2>&1 | tail -60[0m
+2026-10-18T11:29:26.6204450Z shell: /bin/bash -e {0}
+2026-10-18T11:29:26.6204780Z ##[endgroup]
+2026-10-18T11:29:55.8462020Z Copy /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.swiftmodule/arm64-apple-ios.swiftmodule /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Intermediates.noindex/HWMonitor.build/Release-iphoneos/HWMonitor.build/Objects-normal/arm64/HWMonitor.swiftmodule (in target 'HWMonitor' from project 'HWMonitor')
+2026-10-18T11:29:55.8499100Z     cd /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app
+2026-10-18T11:29:55.8505670Z     builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Intermediates.noindex/HWMonitor.build/Release-iphoneos/HWMonitor.build/Objects-normal/arm64/HWMonitor.swiftmodule /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.swiftmodule/arm64-apple-ios.swiftmodule
+2026-10-18T11:29:55.8510010Z 
+2026-10-18T11:29:55.8513680Z SwiftMergeGeneratedHeaders /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Intermediates.noindex/HWMonitor.build/Release-iphoneos/HWMonitor.build/DerivedSources/HWMonitor-Swift.h /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Intermediates.noindex/HWMonitor.build/Release-iphoneos/HWMonitor.build/Objects-normal/arm64/HWMonitor-Swift.h (in target 'HWMonitor' from project 'HWMonitor')
+2026-10-18T11:29:55.8516490Z     cd /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app
+2026-10-18T11:29:55.8520020Z     builtin-swiftHeaderTool -arch arm64 /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Intermediates.noindex/HWMonitor.build/Release-iphoneos/HWMonitor.build/Objects-normal/arm64/HWMonitor-Swift.h -o /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Intermediates.noindex/HWMonitor.build/Release-iphoneos/HWMonitor.build/DerivedSources/HWMonitor-Swift.h
+2026-10-18T11:29:55.8521670Z 
+2026-10-18T11:29:55.8523390Z Copy /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.swiftmodule/arm64-apple-ios.swiftdoc /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Intermediates.noindex/HWMonitor.build/Release-iphoneos/HWMonitor.build/Objects-normal/arm64/HWMonitor.swiftdoc (in target 'HWMonitor' from project 'HWMonitor')
+2026-10-18T11:29:55.8528000Z     cd /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app
+2026-10-18T11:29:55.8530040Z     builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Intermediates.noindex/HWMonitor.build/Release-iphoneos/HWMonitor.build/Objects-normal/arm64/HWMonitor.swiftdoc /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.swiftmodule/arm64-apple-ios.swiftdoc
+2026-10-18T11:29:55.8532690Z 
+2026-10-18T11:29:55.8535100Z Copy /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.swiftmodule/arm64-apple-ios.abi.json /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Intermediates.noindex/HWMonitor.build/Release-iphoneos/HWMonitor.build/Objects-normal/arm64/HWMonitor.abi.json (in target 'HWMonitor' from project 'HWMonitor')
+2026-10-18T11:29:55.8550350Z     cd /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app
+2026-10-18T11:29:55.8555270Z     builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Intermediates.noindex/HWMonitor.build/Release-iphoneos/HWMonitor.build/Objects-normal/arm64/HWMonitor.abi.json /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.swiftmodule/arm64-apple-ios.abi.json
+2026-10-18T11:29:55.8557640Z 
+2026-10-18T11:29:55.8559410Z Copy /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Intermediates.noindex/HWMonitor.build/Release-iphoneos/HWMonitor.build/Objects-normal/arm64/HWMonitor.swiftsourceinfo (in target 'HWMonitor' from project 'HWMonitor')
+2026-10-18T11:29:55.8563510Z     cd /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app
+2026-10-18T11:29:55.8566100Z     builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Intermediates.noindex/HWMonitor.build/Release-iphoneos/HWMonitor.build/Objects-normal/arm64/HWMonitor.swiftsourceinfo /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo
+2026-10-18T11:29:55.8569790Z 
+2026-10-18T11:29:55.8570860Z Ld /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.app/HWMonitor normal (in target 'HWMonitor' from project 'HWMonitor')
+2026-10-18T11:29:55.8572030Z     cd /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app
+2026-10-18T11:29:55.8590090Z     /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios16.0 -isysroot /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk -Os -L/Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Intermediates.noindex/EagerLinkingTBDs/Release-iphoneos -L/Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos -F/Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Intermediates.noindex/EagerLinkingTBDs/Release-iphoneos -F/Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos -filelist /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Intermediates.noindex/HWMonitor.build/Release-iphoneos/HWMonitor.build/Objects-normal/arm64/HWMonitor.LinkFileList -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @executable_path/Frameworks -dead_strip -Xlinker -object_path_lto -Xlinker /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Intermediates.noindex/HWMonitor.build/Release-iphoneos/HWMonitor.build/Objects-normal/arm64/HWMonitor_lto.o -Xlinker -dependency_info -Xlinker /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Intermediates.noindex/HWMonitor.build/Release-iphoneos/HWMonitor.build/Objects-normal/arm64/HWMonitor_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Intermediates.noindex/HWMonitor.build/Release-iphoneos/HWMonitor.build/Objects-normal/arm64/HWMonitor.swiftmodule @/Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Intermediates.noindex/HWMonitor.build/Release-iphoneos/HWMonitor.build/Objects-normal/arm64/HWMonitor-linker-args.resp -o /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.app/HWMonitor
+2026-10-18T11:29:55.8603600Z 
+2026-10-18T11:29:55.8606320Z CopySwiftLibs /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.app (in target 'HWMonitor' from project 'HWMonitor')
+2026-10-18T11:29:55.8608740Z     cd /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app
+2026-10-18T11:29:55.8615170Z     builtin-swiftStdLibTool --copy --verbose --scan-executable /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.app/HWMonitor --scan-folder /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.app/Frameworks --scan-folder /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.app/PlugIns --scan-folder /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.app/SystemExtensions --scan-folder /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.app/Extensions --platform iphoneos --toolchain /var/run/com.apple.security.cryptexd/mnt/com.apple.MobileAsset.MetalToolchain-v17.3.7003.10.MaE2sO/Metal.xctoolchain --toolchain /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.app/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Intermediates.noindex/HWMonitor.build/Release-iphoneos/HWMonitor.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os --back-deploy-swift-span
+2026-10-18T11:29:55.8625550Z Ignoring --strip-bitcode because --sign was not passed
+2026-10-18T11:29:55.8625920Z 
+2026-10-18T11:29:55.8626560Z ExtractAppIntentsMetadata (in target 'HWMonitor' from project 'HWMonitor')
+2026-10-18T11:29:55.8627150Z     cd /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app
+2026-10-18T11:29:55.8636470Z     /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /var/run/com.apple.security.cryptexd/mnt/com.apple.MobileAsset.MetalToolchain-v17.3.7003.10.MaE2sO/Metal.xctoolchain --module-name HWMonitor --sdk-root /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk --xcode-version 17C52 --platform-family iOS --deployment-target 16.0 --bundle-identifier com.qingyao.hwmonitor --output /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.app --target-triple arm64-apple-ios16.0 --binary-file /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.app/HWMonitor --dependency-file /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Intermediates.noindex/HWMonitor.build/Release-iphoneos/HWMonitor.build/Objects-normal/arm64/HWMonitor_dependency_info.dat --stringsdata-file /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Intermediates.noindex/HWMonitor.build/Release-iphoneos/HWMonitor.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Intermediates.noindex/HWMonitor.build/Release-iphoneos/HWMonitor.build/Objects-normal/arm64/HWMonitor.SwiftFileList --metadata-file-list /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Intermediates.noindex/HWMonitor.build/Release-iphoneos/HWMonitor.build/HWMonitor.DependencyMetadataFileList --static-metadata-file-list /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Intermediates.noindex/HWMonitor.build/Release-iphoneos/HWMonitor.build/HWMonitor.DependencyStaticMetadataFileList --swift-const-vals-list /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Intermediates.noindex/HWMonitor.build/Release-iphoneos/HWMonitor.build/Objects-normal/arm64/HWMonitor.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2026-10-18T11:29:55.8649440Z 2026-10-18 11:29:55.530 appintentsmetadataprocessor[18013:49819] Starting appintentsmetadataprocessor export
+2026-10-18T11:29:55.8652400Z 2026-10-18 11:29:55.537 appintentsmetadataprocessor[18013:49819] warning: Metadata extraction skipped. No AppIntents.framework dependency found.
+2026-10-18T11:29:55.8653130Z 
+2026-10-18T11:29:55.8655410Z GenerateDSYMFile /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.app.dSYM /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.app/HWMonitor (in target 'HWMonitor' from project 'HWMonitor')
+2026-10-18T11:29:55.8659530Z     cd /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app
+2026-10-18T11:29:55.8660870Z     /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.app/HWMonitor -o /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.app.dSYM
+2026-10-18T11:29:55.8662510Z 
+2026-10-18T11:29:55.8662810Z AppIntentsSSUTraining (in target 'HWMonitor' from project 'HWMonitor')
+2026-10-18T11:29:55.8663350Z     cd /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app
+2026-10-18T11:29:55.8666760Z     /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsnltrainingprocessor --infoplist-path /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.app/Info.plist --temp-dir-path /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Intermediates.noindex/HWMonitor.build/Release-iphoneos/HWMonitor.build/ssu --bundle-id com.qingyao.hwmonitor --product-path /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.app --extracted-metadata-path /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.app/Metadata.appintents --metadata-file-list /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Intermediates.noindex/HWMonitor.build/Release-iphoneos/HWMonitor.build/HWMonitor.DependencyMetadataFileList --archive-ssu-assets
+2026-10-18T11:29:55.8670420Z 2026-10-18 11:29:55.586 appintentsnltrainingprocessor[18016:49826] Parsing options for appintentsnltrainingprocessor
+2026-10-18T11:29:55.8671170Z 2026-10-18 11:29:55.588 appintentsnltrainingprocessor[18016:49826] No AppShortcuts found - Skipping.
+2026-10-18T11:29:55.8671540Z 
+2026-10-18T11:29:55.8672110Z RegisterExecutionPolicyException /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.app (in target 'HWMonitor' from project 'HWMonitor')
+2026-10-18T11:29:55.8672940Z     cd /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app
+2026-10-18T11:29:55.8673670Z     builtin-RegisterExecutionPolicyException /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.app
+2026-10-18T11:29:55.8674190Z 
+2026-10-18T11:29:55.8674680Z Validate /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.app (in target 'HWMonitor' from project 'HWMonitor')
+2026-10-18T11:29:55.8675330Z     cd /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app
+2026-10-18T11:29:55.8676120Z     builtin-validationUtility /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.app -shallow-bundle -infoplist-subpath Info.plist
+2026-10-18T11:29:55.8677150Z warning: All interface orientations must be supported unless the app requires full screen. (in target 'HWMonitor' from project 'HWMonitor')
+2026-10-18T11:29:55.8677570Z 
+2026-10-18T11:29:55.8678040Z Touch /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.app (in target 'HWMonitor' from project 'HWMonitor')
+2026-10-18T11:29:55.8678870Z     cd /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app
+2026-10-18T11:29:55.8679760Z     /usr/bin/touch -c /Users/runner/work/hwmonitor-ios/hwmonitor-ios/app/build/Build/Products/Release-iphoneos/HWMonitor.app
+2026-10-18T11:29:55.8680230Z 
+2026-10-18T11:29:55.8680300Z ** BUILD SUCCEEDED **
+2026-10-18T11:29:55.8680460Z 
+2026-10-18T11:29:55.8790220Z ##[group]Run cd app
+2026-10-18T11:29:55.8790790Z [36;1mcd app[0m
+2026-10-18T11:29:55.8791050Z [36;1mmkdir -p Payload[0m
+2026-10-18T11:29:55.8791460Z [36;1mcp -r build/Build/Products/Release-iphoneos/HWMonitor.app Payload/[0m
+2026-10-18T11:29:55.8791880Z [36;1mzip -qry HWMonitor.ipa Payload[0m
+2026-10-18T11:29:55.8792260Z [36;1mls -la HWMonitor.ipa[0m
+2026-10-18T11:29:55.8792580Z [36;1munzip -t HWMonitor.ipa > /dev/null && echo "IPA CRC OK"[0m
+2026-10-18T11:29:55.9151800Z shell: /bin/bash -e {0}
+2026-10-18T11:29:55.9152070Z ##[endgroup]
+2026-10-18T11:29:56.0988170Z -rw-r--r--  1 runner  staff  297525 Oct 18 11:29 HWMonitor.ipa
+2026-10-18T11:29:56.1263040Z IPA CRC OK
+2026-10-18T11:29:56.1332510Z ##[group]Run cd app
+2026-10-18T11:29:56.1333060Z [36;1mcd app[0m
+2026-10-18T11:29:56.1333380Z [36;1mset -o pipefail[0m
+2026-10-18T11:29:56.1333730Z [36;1mxcodebuild -project HWMonitor.xcodeproj \[0m
+2026-10-18T11:29:56.1334150Z [36;1m  -scheme HWMonitor \[0m
+2026-10-18T11:29:56.1334520Z [36;1m  -destination 'platform=iOS Simulator,name=iPhone SE (3rd generation)' \[0m
+2026-10-18T11:29:56.1335000Z [36;1m  -derivedDataPath build \[0m
+2026-10-18T11:29:56.1335310Z [36;1m  CODE_SIGNING_ALLOWED=NO \[0m
+2026-10-18T11:29:56.1335860Z [36;1m  test 2>&1 | tail -80 || echo "TEST_STEP_FAILED (IPA artifact still uploaded)"[0m
+2026-10-18T11:29:56.1385180Z shell: /bin/bash -e {0}
+2026-10-18T11:29:56.1385640Z ##[endgroup]
+2026-10-18T11:30:58.9887960Z 
+2026-10-18T11:30:58.9890470Z 2026-10-18 11:30:58.814 xcodebuild[18025:49863] Writing error result bundle to /var/folders/n6/hn37q6pj7sj_9dmqqc2113800000gn/T/ResultBundle_2026-18-10_11-30-0058.xcresult
+2026-10-18T11:30:58.9893270Z xcodebuild: error: Unable to find a device matching the provided destination specifier:
+2026-10-18T11:30:58.9896410Z 		{ platform:iOS Simulator, OS:latest, name:iPhone SE (3rd generation) }
+2026-10-18T11:30:58.9905470Z 
+2026-10-18T11:30:58.9910100Z 	The requested device could not be found because no available devices matched the request.
+2026-10-18T11:30:58.9910760Z 
+2026-10-18T11:30:58.9912520Z 	Available destinations for the "HWMonitor" scheme:
+2026-10-18T11:30:58.9914410Z 		{ platform:macOS, arch:arm64, variant:Designed for [iPad,iPhone], id:a987d0b41f205d404f9e12b8cd6073169c1dc37c, name:My Mac }
+2026-10-18T11:30:58.9919180Z 		{ platform:iOS, id:dvtdevice-DVTiPhonePlaceholder-iphoneos:placeholder, name:Any iOS Device }
+2026-10-18T11:30:58.9921820Z 		{ platform:iOS Simulator, id:dvtdevice-DVTiOSDeviceSimulatorPlaceholder-iphonesimulator:placeholder, name:Any iOS Simulator Device }
+2026-10-18T11:30:58.9925490Z 		{ platform:visionOS Simulator, arch:arm64, variant:Designed for [iPad,iPhone], id:4950424B-607B-450B-B2C1-927AC1FE135F, OS:26.2, name:Apple Vision Pro }
+2026-10-18T11:30:58.9927060Z 		{ platform:visionOS Simulator, arch:arm64, variant:Designed for [iPad,iPhone], id:DD9C9FB7-5D2F-4700-8C82-0CCBFCCE5BD5, OS:26.4.1, name:Apple Vision Pro }
+2026-10-18T11:30:58.9932520Z 		{ platform:visionOS Simulator, arch:arm64, variant:Designed for [iPad,iPhone], id:2B46279C-932E-4A83-B6D6-3E0D08FEF9E3, OS:26.5, name:Apple Vision Pro }
+2026-10-18T11:30:58.9933900Z 		{ platform:iOS Simulator, arch:arm64, id:872D3D92-89FC-49E7-8010-623AE992BE53, OS:26.2, name:iPad (A16) }
+2026-10-18T11:30:58.9935870Z 		{ platform:iOS Simulator, arch:x86_64, id:872D3D92-89FC-49E7-8010-623AE992BE53, OS:26.2, name:iPad (A16) }
+2026-10-18T11:30:58.9936540Z 		{ platform:iOS Simulator, arch:arm64, id:8140C7D4-B6A0-4208-AA08-0AE7E36A2ED7, OS:26.4.1, name:iPad (A16) }
+2026-10-18T11:30:58.9937540Z 		{ platform:iOS Simulator, arch:x86_64, id:8140C7D4-B6A0-4208-AA08-0AE7E36A2ED7, OS:26.4.1, name:iPad (A16) }
+2026-10-18T11:30:58.9938730Z 		{ platform:iOS Simulator, arch:arm64, id:1560A45E-C4D6-421A-B28D-D4CBB7AEB16E, OS:26.5, name:iPad (A16) }
+2026-10-18T11:30:58.9941310Z 		{ platform:iOS Simulator, arch:x86_64, id:1560A45E-C4D6-421A-B28D-D4CBB7AEB16E, OS:26.5, name:iPad (A16) }
+2026-10-18T11:30:58.9942630Z 		{ platform:iOS Simulator, arch:arm64, id:2762FE5F-7BDC-4FF4-85F9-128791DA7D70, OS:26.2, name:iPad Air 11-inch (M3) }
+2026-10-18T11:30:58.9943500Z 		{ platform:iOS Simulator, arch:x86_64, id:2762FE5F-7BDC-4FF4-85F9-128791DA7D70, OS:26.2, name:iPad Air 11-inch (M3) }
+2026-10-18T11:30:58.9946990Z 		{ platform:iOS Simulator, arch:arm64, id:8CF4EA9B-CFB4-4047-9579-50AE4D9C4C39, OS:26.4.1, name:iPad Air 11-inch (M4) }
+2026-10-18T11:30:58.9949050Z 		{ platform:iOS Simulator, arch:x86_64, id:8CF4EA9B-CFB4-4047-9579-50AE4D9C4C39, OS:26.4.1, name:iPad Air 11-inch (M4) }
+2026-10-18T11:30:58.9950590Z 		{ platform:iOS Simulator, arch:arm64, id:E3F295A2-F82D-4062-BD9F-3AC2D25771D0, OS:26.5, name:iPad Air 11-inch (M4) }
+2026-10-18T11:30:58.9957060Z 		{ platform:iOS Simulator, arch:x86_64, id:E3F295A2-F82D-4062-BD9F-3AC2D25771D0, OS:26.5, name:iPad Air 11-inch (M4) }
+2026-10-18T11:30:58.9962570Z 		{ platform:iOS Simulator, arch:arm64, id:61FD1CA6-0A9C-433D-9062-2A1905073F7B, OS:26.2, name:iPad Air 13-inch (M3) }
+2026-10-18T11:30:58.9964900Z 		{ platform:iOS Simulator, arch:x86_64, id:61FD1CA6-0A9C-433D-9062-2A1905073F7B, OS:26.2, name:iPad Air 13-inch (M3) }
+2026-10-18T11:30:58.9966010Z 		{ platform:iOS Simulator, arch:arm64, id:E9816C3D-670A-4099-A45C-A87E27AB0121, OS:26.4.1, name:iPad Air 13-inch (M4) }
+2026-10-18T11:30:58.9967000Z 		{ platform:iOS Simulator, arch:x86_64, id:E9816C3D-670A-4099-A45C-A87E27AB0121, OS:26.4.1, name:iPad Air 13-inch (M4) }
+2026-10-18T11:30:58.9967940Z 		{ platform:iOS Simulator, arch:arm64, id:5D2DEDEA-FD0F-444B-A6B4-462286B870CD, OS:26.5, name:iPad Air 13-inch (M4) }
+2026-10-18T11:30:58.9970370Z 		{ platform:iOS Simulator, arch:x86_64, id:5D2DEDEA-FD0F-444B-A6B4-462286B870CD, OS:26.5, name:iPad Air 13-inch (M4) }
+2026-10-18T11:30:58.9971930Z 		{ platform:iOS Simulator, arch:arm64, id:0C63C559-5513-4340-B1F8-C0ECD40308AF, OS:26.2, name:iPad Pro 11-inch (M5) }
+2026-10-18T11:30:58.9974650Z 		{ platform:iOS Simulator, arch:x86_64, id:0C63C559-5513-4340-B1F8-C0ECD40308AF, OS:26.2, name:iPad Pro 11-inch (M5) }
+2026-10-18T11:30:58.9976790Z 		{ platform:iOS Simulator, arch:arm64, id:8158498C-35D9-4CDD-A900-C765DCBF0935, OS:26.4.1, name:iPad Pro 11-inch (M5) }
+2026-10-18T11:30:58.9979110Z 		{ platform:iOS Simulator, arch:x86_64, id:8158498C-35D9-4CDD-A900-C765DCBF0935, OS:26.4.1, name:iPad Pro 11-inch (M5) }
+2026-10-18T11:30:58.9981290Z 		{ platform:iOS Simulator, arch:arm64, id:26F052CD-15B7-44B7-A129-B7135FDA1B92, OS:26.5, name:iPad Pro 11-inch (M5) }
+2026-10-18T11:30:58.9983130Z 		{ platform:iOS Simulator, arch:x86_64, id:26F052CD-15B7-44B7-A129-B7135FDA1B92, OS:26.5, name:iPad Pro 11-inch (M5) }
+2026-10-18T11:30:58.9985300Z 		{ platform:iOS Simulator, arch:arm64, id:3E32E66C-0037-43D0-BA3B-F54380A0040D, OS:26.2, name:iPad Pro 13-inch (M5) }
+2026-10-18T11:30:58.9987550Z 		{ platform:iOS Simulator, arch:x86_64, id:3E32E66C-0037-43D0-BA3B-F54380A0040D, OS:26.2, name:iPad Pro 13-inch (M5) }
+2026-10-18T11:30:58.9993930Z 		{ platform:iOS Simulator, arch:arm64, id:321980FC-BAC0-484D-B0AC-0C1D57FFC739, OS:26.4.1, name:iPad Pro 13-inch (M5) }
+2026-10-18T11:30:58.9996490Z 		{ platform:iOS Simulator, arch:x86_64, id:321980FC-BAC0-484D-B0AC-0C1D57FFC739, OS:26.4.1, name:iPad Pro 13-inch (M5) }
+2026-10-18T11:30:59.0000190Z 		{ platform:iOS Simulator, arch:arm64, id:99DEE653-946C-406D-8E9E-238D1FCE93C9, OS:26.5, name:iPad Pro 13-inch (M5) }
+2026-10-18T11:30:59.0002620Z 		{ platform:iOS Simulator, arch:x86_64, id:99DEE653-946C-406D-8E9E-238D1FCE93C9, OS:26.5, name:iPad Pro 13-inch (M5) }
+2026-10-18T11:30:59.0003950Z 		{ platform:iOS Simulator, arch:arm64, id:033003D3-045C-4334-9068-E7B1C2D3D6C5, OS:26.2, name:iPad mini (A17 Pro) }
+2026-10-18T11:30:59.0005110Z 		{ platform:iOS Simulator, arch:x86_64, id:033003D3-045C-4334-9068-E7B1C2D3D6C5, OS:26.2, name:iPad mini (A17 Pro) }
+2026-10-18T11:30:59.0006090Z 		{ platform:iOS Simulator, arch:arm64, id:1A931556-7569-452B-9276-C82E5224F9D5, OS:26.4.1, name:iPad mini (A17 Pro) }
+2026-10-18T11:30:59.0006840Z 		{ platform:iOS Simulator, arch:x86_64, id:1A931556-7569-452B-9276-C82E5224F9D5, OS:26.4.1, name:iPad mini (A17 Pro) }
+2026-10-18T11:30:59.0007600Z 		{ platform:iOS Simulator, arch:arm64, id:7EFEE255-C426-436B-A27B-3EC09FA8C9C0, OS:26.5, name:iPad mini (A17 Pro) }
+2026-10-18T11:30:59.0008300Z 		{ platform:iOS Simulator, arch:x86_64, id:7EFEE255-C426-436B-A27B-3EC09FA8C9C0, OS:26.5, name:iPad mini (A17 Pro) }
+2026-10-18T11:30:59.0009060Z 		{ platform:iOS Simulator, arch:arm64, id:600A45A3-B3A0-4A39-8A9C-5D051F9FDA9C, OS:26.2, name:iPhone 16e }
+2026-10-18T11:30:59.0010040Z 		{ platform:iOS Simulator, arch:x86_64, id:600A45A3-B3A0-4A39-8A9C-5D051F9FDA9C, OS:26.2, name:iPhone 16e }
+2026-10-18T11:30:59.0010790Z 		{ platform:iOS Simulator, arch:arm64, id:24E049C8-1AEC-4A9D-95C6-C11145A59D62, OS:26.2, name:iPhone 17 }
+2026-10-18T11:30:59.0012330Z 		{ platform:iOS Simulator, arch:x86_64, id:24E049C8-1AEC-4A9D-95C6-C11145A59D62, OS:26.2, name:iPhone 17 }
+2026-10-18T11:30:59.0013280Z 		{ platform:iOS Simulator, arch:arm64, id:6B80BA67-C6C4-428C-B622-38D6EED67050, OS:26.4.1, name:iPhone 17 }
+2026-10-18T11:30:59.0013960Z 		{ platform:iOS Simulator, arch:x86_64, id:6B80BA67-C6C4-428C-B622-38D6EED67050, OS:26.4.1, name:iPhone 17 }
+2026-10-18T11:30:59.0014580Z 		{ platform:iOS Simulator, arch:arm64, id:10B884BF-749F-4E8B-AFCD-26AB8F1DBD01, OS:26.5, name:iPhone 17 }
+2026-10-18T11:30:59.0015340Z 		{ platform:iOS Simulator, arch:x86_64, id:10B884BF-749F-4E8B-AFCD-26AB8F1DBD01, OS:26.5, name:iPhone 17 }
+2026-10-18T11:30:59.0022950Z 		{ platform:iOS Simulator, arch:arm64, id:B34C2F57-B98B-4C84-96E2-3170887BA2DB, OS:26.2, name:iPhone 17 Pro }
+2026-10-18T11:30:59.0025050Z 		{ platform:iOS Simulator, arch:x86_64, id:B34C2F57-B98B-4C84-96E2-3170887BA2DB, OS:26.2, name:iPhone 17 Pro }
+2026-10-18T11:30:59.0027130Z 		{ platform:iOS Simulator, arch:arm64, id:0183276C-C5F7-4A53-B0AF-C3D9117595F6, OS:26.4.1, name:iPhone 17 Pro }
+2026-10-18T11:30:59.0028890Z 		{ platform:iOS Simulator, arch:x86_64, id:0183276C-C5F7-4A53-B0AF-C3D9117595F6, OS:26.4.1, name:iPhone 17 Pro }
+2026-10-18T11:30:59.0030810Z 		{ platform:iOS Simulator, arch:arm64, id:E839A11B-51B4-4AD3-ACF4-A53B95B7C957, OS:26.5, name:iPhone 17 Pro }
+2026-10-18T11:30:59.0032840Z 		{ platform:iOS Simulator, arch:x86_64, id:E839A11B-51B4-4AD3-ACF4-A53B95B7C957, OS:26.5, name:iPhone 17 Pro }
+2026-10-18T11:30:59.0034720Z 		{ platform:iOS Simulator, arch:arm64, id:8B500E0C-CA36-4F12-853D-3B697FBEA084, OS:26.2, name:iPhone 17 Pro Max }
+2026-10-18T11:30:59.0036790Z 		{ platform:iOS Simulator, arch:x86_64, id:8B500E0C-CA36-4F12-853D-3B697FBEA084, OS:26.2, name:iPhone 17 Pro Max }
+2026-10-18T11:30:59.0038740Z 		{ platform:iOS Simulator, arch:arm64, id:E52F2A8A-51B6-409C-9C7B-9043B7E4A789, OS:26.4.1, name:iPhone 17 Pro Max }
+2026-10-18T11:30:59.0040790Z 		{ platform:iOS Simulator, arch:x86_64, id:E52F2A8A-51B6-409C-9C7B-9043B7E4A789, OS:26.4.1, name:iPhone 17 Pro Max }
+2026-10-18T11:30:59.0042610Z 		{ platform:iOS Simulator, arch:arm64, id:6EEDD2B9-6E06-4333-91B6-8661FDCCBA47, OS:26.5, name:iPhone 17 Pro Max }
+2026-10-18T11:30:59.0044560Z 		{ platform:iOS Simulator, arch:x86_64, id:6EEDD2B9-6E06-4333-91B6-8661FDCCBA47, OS:26.5, name:iPhone 17 Pro Max }
+2026-10-18T11:30:59.0046220Z 		{ platform:iOS Simulator, arch:arm64, id:49A10376-191D-4B27-82E7-4EC71948B0BB, OS:26.4.1, name:iPhone 17e }
+2026-10-18T11:30:59.0048200Z 		{ platform:iOS Simulator, arch:x86_64, id:49A10376-191D-4B27-82E7-4EC71948B0BB, OS:26.4.1, name:iPhone 17e }
+2026-10-18T11:30:59.0050170Z 		{ platform:iOS Simulator, arch:arm64, id:B645778B-2C95-4189-A74E-C79B9A17E245, OS:26.5, name:iPhone 17e }
+2026-10-18T11:30:59.0052150Z 		{ platform:iOS Simulator, arch:x86_64, id:B645778B-2C95-4189-A74E-C79B9A17E245, OS:26.5, name:iPhone 17e }
+2026-10-18T11:30:59.0053740Z 		{ platform:iOS Simulator, arch:arm64, id:3E8A6C6F-3253-4050-8CF7-715CB81ADF06, OS:26.2, name:iPhone Air }
+2026-10-18T11:30:59.0055800Z 		{ platform:iOS Simulator, arch:x86_64, id:3E8A6C6F-3253-4050-8CF7-715CB81ADF06, OS:26.2, name:iPhone Air }
+2026-10-18T11:30:59.0057410Z 		{ platform:iOS Simulator, arch:arm64, id:CB002ABF-49C1-4BBD-97EC-D3363B14BC06, OS:26.4.1, name:iPhone Air }
+2026-10-18T11:30:59.0059170Z 		{ platform:iOS Simulator, arch:x86_64, id:CB002ABF-49C1-4BBD-97EC-D3363B14BC06, OS:26.4.1, name:iPhone Air }
+2026-10-18T11:30:59.0061260Z 		{ platform:iOS Simulator, arch:arm64, id:726D52AF-426A-408A-974D-CA8B9BE8A479, OS:26.5, name:iPhone Air }
+2026-10-18T11:30:59.0063090Z 		{ platform:iOS Simulator, arch:x86_64, id:726D52AF-426A-408A-974D-CA8B9BE8A479, OS:26.5, name:iPhone Air }
+2026-10-18T11:30:59.0064360Z TEST_STEP_FAILED (IPA artifact still uploaded)
+2026-10-18T11:30:59.0318990Z ##[group]Run actions/upload-artifact@v4
+2026-10-18T11:30:59.0320860Z with:
+2026-10-18T11:30:59.0323020Z   name: hwmonitor-ipa
+2026-10-18T11:30:59.0323920Z   path: app/HWMonitor.ipa
+2026-10-18T11:30:59.0324290Z   if-no-files-found: warn
+2026-10-18T11:30:59.0325870Z   compression-level: 6
+2026-10-18T11:30:59.0327650Z   overwrite: false
+2026-10-18T11:30:59.0330560Z   include-hidden-files: false
+2026-10-18T11:30:59.0333450Z ##[endgroup]
+2026-10-18T11:30:59.8937340Z (node:19893) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-18T11:30:59.8938170Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-18T11:30:59.9053600Z With the provided path, there will be 1 file uploaded
+2026-10-18T11:30:59.9061990Z Artifact name is valid!
+2026-10-18T11:30:59.9063220Z Root directory input is valid!
+2026-10-18T11:31:00.3356250Z Beginning upload of artifact content to blob storage
+2026-10-18T11:31:00.3795160Z (node:19893) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-18T11:31:00.9075280Z Uploaded bytes 294455
+2026-10-18T11:31:00.9839860Z Finished uploading artifact content to blob storage!
+2026-10-18T11:31:00.9842310Z SHA256 digest of uploaded artifact zip is 3b039db799fc09624d578a60e7a01210eb015b1c057276eae2b5abab69d2831a
+2026-10-18T11:31:00.9843650Z Finalizing artifact upload
+2026-10-18T11:31:01.2431640Z Artifact hwmonitor-ipa.zip successfully finalized. Artifact ID 12135013452
+2026-10-18T11:31:01.2433360Z Artifact hwmonitor-ipa has been successfully uploaded! Final size is 294455 bytes. Artifact ID is 12135013452
+2026-10-18T11:31:01.2446970Z Artifact download URL: https://github.com/yoyo520956/hwmonitor-ios/actions/runs/39123413774/artifacts/12135013452
+2026-10-18T11:31:01.2697570Z ##[group]Run actions/upload-artifact@v4
+2026-10-18T11:31:01.2697840Z with:
+2026-10-18T11:31:01.2698050Z   name: hwmonitor-test-logs
+2026-10-18T11:31:01.2698310Z   path: app/build/Build/Logs/**/*.xcresult
+
+2026-10-18T11:31:01.2698610Z   if-no-files-found: ignore
+2026-10-18T11:31:01.2698790Z   compression-level: 6
+2026-10-18T11:31:01.2698980Z   overwrite: false
+2026-10-18T11:31:01.2699180Z   include-hidden-files: false
+2026-10-18T11:31:01.2699380Z ##[endgroup]
+2026-10-18T11:31:01.4613970Z (node:19906) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-18T11:31:01.4614620Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-18T11:31:01.4647950Z No files were found with the provided path: app/build/Build/Logs/**/*.xcresult. No artifacts will be uploaded.
+2026-10-18T11:31:01.4842780Z Post job cleanup.
+2026-10-18T11:31:01.6299410Z [command]/opt/homebrew/bin/git version
+2026-10-18T11:31:01.6654300Z git version 2.56.0
+2026-10-18T11:31:01.6679590Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/6e4564d4-62d3-424c-9230-f09b76ba090b/.gitconfig'
+2026-10-18T11:31:01.6698020Z Temporarily overriding HOME='/Users/runner/work/_temp/6e4564d4-62d3-424c-9230-f09b76ba090b' before making global git config changes
+2026-10-18T11:31:01.6700340Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-18T11:31:01.6702150Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/hwmonitor-ios/hwmonitor-ios
+2026-10-18T11:31:01.6881580Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-18T11:31:01.7012940Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-18T11:31:01.8525930Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-18T11:31:01.8666140Z http.https://github.com/.extraheader
+2026-10-18T11:31:01.8670750Z [command]/opt/homebrew/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-18T11:31:01.8829400Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-18T11:31:02.0368440Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-18T11:31:02.0460700Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-18T11:31:02.1831500Z Cleaning up orphan processes
+2026-10-18T11:31:02.5928250Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
