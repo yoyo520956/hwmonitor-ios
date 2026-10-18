@@ -47,30 +47,36 @@ struct MotionLiveRow: View {
                 StatusBadge(status: motionManager.isDeviceMotionAvailable ? .ok : .unavailable)
             }
 
-            switch authorized {
-            case .denied, .restricted:
-                Label("Motion permission denied. Enable it in Settings → Privacy & Security → Motion & Fitness.", systemImage: "lock.fill")
+            Group {
+                if authorized == .denied || authorized == .restricted {
+                    Label(
+                        "Motion permission denied. Enable it in Settings → Privacy & Security → Motion & Fitness.",
+                        systemImage: "lock.fill"
+                    )
                     .font(.caption)
                     .foregroundStyle(DSColor.statusColor(.unauthorized))
-                Button("Open Settings") {
-                    if let url = URL(string: UIApplication.openSettingsURLString) {
-                        UIApplication.shared.open(url)
+                    Button {
+                        if let url = URL(string: UIApplication.openSettingsURLString) {
+                            UIApplication.shared.open(url)
+                        }
+                    } label: {
+                        Text("Open Settings").font(.caption.weight(.semibold))
                     }
+                } else if authorized == .notDetermined {
+                    Text("Motion & Fitness permission is needed to read accelerometer, gyroscope and magnetometer. No data leaves this device.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    Button {
+                        requestPermission()
+                    } label: {
+                        Text("Allow Motion Access").font(.caption.weight(.semibold))
+                    }
+                } else {
+                    Text(motionText)
+                        .font(.caption.monospaced())
+                        .foregroundStyle(.primary)
+                        .lineLimit(4)
                 }
-                .font(.caption.weight(.semibold))
-            case .notDetermined:
-                Text("Motion & Fitness permission is needed to read accelerometer, gyroscope and magnetometer. No data leaves this device.")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-                Button("Allow Motion Access") {
-                    requestPermission()
-                }
-                .font(.caption.weight(.semibold))
-            default:
-                Text(motionText)
-                    .font(.caption.monospaced())
-                    .foregroundStyle(.primary)
-                    .lineLimit(4)
             }
         }
         .padding(.vertical, DSTokens.spaceXS)
