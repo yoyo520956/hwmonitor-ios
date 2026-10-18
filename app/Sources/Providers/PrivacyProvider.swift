@@ -17,13 +17,13 @@ public final class PrivacyProvider: @unchecked Sendable {
         let now = Date()
 
         // 相机
-        cards.append(permCard(
+        cards.append(avCard(
             id: "priv.camera", name: "Camera",
             status: AVCaptureDevice.authorizationStatus(for: .video),
             method: "AVCaptureDevice.authorizationStatus(for: .video)", now: now
         ))
         // 麦克风
-        cards.append(permCard(
+        cards.append(avCard(
             id: "priv.mic", name: "Microphone",
             status: AVCaptureDevice.authorizationStatus(for: .audio),
             method: "AVCaptureDevice.authorizationStatus(for: .audio)", now: now
@@ -35,25 +35,29 @@ public final class PrivacyProvider: @unchecked Sendable {
         // 通讯录
         cards.append(permCard(
             id: "priv.contacts", name: "Contacts",
-            status: CNContactStore.authorizationStatus(for: .contacts),
+            text: cnText(CNContactStore.authorizationStatus(for: .contacts)),
+            status: cnStatus(CNContactStore.authorizationStatus(for: .contacts)),
             method: "CNContactStore.authorizationStatus(for: .contacts)", now: now
         ))
         // 日历与提醒
         if #available(iOS 17.0, *) {
             cards.append(permCard(
                 id: "priv.calendar", name: "Calendar",
-                status: EKEventStore.authorizationStatus(for: .event),
+                text: ekText(EKEventStore.authorizationStatus(for: .event)),
+                status: ekStatus(EKEventStore.authorizationStatus(for: .event)),
                 method: "EKEventStore.authorizationStatus(for: .event)", now: now
             ))
             cards.append(permCard(
                 id: "priv.reminders", name: "Reminders",
-                status: EKEventStore.authorizationStatus(for: .reminder),
+                text: ekText(EKEventStore.authorizationStatus(for: .reminder)),
+                status: ekStatus(EKEventStore.authorizationStatus(for: .reminder)),
                 method: "EKEventStore.authorizationStatus(for: .reminder)", now: now
             ))
         } else {
             cards.append(permCard(
                 id: "priv.calendar", name: "Calendar / Reminders",
-                status: EKEventStore.authorizationStatus(for: .event),
+                text: ekText(EKEventStore.authorizationStatus(for: .event)),
+                status: ekStatus(EKEventStore.authorizationStatus(for: .event)),
                 method: "EKEventStore.authorizationStatus(for: .event)", now: now
             ))
         }
@@ -65,10 +69,13 @@ public final class PrivacyProvider: @unchecked Sendable {
             source: .appleAPI, method: "Locale.preferredLanguages", status: .ok,
             collectedAt: now, category: .privacy
         ))
+        let regionName = locale.region.flatMap {
+            locale.localizedString(forRegionCode: $0.identifier)
+        } ?? locale.identifier
         cards.append(MetricCard(
-            id: "priv.region", name: "Region", value: locale.region?.displayName ?? locale.identifier,
-            source: .appleAPI, method: "Locale.region", status: .ok,
-            collectedAt: now, category: .privacy
+            id: "priv.region", name: "Region", value: regionName,
+            source: .appleAPI, method: "Locale.region + localizedString(forRegionCode:)",
+            status: .ok, collectedAt: now, category: .privacy
         ))
         cards.append(MetricCard(
             id: "priv.timezone", name: "Time Zone", value: TimeZone.current.identifier,
@@ -76,7 +83,7 @@ public final class PrivacyProvider: @unchecked Sendable {
             collectedAt: now, category: .privacy
         ))
         cards.append(MetricCard(
-            id: "priv.calendarid", name: "Calendar Identifier", value: locale.calendar.identifier.rawValue,
+            id: "priv.calendarid", name: "Calendar Type", value: "\(locale.calendar.identifier)",
             source: .appleAPI, method: "Locale.calendar.identifier", status: .ok,
             collectedAt: now, category: .privacy
         ))
@@ -99,7 +106,16 @@ public final class PrivacyProvider: @unchecked Sendable {
         return cards
     }
 
-    private func permCard(id: String, name: String, status: AVAuthorizationStatus, method: String, now: Date) -> MetricCard {
+    private func permCard(id: String, name: String, text: String, status: MetricStatus, method: String, now: Date) -> MetricCard {
+        MetricCard(
+            id: id, name: name, value: text,
+            source: .appleAPI, method: method,
+            limitation: status == .unauthorized ? "Change in Settings → Privacy & Security" : nil,
+            status: status, collectedAt: now, category: .privacy
+        )
+    }
+
+    private func avCard(id: String, name: String, status: AVAuthorizationStatus, method: String, now: Date) -> MetricCard {
         let (text, cardStatus): (String, MetricStatus) = {
             switch status {
             case .authorized: return ("Authorized", .ok)
@@ -109,12 +125,44 @@ public final class PrivacyProvider: @unchecked Sendable {
             @unknown default: return ("Unknown", .degraded)
             }
         }()
-        return MetricCard(
-            id: id, name: name, value: text,
-            source: .appleAPI, method: method,
-            limitation: cardStatus == .unauthorized ? "Change in Settings → Privacy & Security" : nil,
-            status: cardStatus, collectedAt: now, category: .privacy
-        )
+        return permCard(id: id, name: name, text: text, status: cardStatus, method: method, now: now)
+    }
+
+    // 注意：EKAuthorizationStatus 的 denied(1)/restricted(2) 顺序与 AV/CN 相反，必须独立 switch
+    private func ekText(_ s: EKAuthorizationStatus) -> String {
+        switch s {
+        case .authorized: return "Authorized"
+        case .denied: return "Denied"
+        case .restricted: return "Restricted"
+        case .notDetermined: return "Not Requested"
+        @unknown default: return "Unknown"
+        }
+    }
+    private func ekStatus(_ s: EKAuthorizationStatus) -> MetricStatus {
+        switch s {
+        case .authorized: return .ok
+        case .denied, .restricted: return .unauthorized
+        case .notDetermined: return .degraded
+        @unknown default: return .degraded
+        }
+    }
+
+    private func cnText(_ s: CNAuthorizationStatus) -> String {
+        switch s {
+        case .authorized: return "Authorized"
+        case .denied: return "Denied"
+        case .restricted: return "Restricted"
+        case .notDetermined: return "Not Requested"
+        @unknown default: return "Unknown"
+        }
+    }
+    private func cnStatus(_ s: CNAuthorizationStatus) -> MetricStatus {
+        switch s {
+        case .authorized: return .ok
+        case .denied, .restricted: return .unauthorized
+        case .notDetermined: return .degraded
+        @unknown default: return .degraded
+        }
     }
 
     private func photoCard(now: Date) -> MetricCard {
@@ -126,7 +174,6 @@ public final class PrivacyProvider: @unchecked Sendable {
             case .denied: return ("Denied", .unauthorized)
             case .restricted: return ("Restricted", .unauthorized)
             case .notDetermined: return ("Not Requested", .degraded)
-            case .addOnly: return ("Add Only", .degraded)
             @unknown default: return ("Unknown", .degraded)
             }
         }()

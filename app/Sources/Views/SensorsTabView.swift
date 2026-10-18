@@ -52,8 +52,12 @@ struct MotionLiveRow: View {
                 Label("Motion permission denied. Enable it in Settings → Privacy & Security → Motion & Fitness.", systemImage: "lock.fill")
                     .font(.caption)
                     .foregroundStyle(DSColor.statusColor(.unauthorized))
-                Link("Open Settings", destination: URL(string: UIApplication.openSettingsURLString)!)
-                    .font(.caption.weight(.semibold))
+                Button("Open Settings") {
+                    if let url = URL(string: UIApplication.openSettingsURLString) {
+                        UIApplication.shared.open(url)
+                    }
+                }
+                .font(.caption.weight(.semibold))
             case .notDetermined:
                 Text("Motion & Fitness permission is needed to read accelerometer, gyroscope and magnetometer. No data leaves this device.")
                     .font(.caption)

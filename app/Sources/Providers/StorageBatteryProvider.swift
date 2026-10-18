@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 /// 存储采集器：URL resourceValues（SystemInfoKit 验证过的做法，口径与系统设置一致）
 public final class StorageProvider: @unchecked Sendable, StreamableProvider {
@@ -6,7 +7,7 @@ public final class StorageProvider: @unchecked Sendable, StreamableProvider {
 
     private let lock = NSLock()
     private var _history: [SamplePoint] = []
-    public private(set) var history: [SamplePoint] {
+    public var history: [SamplePoint] {
         get { lock.lock(); defer { lock.unlock() }; return _history }
     }
 

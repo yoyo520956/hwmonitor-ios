@@ -91,7 +91,8 @@ public final class SensorProvider: @unchecked Sendable {
             if let d = data {
                 result.accel = (d.userAcceleration.x, d.userAcceleration.y, d.userAcceleration.z)
                 result.gyro = (d.rotationRate.x, d.rotationRate.y, d.rotationRate.z)
-                result.magnet = d.magneticField.map { ($0.field.x, $0.field.y, $0.field.z) }
+                let f = d.magneticField.field
+                result.magnet = (f.x, f.y, f.z)
             }
             semaphore.signal()
         }

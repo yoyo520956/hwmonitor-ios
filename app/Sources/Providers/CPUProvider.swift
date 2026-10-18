@@ -12,7 +12,7 @@ public final class CPUProvider: @unchecked Sendable, StreamableProvider {
     private var previousLoad: host_cpu_load_info = host_cpu_load_info()
     private var previousPerCore: [host_cpu_load_info] = []
     private var _history: [SamplePoint] = []
-    public private(set) var history: [SamplePoint] { get { lock.lock(); defer { lock.unlock() }; return _history } }
+    public var history: [SamplePoint] { get { lock.lock(); defer { lock.unlock() }; return _history } }
 
     public init() {}
 

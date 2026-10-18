@@ -20,7 +20,7 @@ public final class NetworkProvider: @unchecked Sendable, StreamableProvider {
     private var _txSpeed: Double = 0
     private var _history: [SamplePoint] = []
 
-    public private(set) var history: [SamplePoint] {
+    public var history: [SamplePoint] {
         get { dataLock.lock(); defer { dataLock.unlock() }; return _history }
     }
 

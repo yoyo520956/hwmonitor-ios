@@ -10,7 +10,7 @@ public final class MemoryProvider: @unchecked Sendable, StreamableProvider {
 
     private let lock = NSLock()
     private var _history: [SamplePoint] = []
-    public private(set) var history: [SamplePoint] {
+    public var history: [SamplePoint] {
         get { lock.lock(); defer { lock.unlock() }; return _history }
     }
 
