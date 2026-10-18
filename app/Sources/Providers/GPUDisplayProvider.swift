@@ -65,10 +65,13 @@ public final class GPUProvider: @unchecked Sendable {
             (.apple2, "Apple 2"), (.apple3, "Apple 3"), (.apple4, "Apple 4"),
             (.apple5, "Apple 5"), (.apple6, "Apple 6"), (.apple7, "Apple 7"),
             (.apple8, "Apple 8"), (.apple9, "Apple 9"), (.apple10, "Apple 10"),
-            (.metal3, "Metal 3"), (.metal4, "Metal 4"),
+            (.metal3, "Metal 3"),
         ]
         for (family, label) in families where device.supportsFamily(family) {
             supportedFamilies.append(label)
+        }
+        if #available(iOS 26.0, *), device.supportsFamily(.metal4) {
+            supportedFamilies.append("Metal 4")
         }
         if !supportedFamilies.isEmpty {
             cards.append(MetricCard(

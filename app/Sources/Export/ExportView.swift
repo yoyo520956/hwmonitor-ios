@@ -106,7 +106,7 @@ struct ExportView: View {
 public enum ReportBuilder {
     public static func json(_ snap: Snapshot) -> String {
         let encoder = JSONEncoder()
-        encoder.outputFormatting = [.prettyPrinted, .sortedKeys, .iso8601]
+        encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         encoder.dateEncodingStrategy = .iso8601
         guard let data = try? encoder.encode(snap) else { return "{}" }
         return String(data: data, encoding: .utf8) ?? "{}"
