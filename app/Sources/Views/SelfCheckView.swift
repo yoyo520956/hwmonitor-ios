@@ -83,9 +83,9 @@ struct SelfCheckView: View {
                     }
                     .padding(.vertical, DSTokens.spaceL)
                 } else {
-                    ForEach(Array(checker.items.enumerated()), id: \.element.id) { index, item in
+                    ForEach(checker.items.indices, id: \.self) { index in
                         if index > 0 { Divider().padding(.leading, 44) }
-                        checkRow(item)
+                        checkRow(checker.items[index])
                     }
                 }
             }
@@ -127,8 +127,9 @@ struct SelfCheckView: View {
                 .foregroundStyle(.secondary)
                 .padding(.leading, 4)
             VStack(spacing: 0) {
-                ForEach(Array(entries.enumerated()), id: \.element.id) { index, entry in
+                ForEach(entries.indices, id: \.self) { index in
                     if index > 0 { Divider().padding(.leading, 38) }
+                    let entry = entries[index]
                     HStack {
                         Image(systemName: entry.icon)
                             .font(.system(size: DSTokens.iconS))
@@ -196,8 +197,9 @@ struct SelfCheckView: View {
                 .foregroundStyle(.secondary)
                 .padding(.leading, 4)
             VStack(spacing: 0) {
-                ForEach(Array(examples.enumerated()), id: \.offset) { index, item in
+                ForEach(examples.indices, id: \.self) { index in
                     if index > 0 { Divider() }
+                    let item = examples[index]
                     HStack {
                         VStack(alignment: .leading, spacing: 2) {
                             Text(item.0)

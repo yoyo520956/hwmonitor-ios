@@ -18,7 +18,7 @@
 static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
 static host_cpu_load_info_data_t g_prev_load;
 static int g_has_prev_load = 0;
-static processor_cpu_load_info_t g_prev_percore = NULL;
+static processor_cpu_load_info_t g_prev_percore = NULL;  // 结构体数组（每核一个 cpu_ticks[4]）
 static natural_t g_prev_percore_count = 0;
 static int g_port_acquire_count = 0;
 
@@ -80,19 +80,21 @@ int hwmon_percore_usage(double *out, int max_count) {
     if (kr != KERN_SUCCESS || cpu_info == NULL) return -2;
     if ((int)num_cpus > max_count) num_cpus = (natural_t)max_count;
 
+    processor_cpu_load_info_t percore = (processor_cpu_load_info_t)cpu_info;
+    vm_size_t snapshot_bytes = (vm_size_t)(num_cpus * sizeof(processor_cpu_load_info));
+
     int result = -3;
     pthread_mutex_lock(&g_lock);
     if (g_prev_percore != NULL && g_prev_percore_count == num_cpus) {
         for (natural_t i = 0; i < num_cpus; i++) {
-            natural_t base = i * CPU_STATE_MAX;
-            uint32_t cur_user   = (uint32_t)cpu_info[base + CPU_STATE_USER];
-            uint32_t cur_system = (uint32_t)cpu_info[base + CPU_STATE_SYSTEM];
-            uint32_t cur_idle   = (uint32_t)cpu_info[base + CPU_STATE_IDLE];
-            uint32_t cur_nice   = (uint32_t)cpu_info[base + CPU_STATE_NICE];
-            uint32_t pv_user    = (uint32_t)g_prev_percore[base + CPU_STATE_USER];
-            uint32_t pv_system  = (uint32_t)g_prev_percore[base + CPU_STATE_SYSTEM];
-            uint32_t pv_idle    = (uint32_t)g_prev_percore[base + CPU_STATE_IDLE];
-            uint32_t pv_nice    = (uint32_t)g_prev_percore[base + CPU_STATE_NICE];
+            uint32_t cur_user   = (uint32_t)percore[i].cpu_ticks[CPU_STATE_USER];
+            uint32_t cur_system = (uint32_t)percore[i].cpu_ticks[CPU_STATE_SYSTEM];
+            uint32_t cur_idle   = (uint32_t)percore[i].cpu_ticks[CPU_STATE_IDLE];
+            uint32_t cur_nice   = (uint32_t)percore[i].cpu_ticks[CPU_STATE_NICE];
+            uint32_t pv_user    = (uint32_t)g_prev_percore[i].cpu_ticks[CPU_STATE_USER];
+            uint32_t pv_system  = (uint32_t)g_prev_percore[i].cpu_ticks[CPU_STATE_SYSTEM];
+            uint32_t pv_idle    = (uint32_t)g_prev_percore[i].cpu_ticks[CPU_STATE_IDLE];
+            uint32_t pv_nice    = (uint32_t)g_prev_percore[i].cpu_ticks[CPU_STATE_NICE];
 
             double user   = (double)(cur_user   - pv_user);
             double system = (double)(cur_system - pv_system);
@@ -107,13 +109,12 @@ int hwmon_percore_usage(double *out, int max_count) {
     // 保存本次快照作下次基准
     if (g_prev_percore != NULL) {
         vm_deallocate(mach_task_self_, (vm_address_t)g_prev_percore,
-                      (vm_size_t)(g_prev_percore_count * CPU_STATE_MAX * sizeof(integer_t)));
+                      (vm_size_t)(g_prev_percore_count * sizeof(processor_cpu_load_info)));
         g_prev_percore = NULL;
     }
-    vm_size_t bytes = (vm_size_t)(num_cpus * CPU_STATE_MAX * sizeof(integer_t));
     processor_cpu_load_info_t snapshot = NULL;
-    if (vm_allocate(mach_task_self_, (vm_address_t *)&snapshot, bytes, VM_FLAGS_ANYWHERE) == KERN_SUCCESS) {
-        memcpy(snapshot, cpu_info, bytes);
+    if (vm_allocate(mach_task_self_, (vm_address_t *)&snapshot, snapshot_bytes, VM_FLAGS_ANYWHERE) == KERN_SUCCESS) {
+        memcpy(snapshot, percore, snapshot_bytes);
         g_prev_percore = snapshot;
         g_prev_percore_count = num_cpus;
     } else {
@@ -207,8 +208,8 @@ uint64_t hwmon_physical_memory(void) {
     mach_msg_type_number_t count = HOST_BASIC_INFO_COUNT;
     kern_return_t kr = host_info(host, HOST_BASIC_INFO, (host_info_t)&basic, &count);
     (void)mach_port_deallocate(mach_task_self_, host);
-    if (kr == KERN_SUCCESS && basic.max_memory > 0) {
-        return (uint64_t)basic.max_memory;
+    if (kr == KERN_SUCCESS && basic.max_mem > 0) {
+        return (uint64_t)basic.max_mem;
     }
     // 二级：sysctl hw.memsize
     uint64_t memsize = 0;

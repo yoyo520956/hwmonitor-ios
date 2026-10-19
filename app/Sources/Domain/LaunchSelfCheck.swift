@@ -78,8 +78,8 @@ final class LaunchSelfCheck: ObservableObject {
             .then("ProcessInfo.physicalMemory") { Double(ProcessInfo.processInfo.physicalMemory) }
         let probe = chain.probeAll()
         let elapsed = (CFAbsoluteTimeGetCurrent() - start) * 1000
-        let available = probe.filter(\.available).count
-        let firstHit = probe.first(where: \.available)?.name ?? "无"
+        let available = probe.filter { $0.available }.count
+        let firstHit = probe.first { $0.available }?.name ?? "无"
         let passed = available > 0
         let detail = passed
             ? "内存总量 \(available)/\(probe.count) 级路径可用，首选命中：\(firstHit)"
