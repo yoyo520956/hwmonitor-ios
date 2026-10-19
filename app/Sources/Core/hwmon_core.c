@@ -81,7 +81,7 @@ int hwmon_percore_usage(double *out, int max_count) {
     if ((int)num_cpus > max_count) num_cpus = (natural_t)max_count;
 
     processor_cpu_load_info_t percore = (processor_cpu_load_info_t)cpu_info;
-    vm_size_t snapshot_bytes = (vm_size_t)(num_cpus * sizeof(processor_cpu_load_info));
+    vm_size_t snapshot_bytes = (vm_size_t)(num_cpus * sizeof(struct processor_cpu_load_info));
 
     int result = -3;
     pthread_mutex_lock(&g_lock);
@@ -109,7 +109,7 @@ int hwmon_percore_usage(double *out, int max_count) {
     // 保存本次快照作下次基准
     if (g_prev_percore != NULL) {
         vm_deallocate(mach_task_self_, (vm_address_t)g_prev_percore,
-                      (vm_size_t)(g_prev_percore_count * sizeof(processor_cpu_load_info)));
+                      (vm_size_t)(g_prev_percore_count * sizeof(struct processor_cpu_load_info)));
         g_prev_percore = NULL;
     }
     processor_cpu_load_info_t snapshot = NULL;
