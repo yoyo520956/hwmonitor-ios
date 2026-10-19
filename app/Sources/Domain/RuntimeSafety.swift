@@ -5,6 +5,15 @@ import UIKit
 // 迁移自 LiveContainer 工程细节宝库：
 // ① 哨兵标志（SigningInProgress）② 错误持久化跨进程 ③ watchdog 预写遗言 ④ 时间窗防重放
 
+/// 顶层异常处理函数（C 函数指针兼容：不捕获上下文，故不能写成闭包）
+private func hwmonUncaughtExceptionHandler(_ exception: NSException) {
+    CrashSentinel.recordException(
+        name: exception.name.rawValue,
+        reason: exception.reason,
+        stack: exception.callStackSymbols
+    )
+}
+
 /// 哨兵 + 异常遗言：让"上一次运行发生了什么"跨启动可见
 enum CrashSentinel {
     private static let lastErrorKey = "hwmon.lastError"
@@ -15,17 +24,20 @@ enum CrashSentinel {
     // MARK: 异常捕获（ObjC 异常 + 信号）
 
     static func install() {
-        NSSetUncaughtExceptionHandler { exception in
-            writeError(
-                title: "未捕获异常",
-                reason: exception.reason ?? exception.name.rawValue,
-                stack: exception.callStackSymbols
-            )
-        }
+        NSSetUncaughtExceptionHandler(hwmonUncaughtExceptionHandler)
         // 标记"本次运行尚未正常退出"
         UserDefaults.standard.set(false, forKey: cleanExitKey)
         // 记录启动时间作为心跳初值
         touchHeartbeat()
+    }
+
+    /// 记录一次异常（供顶层 handler 调用）
+    static func recordException(name: String, reason: String?, stack: [String]) {
+        writeError(
+            title: "未捕获异常（\(name)）",
+            reason: reason ?? name,
+            stack: stack
+        )
     }
 
     /// 正常退出的场合由 scenePhase 调（进入后台即视为健康状态）
