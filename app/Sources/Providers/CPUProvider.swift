@@ -53,7 +53,7 @@ public final class CPUProvider: @unchecked Sendable, StreamableProvider {
     }
 
     /// 供 collect 使用的当前样本（不推进差分）
-    public func currentSample() -> MachCore.CPUSample? {
+    func currentSample() -> MachCore.CPUSample? {
         lock.lock(); defer { lock.unlock() }
         return cachedSample
     }
@@ -66,7 +66,7 @@ public final class CPUProvider: @unchecked Sendable, StreamableProvider {
         return sample.usage
     }
 
-    public func usagePathDescription() -> String {
+    func usagePathDescription() -> String {
         lock.lock(); defer { lock.unlock() }
         return lastUsagePath
     }
