@@ -22,8 +22,19 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.qingyao.hwmonitor.deeplink</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>hwmonitor</string>
+			</array>
+		</dict>
+	</array>
 	<key>NSMotionUsageDescription</key>
-	<string>Motion permission is used to read accelerometer, gyroscope and magnetometer readings on the Sensors screen. All data stays on this device.</string>
+	<string>用于在「传感器」页读取加速度计、陀螺仪与磁力计数据。所有数据仅在本机处理，不会上传。</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

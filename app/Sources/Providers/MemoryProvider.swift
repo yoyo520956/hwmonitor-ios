@@ -32,6 +32,9 @@ public final class MemoryProvider: @unchecked Sendable, StreamableProvider {
     // MARK: - Mach 层读取
 
     private var pageSize: Double {
+        // C 核心优先（hwmon_page_size → sysctl hw.pagesize）
+        let cPage = Double(hwmon_page_size())
+        if cPage > 0 { return cPage }
         var size: vm_size_t = 0
         let hostPort = mach_host_self()
         defer { _ = mach_port_deallocate(mach_task_self_, hostPort) }
@@ -39,7 +42,29 @@ public final class MemoryProvider: @unchecked Sendable, StreamableProvider {
         return Double(size)
     }
 
+    /// 物理内存总量（三级降级链：C 核心 host_info → Swift host_info → ProcessInfo）
     public func readPhysicalMemoryBytes() -> Double {
+        let chain = FallbackChain<Double>("mem.total")
+            .then("C 核心 host_info(HOST_BASIC_INFO).max_mem（混编）") {
+                MachCore.physicalMemory()?.value
+            }
+            .then("Swift host_info(HOST_BASIC_INFO).max_mem") {
+                let v = MemoryProvider.swiftPhysicalMemory()
+                return v > 0 ? v : nil
+            }
+            .then("ProcessInfo.physicalMemory") {
+                let v = Double(ProcessInfo.processInfo.physicalMemory)
+                return v > 0 ? v : nil
+            }
+        guard let result = chain.run() else { return 0 }
+        lastTotalPath = result.path
+        return result.value
+    }
+
+    /// 物理内存总量采集路径（供卡片展示 provenance）
+    private var lastTotalPath: String = "host_info(HOST_BASIC_INFO).max_mem"
+
+    private static func swiftPhysicalMemory() -> Double {
         let hostPort = mach_host_self()
         defer { _ = mach_port_deallocate(mach_task_self_, hostPort) }
         var info = host_basic_info()
@@ -53,6 +78,42 @@ public final class MemoryProvider: @unchecked Sendable, StreamableProvider {
         }
         guard result == KERN_SUCCESS else { return 0 }
         return Double(info.max_mem)
+    }
+
+    /// VM 分类快照（统一中间结构：页数 + 命中路径）
+    private struct VMSnapshot {
+        let active: Double
+        let inactive: Double
+        let speculative: Double
+        let wired: Double
+        let compressed: Double
+        let purgeable: Double
+        let external: Double
+        let free: Double
+        let path: String
+    }
+
+    /// VM 统计（双路径：C 核心 vm_statistics64 → Swift vm_statistics64）
+    private func readVMSnapshot() -> VMSnapshot? {
+        if let c = MachCore.vmStats() {
+            let path = c.degraded
+                ? "降级：C 核心 32 位 host_statistics(HOST_VM_INFO)"
+                : "C 核心 vm_statistics64（混编）"
+            return VMSnapshot(
+                active: c.stats.active, inactive: c.stats.inactive,
+                speculative: c.stats.speculative, wired: c.stats.wired,
+                compressed: c.stats.compressed, purgeable: c.stats.purgeable,
+                external: c.stats.external, free: c.stats.free, path: path
+            )
+        }
+        guard let stats = readVMStatistics64() else { return nil }
+        return VMSnapshot(
+            active: Double(stats.active_count), inactive: Double(stats.inactive_count),
+            speculative: Double(stats.speculative_count), wired: Double(stats.wire_count),
+            compressed: Double(stats.compressor_page_count), purgeable: Double(stats.purgeable_count),
+            external: Double(stats.external_page_count), free: Double(stats.free_count),
+            path: "降级：Swift vm_statistics64"
+        )
     }
 
     private func readVMStatistics64() -> vm_statistics64? {
@@ -98,21 +159,22 @@ public final class MemoryProvider: @unchecked Sendable, StreamableProvider {
             cards.append(MetricCard(
                 id: "mem.total", name: "物理内存", value: ByteFormat.gibibytes(total),
                 numeric: total, unit: "bytes",
-                source: .appleAPI, method: "host_info(HOST_BASIC_INFO).max_mem",
+                source: .appleAPI, method: lastTotalPath,
                 status: .ok, collectedAt: now, category: .memory
             ))
         }
 
         // 系统内存分类统计
-        if let stats = readVMStatistics64() {
-            let active = Double(stats.active_count) * page
-            let inactive = Double(stats.inactive_count) * page
-            let speculative = Double(stats.speculative_count) * page
-            let wired = Double(stats.wire_count) * page
-            let compressed = Double(stats.compressor_page_count) * page
-            let purgeable = Double(stats.purgeable_count) * page
-            let external = Double(stats.external_page_count) * page
-            let free = Double(stats.free_count) * page
+        if let snap = readVMSnapshot() {
+            let active = snap.active * page
+            let inactive = snap.inactive * page
+            let speculative = snap.speculative * page
+            let wired = snap.wired * page
+            let compressed = snap.compressed * page
+            let purgeable = snap.purgeable * page
+            let external = snap.external * page
+            let free = snap.free * page
+            let vmPath = snap.path
 
             let cached = purgeable + external
             let app = active + inactive + speculative - cached
@@ -123,7 +185,7 @@ public final class MemoryProvider: @unchecked Sendable, StreamableProvider {
                 cards.append(MetricCard(
                     id: "mem.used", name: "已用内存", value: ByteFormat.gibibytes(using),
                     numeric: using, unit: "bytes",
-                    source: .computed, method: "vm_statistics64 分类求和 × 页大小（app 段 + 压力段）",
+                    source: .computed, method: "\(vmPath) 分类求和 × 页大小（app 段 + 压力段）",
                     status: .ok, collectedAt: now, category: .memory
                 ))
                 cards.append(MetricCard(
@@ -142,19 +204,19 @@ public final class MemoryProvider: @unchecked Sendable, StreamableProvider {
             cards.append(MetricCard(
                 id: "mem.wired", name: "固定内存 (wired)", value: ByteFormat.gibibytes(wired),
                 numeric: wired, unit: "bytes",
-                source: .computed, method: "vm_statistics64 wired 页数（内核锁定不可换出）", status: .ok,
+                source: .computed, method: "\(vmPath) wired 页数（内核锁定不可换出）", status: .ok,
                 collectedAt: now, category: .memory
             ))
             cards.append(MetricCard(
                 id: "mem.active", name: "活跃内存 (active)", value: ByteFormat.gibibytes(active),
                 numeric: active, unit: "bytes",
-                source: .computed, method: "vm_statistics64 active 页数（最近使用）", status: .ok,
+                source: .computed, method: "\(vmPath) active 页数（最近使用）", status: .ok,
                 collectedAt: now, category: .memory
             ))
             cards.append(MetricCard(
                 id: "mem.inactive", name: "非活跃内存 (inactive)", value: ByteFormat.gibibytes(inactive),
                 numeric: inactive, unit: "bytes",
-                source: .computed, method: "vm_statistics64 inactive 页数（可回收缓存）", status: .ok,
+                source: .computed, method: "\(vmPath) inactive 页数（可回收缓存）", status: .ok,
                 collectedAt: now, category: .memory
             ))
             cards.append(MetricCard(

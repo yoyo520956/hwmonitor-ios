@@ -1,16 +1,24 @@
 import Darwin
 import Foundation
 
-/// CPU 采集器
-/// 总使用率：host_statistics64(HOST_CPU_LOAD_INFO) tick 差分（SystemInfoKit 验证过的做法）
-/// 每核使用率：host_processor_info(PROCESSOR_CPU_LOAD_INFO)（iOS-System-Services 验证过的做法）
-/// CPU 频率：iOS 无公开 API（hw.cpufrequency 无返回）→ 系统限制标注
+/// CPU 采集器（v3.0 混编版）
+/// 首选路径：C 采集核心（hwmon_core.c）——tick 差分一次算完，缓存供 collect 使用
+/// 降级路径：纯 Swift host_statistics64 / host_processor_info（保留自 v1.0，已验证）
+/// CPU 频率：iOS 无公开 API → 系统限制标注
+///
+/// 统一节拍原则（迁移自 LiveContainer）：采样只在 tick() 发生一次，
+/// collect() 只读缓存 —— 避免同一节拍内多次调用 mach 导致差分窗口漂移。
 public final class CPUProvider: @unchecked Sendable, StreamableProvider {
     public let category: MetricCategory = .cpu
 
     private let lock = NSLock()
+    // ── C 核心缓存 ──
+    private var cachedSample: MachCore.CPUSample?
+    private var cCoreHealthy = true
+    private var lastUsagePath = "—"
+    // ── Swift 降级路径状态 ──
     private var previousLoad: host_cpu_load_info = host_cpu_load_info()
-    /// 每核 tick 缓存：[核][user,system,idle,nice]
+    private var hasPrevLoad = false
     private var previousPerCore: [[UInt32]] = []
     private var _history: [SamplePoint] = []
     public var history: [SamplePoint] { get { lock.lock(); defer { lock.unlock() }; return _history } }
@@ -21,16 +29,49 @@ public final class CPUProvider: @unchecked Sendable, StreamableProvider {
         lock.lock(); _history.removeAll(); lock.unlock()
     }
 
-    /// 追加采样点（MonitoringEngine 统一节拍调用）
+    /// 追加采样点（MonitoringEngine 统一节拍调用）——同时刷新缓存样本
     public func tick() {
-        guard let usage = readTotalUsage() else { return }
+        guard let sample = sampleOnce() else { return }
         lock.lock()
-        _history.append(SamplePoint(value: usage))
+        cachedSample = sample
+        _history.append(SamplePoint(value: sample.usage))
         if _history.count > 180 { _history.removeFirst(_history.count - 180) }
         lock.unlock()
     }
 
-    // MARK: - 总使用率（tick 差分）
+    /// 单次采样：C 核心优先，失败自动降级 Swift 路径（nil 检测推进降级链）
+    private func sampleOnce() -> MachCore.CPUSample? {
+        if cCoreHealthy, let s = MachCore.cpuSample() {
+            lock.lock(); lastUsagePath = "C 核心 host_statistics(HOST_CPU_LOAD_INFO) 差分（混编）"; lock.unlock()
+            return s
+        }
+        // 降级：Swift 路径（单次读取，避免连续调用吞噬差分基准）
+        cCoreHealthy = false
+        guard let sample = swiftSample() else { return nil }
+        lock.lock(); lastUsagePath = "降级：纯 Swift host_statistics64 差分"; lock.unlock()
+        return sample
+    }
+
+    /// 供 collect 使用的当前样本（不推进差分）
+    public func currentSample() -> MachCore.CPUSample? {
+        lock.lock(); defer { lock.unlock() }
+        return cachedSample
+    }
+
+    /// 兼容接口（v1 测试与外部调用）：单次采样并返回总使用率
+    /// 注意：会推进差分基准；同一节拍内请用 currentSample() 读缓存
+    public func readTotalUsage() -> Double? {
+        guard let sample = sampleOnce() else { return nil }
+        lock.lock(); cachedSample = sample; lock.unlock()
+        return sample.usage
+    }
+
+    public func usagePathDescription() -> String {
+        lock.lock(); defer { lock.unlock() }
+        return lastUsagePath
+    }
+
+    // MARK: - 降级路径：Swift tick 差分（v1.0 已验证实现）
 
     private func hostLoadInfo() -> host_cpu_load_info? {
         var size: mach_msg_type_number_t = UInt32(
@@ -47,10 +88,15 @@ public final class CPUProvider: @unchecked Sendable, StreamableProvider {
         return result == KERN_SUCCESS ? info : nil
     }
 
-    /// 返回 0...1 的总使用率（相对上次调用的差分）
-    public func readTotalUsage() -> Double? {
+    private func swiftSample() -> MachCore.CPUSample? {
         guard let load = hostLoadInfo() else { return nil }
         lock.lock()
+        guard hasPrevLoad else {
+            previousLoad = load
+            hasPrevLoad = true
+            lock.unlock()
+            return nil   // 首拍只建立基准
+        }
         let prev = previousLoad
         previousLoad = load
         lock.unlock()
@@ -61,30 +107,21 @@ public final class CPUProvider: @unchecked Sendable, StreamableProvider {
         let nice = Double(load.cpu_ticks.3 &- prev.cpu_ticks.3)
         let total = user + system + idle + nice
         guard total > 0 else { return nil }
-        return min((user + system + nice) / total, 1.0)
+        return MachCore.CPUSample(
+            usage: min((user + system + nice) / total, 1.0),
+            user: user / total,
+            system: system / total,
+            idle: idle / total
+        )
     }
 
-    /// user/system/idle 三分量（差分）
-    public func readLoadBreakdown() -> (user: Double, system: Double, idle: Double)? {
-        guard let load = hostLoadInfo() else { return nil }
-        lock.lock()
-        let prev = previousLoad
-        previousLoad = load
-        lock.unlock()
-
-        let user = Double(load.cpu_ticks.0 &- prev.cpu_ticks.0)
-        let system = Double(load.cpu_ticks.1 &- prev.cpu_ticks.1)
-        let idle = Double(load.cpu_ticks.2 &- prev.cpu_ticks.2)
-        let nice = Double(load.cpu_ticks.3 &- prev.cpu_ticks.3)
-        let total = user + system + idle + nice
-        guard total > 0 else { return nil }
-        return (user / total, system / total, idle / total)
-    }
-
-    // MARK: - 每核使用率
-
-    /// 每核使用率（0...1 数组，按核序）
+    /// 每核使用率：C 核心优先 → Swift host_processor_info 降级
     public func readPerCoreUsage() -> [Double]? {
+        if let cores = MachCore.perCoreUsage() { return cores }
+        return swiftPerCoreUsage()
+    }
+
+    private func swiftPerCoreUsage() -> [Double]? {
         var cpuInfo: processor_info_array_t? = nil
         var numCPUInfo: mach_msg_type_number_t = 0
         var numCPUs: natural_t = 0
@@ -169,20 +206,26 @@ public final class CPUProvider: @unchecked Sendable, StreamableProvider {
             limitation: coreLimitation,
             status: .ok, collectedAt: now, category: .cpu
         )
-        return [archCard, coresCard, perfCoreCards(now: now)]
+        return [archCard, coresCard, Self.perfCoreCards(now: now)]
     }
 
-    /// 性能核 / 能效核数量（A 系芯片大小核，iOS 15+ 可读）
-    private func perfCoreCards(now: Date) -> MetricCard {
-        let pCores = SysctlReader.int64("hw.perflevel0.physicalcpu") ?? 0
-        let eCores = SysctlReader.int64("hw.perflevel1.physicalcpu") ?? 0
-        let total = pCores + eCores
-        if total > 0 {
+    /// 性能核 / 能效核数量（A 系芯片大小核；C 核心 sysctl 优先）
+    private static func perfCoreCards(now: Date) -> MetricCard {
+        var pCores = MachCore.sysctlU64("hw.perflevel0.physicalcpu").map(Int64.init)
+        var eCores = MachCore.sysctlU64("hw.perflevel1.physicalcpu").map(Int64.init)
+        var path = "C 核心 sysctl hw.perflevel0/1.physicalcpu（A 系芯片大小核拓扑）"
+        if pCores == nil || eCores == nil {
+            pCores = SysctlReader.int64("hw.perflevel0.physicalcpu")
+            eCores = SysctlReader.int64("hw.perflevel1.physicalcpu")
+            path = "降级：Swift sysctl hw.perflevel0/1.physicalcpu"
+        }
+        let p = pCores ?? 0
+        let e = eCores ?? 0
+        if p + e > 0 {
             return MetricCard(
                 id: "cpu.cluster", name: "性能核 / 能效核",
-                value: "\(pCores) 性能核 + \(eCores) 能效核",
-                source: .appleAPI,
-                method: "sysctl hw.perflevel0/1.physicalcpu（A 系芯片大小核拓扑）",
+                value: "\(p) 性能核 + \(e) 能效核",
+                source: .appleAPI, method: path,
                 status: .ok, collectedAt: now, category: .cpu
             )
         }
@@ -194,35 +237,36 @@ public final class CPUProvider: @unchecked Sendable, StreamableProvider {
         )
     }
 
-    /// 总使用率与分量
+    /// 总使用率与分量（读 tick 缓存，不推进差分）
     private func usageCards(now: Date) -> [MetricCard] {
         var cards: [MetricCard] = []
-        if let usage = readTotalUsage() {
+        let path = usagePathDescription()
+        if let sample = currentSample() {
             cards.append(MetricCard(
-                id: "cpu.usage", name: "CPU 使用率（总体）", value: PercentFormat.string(usage),
-                numeric: usage, unit: "%",
-                source: .computed, method: "host_statistics64(HOST_CPU_LOAD_INFO) 差分计算",
+                id: "cpu.usage", name: "CPU 使用率（总体）",
+                value: PercentFormat.string(sample.usage),
+                numeric: sample.usage, unit: "%",
+                source: .computed, method: path,
                 status: .ok, collectedAt: now, category: .cpu
             ))
-        }
-        if let breakdown = readLoadBreakdown() {
             cards.append(MetricCard(
-                id: "cpu.user", name: "用户态占比", value: PercentFormat.string(breakdown.user),
-                numeric: breakdown.user, unit: "%",
-                source: .computed, method: "tick 差分 ÷ 总 tick 数", status: .ok,
-                collectedAt: now, category: .cpu
+                id: "cpu.user", name: "用户态占比",
+                value: PercentFormat.string(sample.user),
+                numeric: sample.user, unit: "%",
+                source: .computed, method: "tick 差分 ÷ 总 tick 数（与总量同拍）",
+                status: .ok, collectedAt: now, category: .cpu
             ))
             cards.append(MetricCard(
-                id: "cpu.system", name: "系统态占比", value: PercentFormat.string(breakdown.system),
-                numeric: breakdown.system, unit: "%",
-                source: .computed, method: "tick 差分 ÷ 总 tick 数", status: .ok,
-                collectedAt: now, category: .cpu
+                id: "cpu.system", name: "系统态占比",
+                value: PercentFormat.string(sample.system),
+                numeric: sample.system, unit: "%",
+                source: .computed, method: "tick 差分 ÷ 总 tick 数（与总量同拍）",
+                status: .ok, collectedAt: now, category: .cpu
             ))
-        }
-        if cards.isEmpty {
+        } else {
             cards.append(MetricCard(
                 id: "cpu.usage", name: "CPU 使用率（总体）", value: "—",
-                source: .appleAPI, method: "host_statistics64(HOST_CPU_LOAD_INFO) 差分计算",
+                source: .appleAPI, method: path,
                 limitation: "等待首次采样或系统接口不可用",
                 status: .degraded, collectedAt: now, category: .cpu
             ))
@@ -243,20 +287,24 @@ public final class CPUProvider: @unchecked Sendable, StreamableProvider {
             parts.append("C\(idx): \(pct)%")
         }
         let coreText = parts.joined(separator: "  ")
+        let path = cCoreHealthy
+            ? "C 核心 host_processor_info(PROCESSOR_CPU_LOAD_INFO) 每核差分（混编）"
+            : "降级：Swift host_processor_info 每核差分"
 
         return [MetricCard(
             id: "cpu.percore", name: "每核使用率", value: coreText,
             numeric: avg, unit: "%",
-            source: .computed, method: "host_processor_info(PROCESSOR_CPU_LOAD_INFO) 差分计算",
+            source: .computed, method: path,
+            limitation: "执行中核数为 \(perCore.count)",
             status: .ok, collectedAt: now, category: .cpu
         )]
     }
 
-    /// CPU 频率：系统限制卡
+    /// CPU 频率：iOS 无公开 API
     private static func frequencyCard() -> MetricCard {
         MetricCard.restricted(
             "cpu.freq", "CPU 频率",
-            reason: "iOS does not expose CPU frequency to apps (hw.cpufrequency is unavailable on iOS). Frequency-based claims in other apps are constants, not measurements.",
+            reason: "iOS 不开放 CPU 当前/最大频率的公开接口（hw.cpufrequency 无返回）；频率由系统按能效动态调度。",
             category: .cpu
         )
     }

@@ -14,8 +14,8 @@ settings:
     CODE_SIGNING_REQUIRED: "NO"
     CODE_SIGNING_ALLOWED: "NO"
     ENABLE_USER_SCRIPT_SANDBOXING: "YES"
-    CURRENT_PROJECT_VERSION: "20261018.02"
-    MARKETING_VERSION: "2.0.0"
+    CURRENT_PROJECT_VERSION: "20261018.03"
+    MARKETING_VERSION: "3.0.0"
 targets:
   HWMonitor:
     type: application
@@ -32,6 +32,7 @@ targets:
         PRODUCT_NAME: HWMonitor
         INFOPLIST_FILE: Resources/Info.plist
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        SWIFT_OBJC_BRIDGING_HEADER: "Sources/Core/HWMonitor-Bridging-Header.h"
         SWIFT_EMIT_LOC_STRINGS: "YES"
         GCC_TREAT_WARNINGS_AS_ERRORS: "NO"
   HWMonitorTests:

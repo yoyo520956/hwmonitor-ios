@@ -177,16 +177,25 @@ struct SettingsView: View {
                     Text("悬浮球可拖动到任意位置（自动吸附屏幕边缘），点按展开快捷监测面板。勾选的模块会出现在面板中，点击面板模块卡可直达对应功能页。")
                 }
 
-                Section("报告") {
+                Section {
+                    NavigationLink {
+                        SelfCheckView()
+                    } label: {
+                        Label("自检与能力矩阵", systemImage: "stethoscope")
+                    }
                     Button {
                         showExport = true
                     } label: {
                         Label("导出设备报告", systemImage: "square.and.arrow.up")
                     }
+                } header: {
+                    Text("诊断与报告")
+                } footer: {
+                    Text("自检页展示启动自检链结果、各模块降级状态，以及可在「快捷指令」中使用的深链。")
                 }
 
                 Section {
-                    LabeledContent("版本", value: "2.0.0")
+                    LabeledContent("版本", value: "3.0.0")
                     LabeledContent("数据政策", value: "全部本地")
                     NavigationLink("开源致谢") {
                         NoticesView()

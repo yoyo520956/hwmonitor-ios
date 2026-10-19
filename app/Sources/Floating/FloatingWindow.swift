@@ -147,6 +147,11 @@ struct FloatingWindowOverlay: View {
         }
         .allowsHitTesting(enabled)
         .opacity(enabled ? 1 : 0)
+        .onReceive(NotificationCenter.default.publisher(for: Notification.Name("hwmon.route.floating"))) { _ in
+            // 深链 hwmonitor://floating（过时间窗校验）
+            guard enabled, TimedEventBus.shared.consume("hwmon.route.floating") != nil else { return }
+            withAnimation(.spring(response: 0.35, dampingFraction: 0.85)) { expanded = true }
+        }
     }
 
     private func collapse() {

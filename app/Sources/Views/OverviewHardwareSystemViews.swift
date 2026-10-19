@@ -132,17 +132,17 @@ struct OverviewView: View {
     // 诊断预览
     private var diagnosticsPreview: some View {
         NavigationLink {
-            DiagnosticsView()
+            SelfCheckView()
         } label: {
             HStack {
                 Image(systemName: "stethoscope")
                     .font(.system(size: DSTokens.iconL))
                     .foregroundStyle(DSColor.accent)
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("运行全面诊断")
+                    Text("自检与能力矩阵")
                         .font(.subheadline.weight(.semibold))
                         .foregroundStyle(.primary)
-                    Text("测试全部 11 个模块并查看状态")
+                    Text("启动自检链 · 模块降级状态 · 深链快捷指令")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
