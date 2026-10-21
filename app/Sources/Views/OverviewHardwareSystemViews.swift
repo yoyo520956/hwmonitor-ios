@@ -57,8 +57,7 @@ struct OverviewView: View {
                 HStack(spacing: 3) {
                     Image(systemName: batterySymbol(for: pct))
                     Text(level.value)
-                        .font(.subheadline.weight(.bold).monospacedDigit())
-                        .fontDesign(.rounded)
+                        .font(.system(.subheadline, design: .rounded).weight(.bold).monospacedDigit())
                 }
             } else {
                 Image(systemName: "battery.0").opacity(0.7)
@@ -158,8 +157,7 @@ struct OverviewView: View {
                 .font(.caption2)
                 .opacity(0.8)
             Text(value)
-                .font(.subheadline.weight(.bold).monospacedDigit())
-                .fontDesign(.rounded)
+                .font(.system(.subheadline, design: .rounded).weight(.bold).monospacedDigit())
                 .lineLimit(1)
                 .minimumScaleFactor(0.6)
         }
@@ -230,8 +228,7 @@ struct MetricCardListRow: View {
                     Spacer(minLength: 0)
                 }
                 Text(card.value)
-                    .font(.callout.weight(.bold).monospacedDigit())
-                    .fontDesign(.rounded)
+                    .font(.system(.callout, design: .rounded).weight(.bold).monospacedDigit())
                     .foregroundStyle(card.status == .unavailable ? Color(.tertiaryLabel) : .primary)
                     .lineLimit(2)
                     .minimumScaleFactor(0.8)

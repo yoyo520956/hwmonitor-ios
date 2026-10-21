@@ -202,9 +202,8 @@ public struct MetricCardView: View {
             }
 
             Text(card.value)
-                .font(compact ? .title3 : .title2)
+                .font(compact ? .system(.title3, design: .rounded) : .system(.title2, design: .rounded))
                 .fontWeight(compact ? .bold : .heavy)
-                .fontDesign(.rounded)
                 .foregroundStyle(card.status == .unavailable ? Color(.tertiaryLabel) : Color.primary)
                 .lineLimit(2)
                 .minimumScaleFactor(0.6)
