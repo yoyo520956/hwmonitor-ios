@@ -195,7 +195,7 @@ struct SettingsView: View {
                 }
 
                 Section {
-                    LabeledContent("版本", value: "3.0.0")
+                    LabeledContent("版本", value: "3.0.1")
                     LabeledContent("数据政策", value: "全部本地")
                     NavigationLink("开源致谢") {
                         NoticesView()

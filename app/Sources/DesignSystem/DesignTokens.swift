@@ -14,8 +14,8 @@ public enum DSTokens {
     // Radius
     public static let radiusS: CGFloat = 10
     public static let radiusM: CGFloat = 14
-    public static let radiusL: CGFloat = 18
-    public static let radiusXL: CGFloat = 24
+    public static let radiusL: CGFloat = 20
+    public static let radiusXL: CGFloat = 26
 
     // Icon
     public static let iconS: CGFloat = 13
@@ -24,34 +24,53 @@ public enum DSTokens {
     public static let iconXL: CGFloat = 28
 }
 
-// MARK: - 语义色（自动适配浅色/深色模式）
+// MARK: - 语义色（自动适配浅色/深色模式）+ 2026 渐变体系
 
 public enum DSColor {
-    public static let accent = Color.blue
-    public static let cpu = Color.blue
-    public static let memory = Color.purple
-    public static let storage = Color.orange
-    public static let battery = Color.green
-    public static let thermal = Color.red
-    public static let network = Color.cyan
-    public static let gpu = Color.indigo
-    public static let sensors = Color.mint
-    public static let display = Color.teal
-    public static let privacy = Color.pink
+    public static let accent = Color(red: 0.35, green: 0.45, blue: 0.98)
+    public static let cpu = Color(red: 0.25, green: 0.51, blue: 0.96)
+    public static let memory = Color(red: 0.6, green: 0.35, blue: 0.92)
+    public static let storage = Color(red: 0.95, green: 0.58, blue: 0.2)
+    public static let battery = Color(red: 0.2, green: 0.75, blue: 0.5)
+    public static let thermal = Color(red: 0.92, green: 0.35, blue: 0.35)
+    public static let network = Color(red: 0.15, green: 0.7, blue: 0.85)
+    public static let gpu = Color(red: 0.5, green: 0.4, blue: 0.95)
+    public static let sensors = Color(red: 0.2, green: 0.8, blue: 0.65)
+    public static let display = Color(red: 0.15, green: 0.65, blue: 0.6)
+    public static let privacy = Color(red: 0.9, green: 0.35, blue: 0.6)
+
+    // MARK: 渐变（主视觉）
+
+    /// 主色渐变（用于强调按钮 / 装饰）
+    public static var accentGradient: LinearGradient {
+        LinearGradient(colors: [accent, accent.opacity(0.7)],
+                       startPoint: .topLeading, endPoint: .bottomTrailing)
+    }
+
+    /// 任意基础色 → 柔和双段渐变
+    public static func gradient(_ c: Color) -> LinearGradient {
+        LinearGradient(colors: [c, c.opacity(0.62)],
+                       startPoint: .topLeading, endPoint: .bottomTrailing)
+    }
+
+    /// 分类渐变色对（图标徽章 / 卡片顶光）
+    public static func categoryGradient(_ category: MetricCategory) -> LinearGradient {
+        gradient(categoryColor(category))
+    }
 
     public static func statusColor(_ status: MetricStatus) -> Color {
         switch status {
-        case .ok: return .green
-        case .degraded: return .orange
-        case .unauthorized: return .yellow
+        case .ok: return Color(red: 0.2, green: 0.75, blue: 0.5)
+        case .degraded: return Color(red: 0.95, green: 0.58, blue: 0.2)
+        case .unauthorized: return Color(red: 0.9, green: 0.78, blue: 0.25)
         case .unavailable: return Color(.systemGray)
         }
     }
 
     public static func categoryColor(_ category: MetricCategory) -> Color {
         switch category {
-        case .overview: return .blue
-        case .hardware: return .indigo
+        case .overview: return accent
+        case .hardware: return gpu
         case .cpu: return cpu
         case .memory: return memory
         case .storage: return storage
@@ -60,9 +79,9 @@ public enum DSColor {
         case .network: return network
         case .sensors: return sensors
         case .display: return display
-        case .camera: return .cyan
+        case .camera: return network
         case .privacy: return privacy
-        case .system: return .secondary
+        case .system: return Color(.systemGray)
         }
     }
 
@@ -86,32 +105,74 @@ public enum DSColor {
     }
 }
 
-// MARK: - 卡片样式
+// MARK: - 图标徽章（圆角 squircle + 渐变 + 柔和投影）
+
+public struct IconBadge: View {
+    let systemName: String
+    let color: Color
+    var size: CGFloat = 34
+    var fontSize: CGFloat? = nil
+
+    public init(systemName: String, color: Color, size: CGFloat = 34, fontSize: CGFloat? = nil) {
+        self.systemName = systemName
+        self.color = color
+        self.size = size
+        self.fontSize = fontSize
+    }
+
+    public var body: some View {
+        Image(systemName: systemName)
+            .font(.system(size: fontSize ?? size * 0.46, weight: .semibold))
+            .foregroundStyle(.white)
+            .frame(width: size, height: size)
+            .background(
+                RoundedRectangle(cornerRadius: size * 0.30, style: .continuous)
+                    .fill(DSColor.gradient(color))
+            )
+            .shadow(color: color.opacity(0.28), radius: 5, x: 0, y: 3)
+    }
+}
+
+// MARK: - 卡片样式（现代：连续圆角 + 层级投影 + 顶光渐变 + 细描边）
 
 public struct DSCardStyle: ViewModifier {
     var tint: Color = DSColor.accent
+    var shadow: Bool = true
 
     public func body(content: Content) -> some View {
         content
             .padding(DSTokens.spaceL)
-            .background(
+            .background {
                 RoundedRectangle(cornerRadius: DSTokens.radiusL, style: .continuous)
                     .fill(Color(.secondarySystemGroupedBackground))
-            )
-            .overlay(
-                RoundedRectangle(cornerRadius: DSTokens.radiusL, style: .continuous)
-                    .strokeBorder(tint.opacity(0.12), lineWidth: 1)
-            )
+                    .overlay(
+                        LinearGradient(
+                            colors: [tint.opacity(0.10), tint.opacity(0.0)],
+                            startPoint: .top, endPoint: .center
+                        )
+                        .clipShape(RoundedRectangle(cornerRadius: DSTokens.radiusL, style: .continuous))
+                    )
+                    .overlay(
+                        RoundedRectangle(cornerRadius: DSTokens.radiusL, style: .continuous)
+                            .strokeBorder(
+                                LinearGradient(colors: [tint.opacity(0.18), tint.opacity(0.05)],
+                                             startPoint: .topLeading, endPoint: .bottomTrailing),
+                                lineWidth: 1
+                            )
+                    )
+            }
+            .shadow(color: tint.opacity(shadow ? 0.10 : 0), radius: 12, x: 0, y: 6)
+            .contentShape(RoundedRectangle(cornerRadius: DSTokens.radiusL, style: .continuous))
     }
 }
 
 public extension View {
-    func dsCard(tint: Color = DSColor.accent) -> some View {
-        modifier(DSCardStyle(tint: tint))
+    func dsCard(tint: Color = DSColor.accent, shadow: Bool = true) -> some View {
+        modifier(DSCardStyle(tint: tint, shadow: shadow))
     }
 }
 
-// MARK: - 指标卡片视图（信息层级：图标+名称+状态徽章 / 大数值 / 方法+限制）
+// MARK: - 指标卡片视图（信息层级：图标徽章+名称+状态点 / 大数值 / 方法+限制）
 
 public struct MetricCardView: View {
     let card: MetricCard
@@ -122,33 +183,39 @@ public struct MetricCardView: View {
         self.compact = compact
     }
 
+    private var tint: Color { DSColor.categoryColor(card.category) }
+
     public var body: some View {
-        VStack(alignment: .leading, spacing: DSTokens.spaceS) {
-            HStack(spacing: DSTokens.spaceS) {
-                Image(systemName: DSColor.categoryIcon(card.category))
-                    .font(.system(size: DSTokens.iconM, weight: .medium))
-                    .foregroundStyle(DSColor.categoryColor(card.category))
-                    .frame(width: 22)
-                Text(card.name)
-                    .font(.subheadline.weight(.medium))
-                    .foregroundStyle(.primary)
-                Spacer()
-                StatusBadge(status: card.status)
+        VStack(alignment: .leading, spacing: compact ? 6 : 10) {
+            HStack(spacing: 10) {
+                IconBadge(systemName: DSColor.categoryIcon(card.category),
+                          color: tint,
+                          size: compact ? 30 : 34)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(card.name)
+                        .font(.subheadline.weight(.medium))
+                        .foregroundStyle(.primary)
+                        .lineLimit(1)
+                    statusDot
+                }
+                Spacer(minLength: 0)
             }
 
             Text(card.value)
-                .font(card.value.count > 24 ? .callout.monospaced() : .title3.weight(.semibold).monospacedDigit())
+                .font(compact ? .title3 : .title2)
+                .fontWeight(compact ? .bold : .heavy)
+                .fontDesign(.rounded)
                 .foregroundStyle(card.status == .unavailable ? Color(.tertiaryLabel) : Color.primary)
                 .lineLimit(2)
-                .minimumScaleFactor(0.7)
+                .minimumScaleFactor(0.6)
 
             if !compact {
                 Text(card.method)
                     .font(.caption2)
-                    .foregroundStyle(.tertiary)
+                    .foregroundStyle(.secondary)
                     .lineLimit(2)
                 if let limitation = card.limitation {
-                    Text(limitation)
+                    Label(limitation, systemImage: "info.circle")
                         .font(.caption2)
                         .foregroundStyle(DSColor.statusColor(.degraded))
                         .lineLimit(3)
@@ -156,7 +223,17 @@ public struct MetricCardView: View {
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .dsCard(tint: DSColor.categoryColor(card.category))
+        .dsCard(tint: tint)
+    }
+
+    // 状态点 + 徽章
+    @ViewBuilder private var statusDot: some View {
+        HStack(spacing: 4) {
+            Circle()
+                .fill(DSColor.statusColor(card.status))
+                .frame(width: 7, height: 7)
+            StatusBadge(status: card.status)
+        }
     }
 }
 
@@ -189,7 +266,7 @@ public struct StatusBadge: View {
     }
 }
 
-// MARK: - 章节头
+// MARK: - 章节头（图标徽章 + 标题）
 
 public struct SectionHeader: View {
     let title: String
@@ -201,12 +278,13 @@ public struct SectionHeader: View {
     }
 
     public var body: some View {
-        HStack(spacing: DSTokens.spaceS) {
-            Image(systemName: DSColor.categoryIcon(category))
-                .font(.system(size: DSTokens.iconM, weight: .semibold))
-                .foregroundStyle(DSColor.categoryColor(category))
+        HStack(spacing: 10) {
+            IconBadge(systemName: DSColor.categoryIcon(category),
+                      color: DSColor.categoryColor(category),
+                      size: 28)
             Text(title)
-                .font(.headline)
+                .font(.headline.weight(.semibold))
+                .foregroundStyle(.primary)
             Spacer()
         }
         .padding(.top, DSTokens.spaceL)
@@ -224,10 +302,39 @@ public struct DSPrimaryButtonStyle: ButtonStyle {
             .padding(.vertical, DSTokens.spaceM)
             .background(
                 RoundedRectangle(cornerRadius: DSTokens.radiusM, style: .continuous)
-                    .fill(DSColor.accent.opacity(configuration.isPressed ? 0.75 : 1))
+                    .fill(configuration.isPressed ? AnyShapeStyle(DSColor.accent.opacity(0.85)) : AnyShapeStyle(DSColor.accentGradient))
             )
             .foregroundStyle(.white)
+            .shadow(color: DSColor.accent.opacity(0.3), radius: 6, y: 3)
             .scaleEffect(configuration.isPressed ? 0.97 : 1)
             .animation(.spring(response: 0.25, dampingFraction: 0.7), value: configuration.isPressed)
+    }
+}
+
+// MARK: - 英雄卡（渐变底 + 白字，用于总览顶部）
+
+public struct HeroCard: ViewModifier {
+    var color: Color = DSColor.accent
+
+    public func body(content: Content) -> some View {
+        content
+            .tint(.white)
+            .foregroundStyle(.white)
+            .padding(DSTokens.spaceL)
+            .background(
+                RoundedRectangle(cornerRadius: DSTokens.radiusXL, style: .continuous)
+                    .fill(DSColor.gradient(color))
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: DSTokens.radiusXL, style: .continuous)
+                    .strokeBorder(.white.opacity(0.25), lineWidth: 1)
+            )
+            .shadow(color: color.opacity(0.35), radius: 14, x: 0, y: 8)
+    }
+}
+
+public extension View {
+    func heroCard(_ color: Color = DSColor.accent) -> some View {
+        modifier(HeroCard(color: color))
     }
 }

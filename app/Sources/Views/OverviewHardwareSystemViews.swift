@@ -25,45 +25,43 @@ struct OverviewView: View {
         }
     }
 
-    // 顶部英雄卡：设备 + 系统 + 电量
+    // 顶部英雄卡：设备 + 系统 + 电量（现代：渐变底 + 白字）
     private var heroCard: some View {
-        VStack(alignment: .leading, spacing: DSTokens.spaceS) {
-            HStack {
+        VStack(alignment: .leading, spacing: DSTokens.spaceM) {
+            HStack(spacing: DSTokens.spaceM) {
                 Image(systemName: "iphone.gen3.radiowaves.left.and.right")
                     .font(.system(size: DSTokens.iconXL, weight: .medium))
-                    .foregroundStyle(DSColor.accent)
                 VStack(alignment: .leading, spacing: 2) {
                     Text(valueOf("dev.name", fallback: "—"))
                         .font(.title2.weight(.bold))
                     Text("\(valueOf("dev.systemname", fallback: "iOS")) · \(valueOf("dev.build", fallback: ""))")
                         .font(.caption)
-                        .foregroundStyle(.secondary)
+                        .opacity(0.85)
                 }
                 Spacer()
                 batteryMini
             }
-            Divider()
-            HStack {
-                miniStat(title: "CPU", value: valueOf("cpu.usage", fallback: "—"), color: DSColor.cpu)
-                Divider().frame(height: 30)
-                miniStat(title: "内存", value: valueOf("mem.used", fallback: "—"), color: DSColor.memory)
-                Divider().frame(height: 30)
-                miniStat(title: "存储", value: valueOf("sto.free", fallback: "—"), color: DSColor.storage)
+            Divider().overlay(.white.opacity(0.25))
+            HStack(spacing: 0) {
+                miniStat(title: "CPU", value: valueOf("cpu.usage", fallback: "—"))
+                miniStat(title: "内存", value: valueOf("mem.used", fallback: "—"))
+                miniStat(title: "存储", value: valueOf("sto.free", fallback: "—"))
             }
         }
-        .dsCard(tint: DSColor.accent)
+        .heroCard()
     }
 
     private var batteryMini: some View {
-        HStack(spacing: DSTokens.spaceXS) {
+        VStack(alignment: .trailing, spacing: 2) {
             if let level = card("bat.level"), let pct = level.numeric {
-                Image(systemName: batterySymbol(for: pct))
-                    .foregroundStyle(DSColor.battery)
-                Text(level.value)
-                    .font(.subheadline.weight(.semibold).monospacedDigit())
+                HStack(spacing: 3) {
+                    Image(systemName: batterySymbol(for: pct))
+                    Text(level.value)
+                        .font(.subheadline.weight(.bold).monospacedDigit())
+                        .fontDesign(.rounded)
+                }
             } else {
-                Image(systemName: "battery.0")
-                    .foregroundStyle(.tertiary)
+                Image(systemName: "battery.0").opacity(0.7)
             }
         }
     }
@@ -106,12 +104,10 @@ struct OverviewView: View {
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: DSTokens.spaceS) {
                 ForEach(FloatingModule.allCases) { module in
                     NavigationLink { HardwareView() } label: {
-                        VStack(spacing: 6) {
-                            Image(systemName: module.icon)
-                                .font(.system(size: DSTokens.iconL))
-                                .foregroundStyle(module.color)
+                        VStack(spacing: 8) {
+                            IconBadge(systemName: module.icon, color: module.color, size: 38)
                             Text(module.title)
-                                .font(.caption2.weight(.medium))
+                                .font(.caption.weight(.medium))
                                 .foregroundStyle(.primary)
                                 .lineLimit(1)
                                 .minimumScaleFactor(0.7)
@@ -156,14 +152,14 @@ struct OverviewView: View {
         .buttonStyle(.plain)
     }
 
-    private func miniStat(title: String, value: String, color: Color) -> some View {
+    private func miniStat(title: String, value: String) -> some View {
         VStack(alignment: .leading, spacing: 2) {
             Text(title)
                 .font(.caption2)
-                .foregroundStyle(.secondary)
+                .opacity(0.8)
             Text(value)
-                .font(.caption.weight(.semibold).monospacedDigit())
-                .foregroundStyle(color)
+                .font(.subheadline.weight(.bold).monospacedDigit())
+                .fontDesign(.rounded)
                 .lineLimit(1)
                 .minimumScaleFactor(0.6)
         }
@@ -220,25 +216,34 @@ struct HardwareView: View {
 struct MetricCardListRow: View {
     let card: MetricCard
 
+    private var tint: Color { DSColor.categoryColor(card.category) }
+
     var body: some View {
-        VStack(alignment: .leading, spacing: DSTokens.spaceXS) {
-            HStack {
-                Text(card.name)
-                    .font(.subheadline)
-                Spacer()
-                StatusBadge(status: card.status)
-            }
-            Text(card.value)
-                .font(.callout.weight(.semibold).monospacedDigit())
-                .foregroundStyle(card.status == .unavailable ? Color(.tertiaryLabel) : .primary)
-                .lineLimit(3)
-            Text(card.method)
-                .font(.caption2)
-                .foregroundStyle(.tertiary)
-            if let limitation = card.limitation {
-                Text(limitation)
+        HStack(alignment: .top, spacing: 12) {
+            IconBadge(systemName: DSColor.categoryIcon(card.category),
+                      color: tint, size: 36)
+            VStack(alignment: .leading, spacing: 3) {
+                HStack(spacing: 6) {
+                    Text(card.name)
+                        .font(.subheadline.weight(.medium))
+                    StatusBadge(status: card.status)
+                    Spacer(minLength: 0)
+                }
+                Text(card.value)
+                    .font(.callout.weight(.bold).monospacedDigit())
+                    .fontDesign(.rounded)
+                    .foregroundStyle(card.status == .unavailable ? Color(.tertiaryLabel) : .primary)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.8)
+                Text(card.method)
                     .font(.caption2)
-                    .foregroundStyle(DSColor.statusColor(.degraded))
+                    .foregroundStyle(.tertiary)
+                if let limitation = card.limitation {
+                    Label(limitation, systemImage: "info.circle")
+                        .font(.caption2)
+                        .foregroundStyle(DSColor.statusColor(.degraded))
+                        .lineLimit(2)
+                }
             }
         }
         .padding(.vertical, DSTokens.spaceXS)
